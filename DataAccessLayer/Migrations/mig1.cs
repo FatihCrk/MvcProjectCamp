@@ -1,8 +1,7 @@
-﻿namespace DataAcessLayer.Migrations
+﻿using System.Data.Entity.Migrations;
+
+namespace DataAccessLayer.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class mig1 : DbMigration
     {
         public override void Up()

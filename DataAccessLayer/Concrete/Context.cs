@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using EntityLayer.Concrete;
 
-namespace DataAcessLayer.Concrete
+namespace DataAccessLayer.Concrete
 {
     public class Context:DbContext
     {

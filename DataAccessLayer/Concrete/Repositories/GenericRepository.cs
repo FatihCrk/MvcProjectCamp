@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using DataAcessLayer.Abstract;
+using DataAccessLayer.Abstract;
 
-namespace DataAcessLayer.Concrete.Repositories
+namespace DataAccessLayer.Concrete.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
@@ -20,10 +18,6 @@ namespace DataAcessLayer.Concrete.Repositories
         {
             _object = c.Set<T>();
         }
-
-
-
-
 
         public List<T> List()
         {

@@ -1,21 +1,17 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
- using System.Data.Entity;
- using System.Linq;
- using System.Linq.Expressions;
- using System.Text;
-using System.Threading.Tasks;
- using DataAcessLayer.Abstract;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 
-namespace DataAcessLayer.Concrete.Repositories
+namespace DataAccessLayer.Concrete.Repositories
 {
-    public class CategoryRepository :ICategoryDal
+    public class CategoryRepository : ICategoryDal
     {
-       Context c = new Context();
-      DbSet<Category> _object;
-
-      
+        Context c = new Context();
+        DbSet<Category> _object;
 
         public List<Category> List()
         {
@@ -31,7 +27,7 @@ namespace DataAcessLayer.Concrete.Repositories
 
         public void Update(Category p)
         {
-          
+
         }
 
         public void Delete(Category p)
@@ -48,6 +44,6 @@ namespace DataAcessLayer.Concrete.Repositories
 }
 
 
- /*
-  * ToList Add ve Remove    
-  */
+/*
+ * ToList Add ve Remove    
+ */

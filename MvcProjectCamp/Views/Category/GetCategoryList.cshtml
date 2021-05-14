@@ -9,7 +9,13 @@
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-<table class="table table-striped">
+<style>
+    table td {
+        font-size: 12px;
+    }
+</style>
+
+<table style="width: 80.0%"  class="table table-striped" >
     <tr>
         <th>Id</th>
         <th>Ad</th>
@@ -26,5 +32,8 @@
             <td>@item.CategoryStatus</td>
         </tr>
     }
-</table>
+    </table>
 
+<a href="/Category/AddCategory " class="btn btn-primary">Yeni Kategory</a>
+
+ 
