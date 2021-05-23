@@ -11770,6 +11770,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   margin-top: -3px;
   max-height: 33px;
   width: auto;
+  text-shadow: 2px 2px 5px white;
 }
 
 .brand-link .brand-image-xs {

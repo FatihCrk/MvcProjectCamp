@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@{
+    ViewBag.Title = "HeadingList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div> <h2 class="card bg-gradient-info" style="margin: auto ;text-align: center;border: 1px solid #ddd; border-radius: 4px; padding: 3px; width: 300px;">Başlıklar Listesi </h2></div>
+
+<br/>
+
+<table style="width: 90.0%; margin-left: 50px;border: 1px solid #ddd; border-radius: 4px; padding: 3px;" class="table table-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Başlık Adı</th>
+        <th>Tarih</th>
+        <th style="text-align: center; ">Sil</th>
+        <th style="text-align: center; ">Güncelle</th>
+            
+    </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+        <tr>
+            <th>@item.HeadingId</th>
+            <td>@item.HeadingName</td>
+            <td>@item.HeadingDate.ToString("MM/dd/yyyy")</td>
+            <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.HeadingId" class="btn btn-danger">Sil</a></td>
+            <td style="text-align: center; "><a href="/AdminCategory/UpdateCategory/@item.HeadingId" class="btn btn-success">Güncelle</a></td>
+            <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
+        </tr>
+        </tbody>
+    }
+</table>
+
+<div style="text-align: center;"><a href="/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a></div>
+<br/>
+<br />

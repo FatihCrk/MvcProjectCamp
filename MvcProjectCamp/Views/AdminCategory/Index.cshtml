@@ -6,36 +6,37 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div> <h2 class="card bg-gradient-info" style="margin: auto ;text-align: center;border: 1px solid #ddd; border-radius: 4px; padding: 3px; width: 300px;">Kategori Listesi </h2></div>
 
-<!--<link href="~/Content/bootstrap.min.css" rel="stylesheet" />-->
-@*<style>
-        table td {
-            font-size: 12px;
-        }
-    </style>*@
+<br/>
 
-<table style="width: 90.0%" class="table table-striped">
-    <tr>
-        <th>#</th>
-        <th>Kategori Adı</th>
-        <th>Açıklama</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-        <th>Başlıklar</th>
-    </tr>
+<table style="width: 90.0%; margin-left: 50px;border: 1px solid #ddd; border-radius: 4px; padding: 3px;" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th >Kategori Adı</th>
+            <th>Açıklama</th>
+            <th style="text-align: center; ">Sil</th>
+            <th style="text-align: center; ">Güncelle</th>
+            <th style="text-align: center; ">Başlıklar</th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <th>@item.CategoryId</th>
-            <td>@item.CategoryName</td>
-            <td>@item.CategoryDescription</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-success">Güncelle</a></td>
-            <td><a href="#" class="btn btn-info">Başlıklar</a></td>
-        </tr>
+<tbody>
+    <tr>
+        <th>@item.CategoryId</th>
+        <td>@item.CategoryName</td>
+        <td>@item.CategoryDescription</td>
+        <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+        <td style="text-align: center; "><a href="/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
+        <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
+    </tr>
+</tbody>
     }
-</table>
+    </table>
 
-<a href="/AdminCategory/AddCategory" class="btn btn-primary" style="margin-left: 50px">Yeni Kategori Ekle</a>
-
+<div style="text-align: center;"><a href="/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a></div>
+<br/>
+<br />

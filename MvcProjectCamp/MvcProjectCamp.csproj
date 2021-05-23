@@ -133,9 +133,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
-    <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\HeadingController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2267,15 +2266,14 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\TestMethod.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutOfTest.cshtml" />
-    <Content Include="Views\Test\Test2.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\GetCategoryList.cshtml" />
-    <Content Include="Views\Category\AddCategory.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminCategory\Index.cshtml" />
     <Content Include="Views\AdminCategory\AddCategory.cshtml" />
+    <Content Include="Views\AdminCategory\UpdateCategory.cshtml" />
+    <Content Include="Views\Statistics\StatisticsPage1.cshtml" />
+    <Content Include="Views\Headings\HeadingLists.cshtml" />
+    <Content Include="Views\AdminCategory\AddHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
