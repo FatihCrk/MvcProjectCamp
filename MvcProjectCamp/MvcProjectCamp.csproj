@@ -135,6 +135,7 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2274,6 +2275,7 @@
     <Content Include="Views\Statistics\StatisticsPage1.cshtml" />
     <Content Include="Views\Headings\HeadingLists.cshtml" />
     <Content Include="Views\AdminCategory\AddHeading.cshtml" />
+    <Content Include="Views\Writer\WriterList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

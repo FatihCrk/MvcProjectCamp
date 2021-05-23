@@ -4,35 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {
-    public class WriteManager:IWriterService
+    public class WriterManager:IWriterService
     {
-        public List<Writer> GetWriterList()
+        private IWriterDal _writerDal;
+
+        public WriterManager(IWriterDal writerDal)
         {
-            throw new NotImplementedException();
+            _writerDal = writerDal;
         }
 
-        public void HeadingAddBl(Writer writer)
+
+        public List<Writer> GetWriterList()
         {
-            throw new NotImplementedException();
+            return _writerDal.List();
+        }
+
+        public void WriterAddBl(Writer writer)
+        {
+            _writerDal.Insert(writer);
         }
 
         public Writer GetByWriterId(int id)
         {
-            throw new NotImplementedException();
+            return _writerDal.GetById(x => x.WriterId == id);
         }
 
         public void WriterDelete(Writer writer)
         {
-            throw new NotImplementedException();
+           _writerDal.Delete(writer);
         }
 
         public void WriterUpdate(Writer writer)
         {
-            throw new NotImplementedException();
+           _writerDal.Update(writer);
         }
     }
 }
