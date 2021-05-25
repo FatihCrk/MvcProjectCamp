@@ -9,7 +9,7 @@ using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
 {
-    public class WriterController : Controller
+    public class WritersController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterDal());
         // GET: Writer
