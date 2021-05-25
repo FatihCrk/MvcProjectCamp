@@ -5,38 +5,39 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="content-wrapper">
+    <div> <h2 class="card bg-gradient-info" style="margin: auto ;text-align: center;border: 1px solid #ddd; border-radius: 4px; padding: 3px; width: 300px;">Kategori Listesi </h2></div>
 
-<div> <h2 class="card bg-gradient-info" style="margin: auto ;text-align: center;border: 1px solid #ddd; border-radius: 4px; padding: 3px; width: 300px;">Kategori Listesi </h2></div>
+    <br />
 
-<br/>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Kategori Adı</th>
+                <th>Açıklama</th>
+                <th style="text-align: center; ">Sil</th>
+                <th style="text-align: center; ">Güncelle</th>
+                <th style="text-align: center; ">Başlıklar</th>
+            </tr>
+        </thead>
 
-<table style="width: 90.0%; margin-left: 50px;border: 1px solid #ddd; border-radius: 4px; padding: 3px;" class="table table-bordered">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th >Kategori Adı</th>
-            <th>Açıklama</th>
-            <th style="text-align: center; ">Sil</th>
-            <th style="text-align: center; ">Güncelle</th>
-            <th style="text-align: center; ">Başlıklar</th>
-        </tr>
-    </thead>
-
-    @foreach (var item in Model)
-    {
-<tbody>
-    <tr>
-        <th>@item.CategoryId</th>
-        <td>@item.CategoryName</td>
-        <td>@item.CategoryDescription</td>
-        <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
-        <td style="text-align: center; "><a href="/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
-        <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
-    </tr>
-</tbody>
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <tr>
+                    <th>@item.CategoryId</th>
+                    <td>@item.CategoryName</td>
+                    <td>@item.CategoryDescription</td>
+                    <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+                    <td style="text-align: center; "><a href="/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
+                    <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
+                </tr>
+            </tr>
+        }
     </table>
 
-<div style="text-align: center;"><a href="/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a></div>
-<br/>
+    <div style="text-align: center;"><a href="/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a></div>
+    <br />
 <br />
+</div>
