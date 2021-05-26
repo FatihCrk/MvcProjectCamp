@@ -11,7 +11,7 @@ namespace MvcProjectCamp.Controllers
 {
     
 
-    public class HeadingsController : Controller
+    public class HeadingController : Controller
     {
 
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
@@ -25,7 +25,19 @@ namespace MvcProjectCamp.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddHeading(Heading h)
+        {
+         
+                hm.HeadingAddBl(h);
+                return RedirectToAction("HeadingLists");
            
+
+
+
             return View();
         }
 

@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
         public void HeadingAddBl(Heading heading)
         {
-            throw new NotImplementedException();
+            _headingDal.Insert(heading);
         }
 
         public Heading GetByHeadingId(int id)

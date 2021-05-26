@@ -1,6 +1,6 @@
 ﻿@model EntityLayer.Concrete.Category
 @{
-    ViewBag.Title = "AddHeading";
+    ViewBag.Title = "AddCategory";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -13,7 +13,7 @@
 
 
 
-    @using (Html.BeginForm("Add", "AdminCategory", FormMethod.Post))
+    @using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
     {
         <div class="form-group">
             @Html.Label("Kategori Adı:")

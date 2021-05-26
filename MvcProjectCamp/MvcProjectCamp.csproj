@@ -2516,10 +2516,11 @@
     <Content Include="Views\AdminCategory\AddCategory.cshtml" />
     <Content Include="Views\AdminCategory\UpdateCategory.cshtml" />
     <Content Include="Views\Statistics\StatisticsPage1.cshtml" />
-    <Content Include="Views\Headings\HeadingLists.cshtml" />
     <Content Include="Views\AdminCategory\AddHeading.cshtml" />
     <Content Include="Views\Writer\WriterList.cshtml" />
     <Content Include="Views\Shared\_AdminLayout - Copy.cshtml" />
+    <Content Include="Views\Heading\HeadingLists.cshtml" />
+    <Content Include="Views\Heading\AddHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
