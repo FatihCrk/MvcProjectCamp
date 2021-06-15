@@ -67,9 +67,9 @@
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
-    <Compile Include="Migrations\mig1.cs" />
-    <Compile Include="Migrations\mig1.designer.cs">
-      <DependentUpon>mig1.cs</DependentUpon>
+    <Compile Include="Migrations\202106152049392_IlkDosyaSilme.cs" />
+    <Compile Include="Migrations\202106152049392_IlkDosyaSilme.designer.cs">
+      <DependentUpon>202106152049392_IlkDosyaSilme.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,8 +85,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\mig1.resx">
-      <DependentUpon>mig1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106152049392_IlkDosyaSilme.resx">
+      <DependentUpon>202106152049392_IlkDosyaSilme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

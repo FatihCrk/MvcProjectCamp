@@ -15,7 +15,7 @@ namespace MvcProjectCamp.Controllers
         // GET: Writer
 
 
-        public ActionResult WriterList()
+        public ActionResult WritersList()
         {
             var writerValues = wm.GetWriterList();
             return View(writerValues);
