@@ -19,8 +19,11 @@ namespace EntityLayer.Concrete
         public string WriterImage { get; set; }
         [StringLength(50)]
         public string WriterMail { get; set; }
-        [StringLength(20)]
+        [StringLength(10)]
         public string WriterPassword { get; set; }
+        [StringLength(200)]
+        public string WriterAbout { get; set; }
+
 
         public ICollection<Heading> Headings { get; set; }
         public ICollection<Content> Contents { get; set; }
