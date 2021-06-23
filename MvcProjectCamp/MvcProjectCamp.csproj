@@ -133,7 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
-    <Compile Include="Controllers\HeadingController.cs" />
+    <Compile Include="Controllers\HeadingsController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\WritersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,11 +172,8 @@
     <Content Include="AdminLTE\dist\css\alt\adminlte.pages.min.css" />
     <Content Include="AdminLTE\dist\css\alt\adminlte.plugins.css" />
     <Content Include="AdminLTE\dist\css\alt\adminlte.plugins.min.css" />
-    <Content Include="AdminLTE\dist\img\2.png" />
-    <Content Include="AdminLTE\dist\img\4.png" />
     <Content Include="AdminLTE\dist\img\AdminLTELogo.png" />
     <Content Include="AdminLTE\dist\img\avatar.png" />
-    <Content Include="AdminLTE\dist\img\avatar04.png" />
     <Content Include="AdminLTE\dist\img\avatar2.png" />
     <Content Include="AdminLTE\dist\img\avatar3.png" />
     <Content Include="AdminLTE\dist\img\avatar5.png" />
@@ -2142,9 +2139,12 @@
     <Content Include="Views\AdminCategory\AddCategory.cshtml" />
     <Content Include="Views\AdminCategory\UpdateCategory.cshtml" />
     <Content Include="Views\Statistics\StatisticsPage1.cshtml" />
-    <Content Include="Views\Headings\HeadingLists.cshtml" />
     <Content Include="Views\AdminCategory\AddHeading.cshtml" />
     <Content Include="Views\Writers\WritersList.cshtml" />
+    <Content Include="Views\Writers\AddWriter.cshtml" />
+    <Content Include="Views\Writers\EditWriter.cshtml" />
+    <Content Include="Views\Headings\HeadingsList.cshtml" />
+    <Content Include="Views\Headings\AddHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

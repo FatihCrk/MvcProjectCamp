@@ -71,6 +71,10 @@
     <Compile Include="Migrations\202106152049392_IlkDosyaSilme.designer.cs">
       <DependentUpon>202106152049392_IlkDosyaSilme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106201032345_mig_writertitle_add.cs" />
+    <Compile Include="Migrations\202106201032345_mig_writertitle_add.designer.cs">
+      <DependentUpon>202106201032345_mig_writertitle_add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,6 +91,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106152049392_IlkDosyaSilme.resx">
       <DependentUpon>202106152049392_IlkDosyaSilme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201032345_mig_writertitle_add.resx">
+      <DependentUpon>202106201032345_mig_writertitle_add.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

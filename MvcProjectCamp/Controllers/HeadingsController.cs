@@ -11,12 +11,12 @@ namespace MvcProjectCamp.Controllers
 {
     
 
-    public class HeadingController : Controller
+    public class HeadingsController : Controller
     {
 
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         // GET: Headings
-        public ActionResult HeadingLists()
+        public ActionResult HeadingsList()
         {
             var headingValues = hm.GetHeadingList();
 
@@ -33,12 +33,11 @@ namespace MvcProjectCamp.Controllers
         {
          
                 hm.HeadingAddBl(h);
-                return RedirectToAction("HeadingLists");
+                return RedirectToAction("HeadingsList");
            
 
 
 
-            return View();
         }
 
     }

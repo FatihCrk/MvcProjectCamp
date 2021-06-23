@@ -1,10 +1,14 @@
 ﻿@using EntityLayer.Concrete
-@model List<Category>
+@model List<Heading>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "HeadingList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -30,21 +34,25 @@
 <body class="hold-transition sidebar-mini">
 
     <div class="card">
-        <div class="card card-secondary">
-            <h3 class="card-header" style="text-align: center;">Kategori Listesi</h3>
+        <div class="card card-danger">
+            <h3 class="card-header" style="text-align: center;"><i class="fas fa-newspaper"></i> Başlık Listesi</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <div id="example1_wrapper" class="dataTables_wrapper">
                 <div class="row">
 
+
+
+
+
                     <div class="col-sm-12">
                         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">#</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlık Adı</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Adı</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Açıklaması</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Sil</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Güncelle</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlıklar</th>
@@ -55,8 +63,8 @@
                                 {
                                     <tr role="row" class="odd">
                                         <td tabindex="0" class="sorting_1">@item.CategoryId</td>
-                                        <td>@item.CategoryName</td>
-                                        <td>@item.CategoryDescription</td>
+                                        <td>@item.HeadingName</td>
+                                        <td>@item.Category.CategoryName</td>
                                         <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
                                         <td style="text-align: center; "><a href="~/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
                                         <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
@@ -64,14 +72,14 @@
                                 }
                             </tbody>
                             <tfoot>
-                                <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Kategori Adı</th><th rowspan="1" colspan="1">Kategori Açıklama</th><th rowspan="1" colspan="1">Sil</th><th rowspan="1" colspan="1">Güncelle</th><th rowspan="1" colspan="1">Başlıklar</th></tr>
+                            <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Başlık Adı</th><th rowspan="1" colspan="1">Başlık Tarihi</th><th rowspan="1" colspan="1">Sil</th><th rowspan="1" colspan="1">Güncelle</th><th rowspan="1" colspan="1">Başlıklar</th></tr>
                             </tfoot>
                         </table>
                     </div>
                 </div><div class="row">
                     <div class="col-sm-12 col-md-8">
 
-                        <div class="" id="example1_info" role="status" aria-live="polite"> Toplam Kategori Sayısı : @Model.Count<Category /> </div>
+                        <div class="" id="example1_info" role="status" aria-live="polite"> Toplam Başlık Sayısı : @Model.Count<Category /> </div>
                     </div><div class="col-sm-12 col-md-4">
 
                         <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
@@ -94,7 +102,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <a href="~/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a>
+                <a href="~/Headings/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
 
                 <br />
                 <br />
@@ -116,5 +124,3 @@
 
 </body>
 
-
-</html>

@@ -9,7 +9,7 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {
-    public class HeadingManager:IHeadingService
+    public class HeadingManager : IHeadingService
     {
         IHeadingDal _headingDal;
 
@@ -31,17 +31,17 @@ namespace BusinessLayer.Concrete
 
         public Heading GetByHeadingId(int id)
         {
-            throw new NotImplementedException();
+            return _headingDal.GetById(x => x.HeadingId == id);
         }
 
         public void HeadingDelete(Heading heading)
         {
-            throw new NotImplementedException();
+            _headingDal.Delete(heading);
         }
 
         public void HeadingUpdate(Heading heading)
         {
-            throw new NotImplementedException();
+            _headingDal.Update(heading);
         }
     }
 }
