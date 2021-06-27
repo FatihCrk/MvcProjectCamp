@@ -23,17 +23,22 @@
 <div class="form-group" style="padding: 50px;">
     @Html.Label("Yazar Adı:")
     @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterName ,"",  new { @class = "text-danger" })
+    @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
     <br />
 
     @Html.Label("Yazar Soyadı :")
     @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterSurName , "", new { @class = "text-danger" })
+    @Html.ValidationMessageFor(x => x.WriterSurName, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Yazarın Cinsiyeti :")
+    @Html.TextBoxFor(x => x.Gender, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Gender, "", new { @class = "text-danger" })
     <br />
 
     @Html.Label("Yazar Fotoğraf URL :")
     @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterImage,"", new { @class = "text-danger" })
+    @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
 
     <br />
 

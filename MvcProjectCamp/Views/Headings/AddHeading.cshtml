@@ -11,7 +11,7 @@
 
 
     <div class="card-header">
-        <h3 class="card-title" style="float: none !important; text-align: center;">Başlık Ekleme Sayfası</h3>
+        <h3 class="card-title" style="float: none !important; text-align: center; font-weight:bold;"><i class=" nav-icon fas fa-newspaper" style="margin-right: 5px; "> </i>Yeni Başlık Ekleme Sayfası</h3>
     </div>
 
 
@@ -21,21 +21,26 @@
 
     @using (Html.BeginForm("AddHeading", "Headings", FormMethod.Post))
     {
-        <div class="form-group" style="padding: 50px;">
-            @Html.Label("Başlık Adı:")
-            @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.HeadingName, "", new { @class = "text-danger" })
-            <br />
+<div class="form-group" style="padding: 50px;">
+    @Html.Label("Başlık Adı:")
+    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.HeadingName, "", new { @class = "text-danger" })
+    <br />
 
-            @Html.Label("Başlık Tarihi:")
-            @Html.TextBoxFor(x => x.HeadingDate, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.HeadingDate, "", new { @class = "text-danger" })
-            <br />
+    @Html.Label("Kategoryi Id:")
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryId, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Yazar Id:")
+    @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.vlw, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.WriterId, "", new { @class = "text-danger" })
+    <br />
 
 
-            <button class="btn btn-success" style="margin-left: 450px;"> Başlık Ekle</button>
+    <button class="btn btn-success" style="margin-left: 450px;"> Başlık Ekle</button>
 
-        </div>
+</div>
 
 
     }

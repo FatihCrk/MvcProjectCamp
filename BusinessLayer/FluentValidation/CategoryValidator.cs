@@ -12,6 +12,7 @@ namespace BusinessLayer.FluentValidation
     {
         public CategoryValidator()
         {
+            
             RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Kategori İsmi Alanı boş geçilemez.");
             RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Kategori Açıklaması boş geçilemez.");
             RuleFor(x => x.CategoryName).MinimumLength(2).WithMessage("Kategori ismi 2 karakterden uzun olmalıdır.");

@@ -5,122 +5,262 @@
     ViewBag.Title = "HeadingList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@{ string genderResult = "AdminLTELogo.png";}
+
+
+<div class="wrapper">
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Başlık İşlemleri
+                    </h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                Başlık Adı
+                            </th>
+                            <th style="width: 30%">
+                                Profil Resmi
+                            </th>
+                            <th>
+                                Yazar
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Kategori
+                            </th>
+                            <th style="width: 30%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            
+                            
+                            ///1.nci koşul blok
+                            if (item.Writer.Gender == "K")
+                            {
+                                genderResult = "avatar2.png";
+                            }
+
+                           if (item.Writer.Gender == "E")
+                            {
+                                genderResult = "avatar5.png";
+                            }
+                           
 
 
 
 
-<!DOCTYPE html>
+
+                            <tr>
+                                <td>
+                                    @item.HeadingId
+                                </td>
+                                <td>
+                                    <a>
+                                        @item.HeadingName
+                                    </a>
+                                    <br />
+                                    <small>
+                                        @(((DateTime)item.HeadingDate).ToString("dd-MMM-yyyy"))
+                                    </small>
+                                </td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="~/AdminLTE/dist/img/@genderResult">
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="project_progress">
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
+                                        </div>
+                                    </div>
+                                    <small>
+                                        57% Complete
+                                    </small>
+                                </td>
+                                <td class="project-state">
+                                    <span class="badge badge-success">@item.Category.CategoryName</span>
+                                </td>
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" href="#">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        İçerik Bilgisi
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="#">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Sil
+                                    </a>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+<script src="~/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/AdminLTE/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/AdminLTE/dist/js/demo.js"></script>
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html>
 
 
 
-<head>
-
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- jsGrid -->
-    <link rel="stylesheet" href="~/AdminLTE/plugins/jsgrid/jsgrid.min.css">
-    <link rel="stylesheet" href="~/AdminLTE/plugins/jsgrid/jsgrid-theme.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<head>-->
+<!-- Tell the browser to be responsive to screen width -->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!-- Font Awesome -->
+<!--<link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css">-->
+<!-- Ionicons -->
+<!--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">-->
+<!-- jsGrid -->
+<!--<link rel="stylesheet" href="~/AdminLTE/plugins/jsgrid/jsgrid.min.css">
+<link rel="stylesheet" href="~/AdminLTE/plugins/jsgrid/jsgrid-theme.min.css">-->
+<!-- Theme style -->
+<!--<link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css">-->
+<!-- Google Font: Source Sans Pro -->
+<!--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 
     <div class="card">
         <div class="card card-danger">
             <h3 class="card-header" style="text-align: center;"><i class="fas fa-newspaper"></i> Başlık Listesi</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-            <div id="example1_wrapper" class="dataTables_wrapper">
-                <div class="row">
+        </div>-->
+<!-- /.card-header -->
+<!--<div class="card-body">
+    <div id="example1_wrapper" class="dataTables_wrapper">
+        <div class="row">
 
 
 
 
 
-                    <div class="col-sm-12">
-                        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">#</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlık Adı</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Adı</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Sil</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Güncelle</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlıklar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr role="row" class="odd">
-                                        <td tabindex="0" class="sorting_1">@item.CategoryId</td>
-                                        <td>@item.HeadingName</td>
-                                        <td>@item.Category.CategoryName</td>
-                                        <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
-                                        <td style="text-align: center; "><a href="~/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
-                                        <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                            <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Başlık Adı</th><th rowspan="1" colspan="1">Başlık Tarihi</th><th rowspan="1" colspan="1">Sil</th><th rowspan="1" colspan="1">Güncelle</th><th rowspan="1" colspan="1">Başlıklar</th></tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div><div class="row">
-                    <div class="col-sm-12 col-md-8">
+            <div class="col-sm-12">
+                <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">#</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlık Adı</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Adı</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Sil</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Güncelle</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlıklar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr role="row" class="odd">
+                                <td tabindex="0" class="sorting_1">@item.CategoryId</td>
+                                <td>@item.HeadingName</td>
+                                <td>@item.Category.CategoryName</td>
+                                <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+                                <td style="text-align: center; "><a href="~/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
+                                <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                    <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Başlık Adı</th><th rowspan="1" colspan="1">Başlık Tarihi</th><th rowspan="1" colspan="1">Sil</th><th rowspan="1" colspan="1">Güncelle</th><th rowspan="1" colspan="1">Başlıklar</th></tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div><div class="row">
+            <div class="col-sm-12 col-md-8">
 
-                        <div class="" id="example1_info" role="status" aria-live="polite"> Toplam Başlık Sayısı : @Model.Count<Category /> </div>
-                    </div><div class="col-sm-12 col-md-4">
+                <div class="" id="example1_info" role="status" aria-live="polite"> Toplam Başlık Sayısı : @Model.Count<Category /> </div>
+            </div><div class="col-sm-12 col-md-4">
 
-                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                            <ul class="pagination">
-                                <li class="paginate_button page-item previous disabled" id="example1_previous">
-                                    <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Geri</a>
-                                </li>
-                                <li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                <li class="paginate_button page-item next" id="example1_next">
-                                    <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">İleri</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                    <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled" id="example1_previous">
+                            <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Geri</a>
+                        </li>
+                        <li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                        <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                        <li class="paginate_button page-item next" id="example1_next">
+                            <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">İleri</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div style="text-align: center;">
-                <a href="~/Headings/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
-
-                <br />
-                <br />
-            </div>
         </div>
-        <!-- /.card-body -->
     </div>
-    <!-- ./wrapper -->
-    <!-- Bootstrap 4 -->
-    <script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- jsGrid -->
-    <script src="~/AdminLTE/plugins/jsgrid/demos/db.js"></script>
-    <script src="~/AdminLTE/plugins/jsgrid/jsgrid.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/AdminLTE/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/AdminLTE/dist/js/demo.js"></script>
-    <!-- page script -->
+    <div style="text-align: center;">
+        <a href="~/Headings/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
 
-</body>
-
+        <br />
+        <br />
+    </div>
+</div>-->
+<!-- /.card-body -->
+<!--</div>-->
+<!-- ./wrapper -->
+<!-- Bootstrap 4 -->
+<!--<script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+<!-- jsGrid -->
+<!--<script src="~/AdminLTE/plugins/jsgrid/demos/db.js"></script>
+<script src="~/AdminLTE/plugins/jsgrid/jsgrid.min.js"></script>-->
+<!-- AdminLTE App -->
+<!--<script src="~/AdminLTE/dist/js/adminlte.min.js"></script>-->
+<!-- AdminLTE for demo purposes -->
+<!--<script src="~/AdminLTE/dist/js/demo.js"></script>-->
+<!-- page script -->
+<!--</body>-->

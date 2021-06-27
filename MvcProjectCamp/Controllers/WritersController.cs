@@ -29,9 +29,13 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult WritersList()
         {
+
             var writerValues = wm.GetWriterList();
+           
             return View(writerValues);
         }
+
+       
 
         [HttpGet]
         public ActionResult AddWriter()
@@ -39,11 +43,13 @@ namespace MvcProjectCamp.Controllers
             return View();
         }
 
+       
+
 
         [HttpPost]
         public ActionResult AddWriter(Writer p)
         {
-
+            
 
             ValidationResult results = writerValidator.Validate(p);
             if (results.IsValid)
@@ -67,6 +73,7 @@ namespace MvcProjectCamp.Controllers
         [HttpGet]
         public ActionResult EditWriter(int id)
         {
+
             var writervalue = wm.GetByWriterId(id);
             return View(writervalue);
         }
