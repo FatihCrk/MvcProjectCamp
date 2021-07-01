@@ -6,15 +6,17 @@ using System.Web.Mvc;
 using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 
 namespace MvcProjectCamp.Controllers
 {
-    
+
 
     public class HeadingsController : Controller
     {
 
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
+
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal()); // GET: Headings
         public ActionResult HeadingsList()
@@ -28,20 +30,20 @@ namespace MvcProjectCamp.Controllers
         {
 
             List<SelectListItem> valueCategory = (from c in cm.GetCategoryList() //Listeleme 
-                select new SelectListItem()
-                {
-                    Text = c.CategoryName,
-                    Value = c.CategoryId.ToString()
+                                                  select new SelectListItem()
+                                                  {
+                                                      Text = c.CategoryName,
+                                                      Value = c.CategoryId.ToString()
 
-                }).ToList();
+                                                  }).ToList();
 
-            List<SelectListItem> valueWriter = (from w in wm.GetWriterList() 
-                select new SelectListItem()
-                {
-                    Text = w.WriterName +" "+ w.WriterSurName,
-                    Value = w.WriterId.ToString()
+            List<SelectListItem> valueWriter = (from w in wm.GetWriterList()
+                                                select new SelectListItem()
+                                                {
+                                                    Text = w.WriterName + " " + w.WriterSurName,
+                                                    Value = w.WriterId.ToString()
 
-                }).ToList();
+                                                }).ToList();
 
             ViewBag.vlw = valueWriter;
             ViewBag.vlc = valueCategory;
@@ -52,13 +54,36 @@ namespace MvcProjectCamp.Controllers
         public ActionResult AddHeading(Heading h)
         {
             h.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                hm.HeadingAddBl(h);
-                return RedirectToAction("HeadingsList");
-           
+            hm.HeadingAddBl(h);
+            return RedirectToAction("HeadingsList");
+            
+        }
 
 
+
+       
+
+
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+            var headingValue = hm.GetByHeadingId(id);
+
+            return View(headingValue);
+        }
+
+        [HttpPost]
+        public ActionResult EditHeading(Heading h)
+        {
+            hm.HeadingUpdate(h);
+            return RedirectToAction("HeadingsList");
 
         }
+
+      
+
+
+
 
     }
 }

@@ -79,6 +79,10 @@
     <Compile Include="Migrations\202106241752073_mig_gender_added.designer.cs">
       <DependentUpon>202106241752073_mig_gender_added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106281549295_mig_WriterStatus_Added.cs" />
+    <Compile Include="Migrations\202106281549295_mig_WriterStatus_Added.designer.cs">
+      <DependentUpon>202106281549295_mig_WriterStatus_Added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106241752073_mig_gender_added.resx">
       <DependentUpon>202106241752073_mig_gender_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106281549295_mig_WriterStatus_Added.resx">
+      <DependentUpon>202106281549295_mig_WriterStatus_Added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

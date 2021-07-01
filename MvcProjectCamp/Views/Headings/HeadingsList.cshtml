@@ -16,8 +16,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Başlık İşlemleri
-                    </h3>
+                <h3 class="card-title" style="font-weight:bold">Başlık İşlemleri</h3>  <a href="~/Headings/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -38,7 +37,7 @@
                             <th style="width: 20%">
                                 Başlık Adı
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 10.5%">
                                 Profil Resmi
                             </th>
                             <th>
@@ -54,23 +53,19 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            
-                            
-                            ///1.nci koşul blok
+
+
+                         
                             if (item.Writer.Gender == "K")
                             {
                                 genderResult = "avatar2.png";
                             }
 
-                           if (item.Writer.Gender == "E")
+                            if (item.Writer.Gender == "E")
                             {
                                 genderResult = "avatar5.png";
                             }
-                           
-
-
-
-
+                            
 
                             <tr>
                                 <td>
@@ -82,35 +77,36 @@
                                     </a>
                                     <br />
                                     <small>
-                                        @(((DateTime)item.HeadingDate).ToString("dd-MMM-yyyy"))
+                                        @item.HeadingDate.ToString("dd-MMM-yyyy")
                                     </small>
                                 </td>
                                 <td>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
+                                    <ul class="list-inline" style="text-align: center">
+                                        <li class="list-inline-item" >
                                             <img alt="Avatar" class="table-avatar" src="~/AdminLTE/dist/img/@genderResult">
                                         </li>
                                     </ul>
                                 </td>
-                                <td class="project_progress">
+                                <td>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: @item.Writer.Headings.Count%">
                                         </div>
                                     </div>
-                                    <small>
-                                        57% Complete
-                                    </small>
+                                    <a>
+                                        @item.Writer.WriterName @item.Writer.WriterSurName
+                                    </a>
                                 </td>
                                 <td class="project-state">
                                     <span class="badge badge-success">@item.Category.CategoryName</span>
                                 </td>
-                                <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="~/Content/ContentByHeading/@item.HeadingId">
+                                       
                                         <i class="fas fa-folder">
                                         </i>
                                         İçerik Bilgisi
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="~/Headings/EditHeading/@item.HeadingId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
@@ -244,7 +240,7 @@
         </div>
     </div>
     <div style="text-align: center;">
-        <a href="~/Headings/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
+       
 
         <br />
         <br />

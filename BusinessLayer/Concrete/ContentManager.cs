@@ -10,13 +10,25 @@ using EntityLayer.Concrete;
 namespace BusinessLayer.Concrete
 {
    public class ContentManager:IContentService
-    {
-        public List<Content> GetContentList()
+   {
+       private IContentDal _contentDal;
+
+       public ContentManager(IContentDal contentDal)
+       {
+           _contentDal = contentDal;
+       }
+
+       public List<Content> GetContentList()
         {
             throw new NotImplementedException();
         }
 
-        public void ContentAddBl(Content content)
+       public List<Content> GetListByID(int id)
+       {
+           return _contentDal.List(x => x.HeadingId == id);
+       }
+
+       public void ContentAddBl(Content content)
         {
             throw new NotImplementedException();
         }
