@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @{ string genderResult = "AdminLTELogo.png";}
+@{ string badgeResults = "badge badge-success";}
 
 
 <div class="wrapper">
@@ -55,7 +56,7 @@
                         {
 
 
-                         
+
                             if (item.Writer.Gender == "K")
                             {
                                 genderResult = "avatar2.png";
@@ -65,7 +66,25 @@
                             {
                                 genderResult = "avatar5.png";
                             }
-                            
+
+                            if (item.Category.CategoryName == "Tiyatro")
+                            {
+                                badgeResults = "badge badge-info";
+                            }
+
+                            if (item.Category.CategoryName == "Yazılım")
+                            {
+                                badgeResults = "badge badge-danger";
+                            }
+                            if (item.Category.CategoryName == "Spor")
+                            {
+                                badgeResults = "badge badge-warning";
+                            }
+
+                            if (item.Category.CategoryName == "Film")
+                            {
+                                badgeResults = "badge badge-secondary";
+                            }
 
                             <tr>
                                 <td>
@@ -82,14 +101,15 @@
                                 </td>
                                 <td>
                                     <ul class="list-inline" style="text-align: center">
-                                        <li class="list-inline-item" >
+                                        <li class="list-inline-item">
                                             <img alt="Avatar" class="table-avatar" src="~/AdminLTE/dist/img/@genderResult">
                                         </li>
                                     </ul>
                                 </td>
                                 <td>
+                                    <small>Yazar İçerik Kota</small>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: @item.Writer.Headings.Count%">
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: @item.Writer.Headings.Count %;">
                                         </div>
                                     </div>
                                     <a>
@@ -97,11 +117,11 @@
                                     </a>
                                 </td>
                                 <td class="project-state">
-                                    <span class="badge badge-success">@item.Category.CategoryName</span>
+                                    <span class="@badgeResults">@item.Category.CategoryName</span>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="~/Content/ContentByHeading/@item.HeadingId">
-                                       
+                                    <a class="btn btn-primary btn-sm" href="~/Contents/ContentByHeading/@item.HeadingId">
+
                                         <i class="fas fa-folder">
                                         </i>
                                         İçerik Bilgisi
@@ -240,7 +260,7 @@
         </div>
     </div>
     <div style="text-align: center;">
-       
+
 
         <br />
         <br />

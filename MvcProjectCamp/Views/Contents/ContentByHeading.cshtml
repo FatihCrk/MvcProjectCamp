@@ -1,4 +1,5 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Content>
 
 @{
     ViewBag.Title = "ContentByHeading";
@@ -7,44 +8,56 @@
 
 
 
-<div class="timeline timeline-inverse">
-    <!-- timeline time label -->
-  
-        <div class="time-label">
-            <span class="bg-danger">
-                Tarih
-            </span>
+
+<div style="padding: 90px;">
+    <div class="card">
+        <div class="card card-secondary">
+            <h3 class="card-title" style="float: none !important; text-align: center; ">Başlığa yapılan yorumlar</h3>
         </div>
-        <!-- /.timeline-label -->
-        <!-- timeline item -->
-        <div>
-            <i class="fas fa-envelope bg-primary"></i>
+    </div>
 
 
-            <div class="timeline-item">
-                <span class="time"><i class="far fa-clock"></i> 12:05</span>
+    <div class="timeline timeline-inverse">
+        <!-- timeline time label -->
+        @foreach (var item in Model)
+        {
 
-                <h3 class="timeline-header"><a href="#">Başlık</a> Açıklama</h3>
+            <div class="time-label" style="margin-left: 7px;">
+                <span class="bg-danger">
+                    @item.ContentDate.ToString("MM/dd/yyyy")
+                </span>
+            </div>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <div>
+                <i class="fas fa-envelope bg-primary"></i>
 
-                <div class="timeline-body">
 
-                    İçerik
-                </div>
-                <div class="timeline-footer">
-                    <a href="#" class="btn btn-primary btn-sm">Daha Fazla</a>
-                    <a href="#" class="btn btn-danger btn-sm">Sil</a>
+                <div class="timeline-item">
+                    <span class="time"><i class="far fa-clock"></i> 12:05</span>
+
+                    <h3 class="timeline-header"> @item.Writer.WriterName @item.Writer.WriterSurName <small><a href="#">Yazarın açtığı başlıklar</a></small></h3>
+
+                    <div class="timeline-body">
+
+                        @item.ContentText
+                    </div>
+                    <div class="timeline-footer">
+                        <a href="#" class="btn btn-primary btn-sm">Daha Fazla</a>
+                        <a href="#" class="btn btn-danger btn-sm">Sil</a>
+                    </div>
                 </div>
             </div>
+
+        }
+        <!-- END timeline item -->
+
+        <div class="time-label">
+            <span class="bg-dark" style="margin-top: 50px;">
+                Geçmiş
+            </span>
+            <i class="far fa-clock bg-gray"></i>
         </div>
-    
-    <!-- END timeline item -->
-
-    <div class="time-label">
-        <span class="bg-dark" style="margin-top:50px;">
-            Geçmiş
-        </span>
-        <i class="far fa-clock bg-gray"></i>
     </div>
+
 </div>
-
-
