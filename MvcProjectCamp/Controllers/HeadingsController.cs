@@ -67,6 +67,15 @@ namespace MvcProjectCamp.Controllers
         [HttpGet]
         public ActionResult EditHeading(int id)
         {
+
+            List<SelectListItem> valueCategory = (from c in cm.GetCategoryList() //Listeleme 
+                select new SelectListItem()
+                {
+                    Text = c.CategoryName,
+                    Value = c.CategoryId.ToString()
+
+                }).ToList();
+            ViewBag.vlc = valueCategory;
             var headingValue = hm.GetByHeadingId(id);
 
             return View(headingValue);
@@ -75,12 +84,14 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult EditHeading(Heading h)
         {
-            hm.HeadingUpdate(h);
-            return RedirectToAction("HeadingsList");
 
+            hm.HeadingUpdate(h);
+
+            return RedirectToAction("HeadingsList");
         }
 
-      
+
+
 
 
 

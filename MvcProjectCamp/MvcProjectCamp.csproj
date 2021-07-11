@@ -2147,7 +2147,6 @@
     <Content Include="Views\Headings\HeadingsList.cshtml" />
     <Content Include="Views\Headings\AddHeading.cshtml" />
     <Content Include="Views\Headings\EditHeading.cshtml" />
-    <Content Include="Views\Headings\ContentByHeading.cshtml" />
     <Content Include="Views\Contents\ContentByHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
