@@ -23,8 +23,22 @@ namespace MvcProjectCamp.Controllers
         {
             var headingValues = hm.GetHeadingList();
 
+            ViewBag.Checked = "Pasif";
+
             return View(headingValues);
         }
+
+
+
+        [HttpPost]
+        public ActionResult HeadingsList(Heading head)
+        {
+            
+            return View(head);
+        }
+
+
+
         [HttpGet]
         public ActionResult AddHeading()
         {
@@ -89,6 +103,18 @@ namespace MvcProjectCamp.Controllers
 
             return RedirectToAction("HeadingsList");
         }
+
+
+        
+        public ActionResult DeleteHeading(int id)
+        {
+
+            var headingValue = hm.GetByHeadingId(id);
+            hm.HeadingDelete(headingValue);
+
+            return RedirectToAction("HeadingsList");
+        }
+
 
 
 

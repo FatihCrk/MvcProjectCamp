@@ -1,4 +1,5 @@
-﻿@using EntityLayer.Concrete
+﻿
+@using EntityLayer.Concrete
 @model List<Heading>
 
 @{
@@ -7,39 +8,13 @@
 }
 @{ string genderResult = "AdminLTELogo.png";}
 @{ string badgeResults = "badge badge-success";}
-@{ string headingStatusResults = "pasive-border";}
-@{ string StatusResult = "Pasif";}
+@{ string headingStatusClassResults = "pasive-border";}
+@{ string headingStatusClassResultsNand = "btn btn-secondary";}
+@{ string statusResult = "Belirsiz";}
+@{ string statusResultNand = "Belirsiz";}
 
 
-<style>
 
-
-    .pasive-border {
-        padding: .125rem .25rem;
-        font-size: .75rem;
-        line-height: 1.5;
-        color: #dc3545;
-        border-color: #dc3545;
-        border-radius: .15rem;
-        text-align: center;
-        border: 2px solid;
-        border-radius: 12px;
-        width: 55px;
-    }
-
-    .active-border {
-        padding: .125rem .25rem;
-        font-size: .75rem;
-        line-height: 1.5;
-        color: #ffc107;
-        border-color: #ffc107;
-        border-radius: .15rem;
-        text-align: center;
-        border: 2px solid;
-        border-radius: 12px;
-        width: 55px;
-    }
-</style>
 
 <div class="wrapper">
 
@@ -74,19 +49,20 @@
                             <th style="width: 20%">
                                 Başlık Adı
                             </th>
-                            <th style="width: 10.5%">
+                            <th style="width: 5%; font-size: 14px !important;">
                                 Profil Resmi
                             </th>
                             <th>
                                 Yazar
                             </th>
-                            <th style="width: 5px;">
+                            <th style="width: 160px;" class="text-center">
                                 Durum
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
                             <th style="width: 30%">
+                                İşlemler
                             </th>
                         </tr>
                     </thead>
@@ -125,19 +101,30 @@
                                 badgeResults = "badge badge-secondary";
                             }
 
-                            if (item.HeadingStatus == true)
-                            {
-                                headingStatusResults = "active-border";
-                                StatusResult = "Aktif";
 
+
+                            switch (item.HeadingStatus)
+                            {
+                                case true:
+
+                                    statusResult = "Aktif";
+                                    statusResultNand = "Pasif Yap";
+                                    headingStatusClassResults = "btn btn-success";
+                                    headingStatusClassResultsNand = "btn btn-secondary";
+
+                                    break;
+
+                                case false:
+                                    statusResult = "Pasif";
+                                    statusResultNand = "Aktif Yap";
+                                    headingStatusClassResults = "btn btn-danger";
+                                    headingStatusClassResultsNand = "btn btn-secondary";
+                                    break;
 
                             }
-                            if (item.HeadingStatus == false)
-                            {
-                                headingStatusResults = "pasive-border";
-                                StatusResult = "Pasif";
 
-                            }
+
+
 
                             <tr>
                                 <td>
@@ -171,26 +158,42 @@
                                 </td>
 
                                 <td>
-                                    <div class="@headingStatusResults">
-                                        @StatusResult
+
+                                  
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="padding: 0.75rem 0.75rem;">
+                                        <a class="@headingStatusClassResults" style="border-top-left-radius: 10px !important;border-bottom-left-radius: 10px;">
+                                            <input type="radio" name="options" id="@item.HeadingId" autocomplete="off" checked=""> @statusResult
+                                        </a>
+                                        <a class="@headingStatusClassResultsNand" href="/Headings/DeleteHeading/@item.HeadingId" style="border-top-right-radius: 10px;border-bottom-right-radius: 10px; width: 90px;">
+                                            <input type="radio" name="options" id="@item.HeadingId" autocomplete="off"> @statusResultNand
+                                        </a>
+
                                     </div>
+
+
+
+
+
                                 </td>
+
+
+
                                 <td class="project-state">
                                     <span class="@badgeResults">@item.Category.CategoryName</span>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="~/Contents/ContentByHeading/@item.HeadingId">
+                                    <a class="btn btn-primary btn-sm" style="border-radius: 8.2rem !important;" href="~/Contents/ContentByHeading/@item.HeadingId">
 
                                         <i class="fas fa-folder">
                                         </i>
                                         İçerik Bilgisi
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="~/Headings/EditHeading/@item.HeadingId">
+                                    <a class="btn btn-info btn-sm" style="border-radius: 8.2rem !important;" href="~/Headings/EditHeading/@item.HeadingId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a class="btn btn-danger btn-sm" style="border-radius: 8.2rem !important;" href="#">
                                         <i class="fas fa-trash">
                                         </i>
                                         Sil
