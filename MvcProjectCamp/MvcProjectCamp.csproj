@@ -132,7 +132,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutsController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentsController.cs" />
     <Compile Include="Controllers\HeadingsController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -296,9 +298,12 @@
     <Content Include="AdminLTE\docs\_layouts\home.html" />
     <Content Include="AdminLTE\docs\_layouts\page.html" />
     <Content Include="AdminLTE\docs\_layouts\post.html" />
+    <Content Include="AdminLTE\dist\css\font-family.css" />
     <Content Include="AdminLTE\index.html" />
     <Content Include="AdminLTE\index2.html" />
     <Content Include="AdminLTE\index3.html" />
+    <Content Include="AdminLTE\indexTest.html" />
+    <Content Include="AdminLTE\dist\css\ionicons.min.css" />
     <Content Include="AdminLTE\pages\calendar.html" />
     <Content Include="AdminLTE\pages\charts\chartjs.html" />
     <Content Include="AdminLTE\pages\charts\flot.html" />
@@ -2108,6 +2113,8 @@
     <Content Include="AdminLTE\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="AdminLTE\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE\README.md" />
+    <Content Include="AdminLTE\plugins\sparklines\sparkline.mjs" />
+    <Content Include="AdminLTE\dist\js\.eslintrc.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2140,7 +2147,6 @@
     <Content Include="Views\AdminCategory\AddCategory.cshtml" />
     <Content Include="Views\AdminCategory\UpdateCategory.cshtml" />
     <Content Include="Views\Statistics\StatisticsPage1.cshtml" />
-    <Content Include="Views\AdminCategory\AddHeading.cshtml" />
     <Content Include="Views\Writers\WritersList.cshtml" />
     <Content Include="Views\Writers\AddWriter.cshtml" />
     <Content Include="Views\Writers\EditWriter.cshtml" />
@@ -2148,6 +2154,9 @@
     <Content Include="Views\Headings\AddHeading.cshtml" />
     <Content Include="Views\Headings\EditHeading.cshtml" />
     <Content Include="Views\Contents\ContentByHeading.cshtml" />
+    <Content Include="Views\Abouts\Index.cshtml" />
+    <Content Include="Views\Abouts\AboutPartial.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

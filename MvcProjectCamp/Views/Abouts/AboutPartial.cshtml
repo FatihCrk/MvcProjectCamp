@@ -1,0 +1,29 @@
+﻿<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+    Yeni Hakkımızda Veri Girişi
+</button>
+
+<div class="modal fade" id="modal-success">
+    <div class="modal-dialog">
+        <div class="modal-content bg-success">
+            <div class="modal-header">
+                <h4 class="modal-title">Hakkımızda Veri Girişi</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> <form method="post" action="/Abouts/AddAbout/">
+                <div class="modal-body">
+                    <input class="form-control" type="text" name="AboutDetails1" placeholder="Hakkımızda Detayı 1"><br/>
+                    <input class="form-control" type="text" name="AboutDetails2" placeholder="Hakkımızda Detayı 2"><br/>
+                    <input class="form-control" type="text" name="AboutImage1" placeholder="Hk. Resim 1"><br/>
+                    <input class="form-control" type="text" name="AboutImage2" placeholder="Hk. Resim 2"><br/>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                    <button  class="btn btn-outline-light">Kaydet</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

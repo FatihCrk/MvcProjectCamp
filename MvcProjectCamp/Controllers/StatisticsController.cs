@@ -38,10 +38,10 @@ namespace MvcProjectCamp.Controllers
 
 
 
-            var categoryStatusTrue = context.Categories.Where(c => c.CategoryStatus == true).Count();
-            var cateoryStatusFalse = context.Categories.Where(c => c.CategoryStatus == false).Count();
+            var categoryStatusTrue = context.Categories.Count(c => c.CategoryStatus == true);
+            var categoryStatusFalse = context.Categories.Count(c=>c.CategoryStatus == false);
 
-            var categoryStatusState = categoryStatusTrue - cateoryStatusFalse;
+            var categoryStatusState = categoryStatusTrue - categoryStatusFalse;
             ViewBag.categoryStatus = categoryStatusState;
 
 
@@ -50,10 +50,6 @@ namespace MvcProjectCamp.Controllers
 
         }
 
-        //public class StatisticViewModel()
-        //{
-        //    public int CategoryCount { get; set; }
 
-        //}
     }
 }

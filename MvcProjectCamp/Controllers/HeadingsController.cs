@@ -110,6 +110,18 @@ namespace MvcProjectCamp.Controllers
         {
 
             var headingValue = hm.GetByHeadingId(id);
+
+            switch (headingValue.HeadingStatus)
+            {
+                case true:
+                    headingValue.HeadingStatus = false;
+                    break;
+                case false:
+                    headingValue.HeadingStatus = true;
+                    break;
+            }
+
+          
             hm.HeadingDelete(headingValue);
 
             return RedirectToAction("HeadingsList");

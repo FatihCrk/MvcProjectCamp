@@ -12,6 +12,7 @@
 @{ string headingStatusClassResultsNand = "btn btn-secondary";}
 @{ string statusResult = "Belirsiz";}
 @{ string statusResultNand = "Belirsiz";}
+@{ string fontStatusResultColor = "Belirsiz";}
 
 
 
@@ -46,22 +47,22 @@
                             <th style="width: 1%">
                                 #
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 21%">
                                 Başlık Adı
                             </th>
                             <th style="width: 5%; font-size: 14px !important;">
                                 Profil Resmi
                             </th>
-                            <th>
+                            <th style="width: 20%;">
                                 Yazar
                             </th>
-                            <th style="width: 160px;" class="text-center">
+                            <th style="width: 8%;" class="text-center">
                                 Durum
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 33%;">
                                 İşlemler
                             </th>
                         </tr>
@@ -109,16 +110,18 @@
 
                                     statusResult = "Aktif";
                                     statusResultNand = "Pasif Yap";
-                                    headingStatusClassResults = "btn btn-success";
-                                    headingStatusClassResultsNand = "btn btn-secondary";
+                                    headingStatusClassResults = "nav-icon far fa-circle text-success";
+                                    headingStatusClassResultsNand = "btn btn-block btn-outline-danger btn-sm";
+                                    fontStatusResultColor = "text-success";
 
                                     break;
 
                                 case false:
                                     statusResult = "Pasif";
                                     statusResultNand = "Aktif Yap";
-                                    headingStatusClassResults = "btn btn-danger";
-                                    headingStatusClassResultsNand = "btn btn-secondary";
+                                    headingStatusClassResults = "nav-icon far fa-circle text-danger";
+                                    headingStatusClassResultsNand = "btn btn-block btn-outline-success btn-sm";
+                                    fontStatusResultColor = "text-danger";
                                     break;
 
                             }
@@ -157,19 +160,11 @@
                                     </a>
                                 </td>
 
-                                <td>
+                                <td style="text-align: center !important; ">
 
-                                  
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="padding: 0.75rem 0.75rem;">
-                                        <a class="@headingStatusClassResults" style="border-top-left-radius: 10px !important;border-bottom-left-radius: 10px;">
-                                            <input type="radio" name="options" id="@item.HeadingId" autocomplete="off" checked=""> @statusResult
-                                        </a>
-                                        <a class="@headingStatusClassResultsNand" href="/Headings/DeleteHeading/@item.HeadingId" style="border-top-right-radius: 10px;border-bottom-right-radius: 10px; width: 90px;">
-                                            <input type="radio" name="options" id="@item.HeadingId" autocomplete="off"> @statusResultNand
-                                        </a>
-
-                                    </div>
-
+                                    <i class="@headingStatusClassResults"></i> <p class="@fontStatusResultColor" style="float: right; margin-top:-1px; margin-bottom: -1rem;">
+                                        @statusResult
+                                    </p>
 
 
 
@@ -181,23 +176,27 @@
                                 <td class="project-state">
                                     <span class="@badgeResults">@item.Category.CategoryName</span>
                                 </td>
-                                <td>
-                                    <a class="btn btn-primary btn-sm" style="border-radius: 8.2rem !important;" href="~/Contents/ContentByHeading/@item.HeadingId">
+                                <td class="project-state">
 
-                                        <i class="fas fa-folder">
-                                        </i>
-                                        İçerik Bilgisi
-                                    </a>
-                                    <a class="btn btn-info btn-sm" style="border-radius: 8.2rem !important;" href="~/Headings/EditHeading/@item.HeadingId">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Düzenle
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" style="border-radius: 8.2rem !important;" href="#">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Sil
-                                    </a>
+                                    <div style="float: left; padding: 3px;">
+                                        <a type="button" class="btn btn-block btn-outline-info btn-sm" href="~/Headings/EditHeading/@item.HeadingId">
+                                            <i class="fas fa-folder" style="padding: 3px;">
+                                            </i>İçerik Bilgisi
+                                        </a>
+                                    </div>
+
+                                    <div style="float: left; padding: 3px; ">
+                                        <a type="button" class="btn btn-block btn-outline-secondary btn-sm" href="~/Headings/EditHeading/@item.HeadingId">
+                                            <i class="fas fa-pencil-alt" style="padding: 3px;">
+                                            </i>Düzenle
+                                        </a>
+                                    </div>
+
+                                    <div style="float: left; padding: 3px; ">
+                                        <a class="@headingStatusClassResultsNand" href="~/Headings/DeleteHeading/@item.HeadingId">
+                                            <i class="icon fas fa-exclamation-triangle" style="padding: 3px;"></i>@statusResultNand
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
 

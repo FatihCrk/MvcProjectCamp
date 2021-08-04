@@ -5,114 +5,95 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <!DOCTYPE html>
-<html>
-
-
-
+<html lang="en">
 <head>
-
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- jsGrid -->
-    <link rel="stylesheet" href="~/AdminLTE/plugins/jsgrid/jsgrid.min.css">
-    <link rel="stylesheet" href="~/AdminLTE/plugins/jsgrid/jsgrid-theme.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kategoriler</title>
 </head>
+
+
+
 <body class="hold-transition sidebar-mini">
 
-    <div class="card">
-        <div class="card card-secondary">
-            <h3 class="card-header" style="text-align: center;">Kategori Listesi</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-            <div id="example1_wrapper" class="dataTables_wrapper">
-                <div class="row">
+<div class="card">
+    <div class="card card-secondary">
+        <h3 class="card-header" style="text-align: center;">Kategori Listesi</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div id="example1_wrapper" class="dataTables_wrapper">
+            <div class="row">
 
-                    <div class="col-sm-12">
-                        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">#</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Adı</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Açıklaması</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Sil</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Güncelle</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlıklar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr role="row" class="odd">
-                                        <td tabindex="0" class="sorting_1">@item.CategoryId</td>
-                                        <td>@item.CategoryName</td>
-                                        <td>@item.CategoryDescription</td>
-                                        <td style="text-align: center; "><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
-                                        <td style="text-align: center; "><a href="~/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
-                                        <td style="text-align: center; "><a href="#" class="btn btn-info">Başlıklar</a></td>
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Kategori Adı</th><th rowspan="1" colspan="1">Kategori Açıklama</th><th rowspan="1" colspan="1">Sil</th><th rowspan="1" colspan="1">Güncelle</th><th rowspan="1" colspan="1">Başlıklar</th></tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div><div class="row">
-                    <div class="col-sm-12 col-md-8">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">#</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Adı</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Kategori Açıklaması</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Sil</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Güncelle</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1">Başlıklar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr role="row" class="odd">
+                                <td tabindex="0" class="sorting_1">@item.CategoryId</td>
+                                <td>@item.CategoryName</td>
+                                <td>@item.CategoryDescription</td>
+                                <td style="text-align: center;"><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger"><i class="far fa-trash-alt" style="padding: 3px;"></i>Sil</a></td>
+                                <td style="text-align: center;"><a href="~/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success"> <i class="fas fa-edit" style="padding: 3px;"></i>Güncelle</a></td>
+                                <td style="text-align: center;"><a href="#" class="btn btn-info"><i class="far fa-folder" style="padding: 3px;"></i>Başlıklar</a></td>
+                            </tr>
+                        }
+                        </tbody>
+                        <tfoot>
+                        <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Kategori Adı</th><th rowspan="1" colspan="1">Kategori Açıklama</th><th rowspan="1" colspan="1">Sil</th><th rowspan="1" colspan="1">Güncelle</th><th rowspan="1" colspan="1">Başlıklar</th></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
 
-                        <div class="" id="example1_info" role="status" aria-live="polite"> Toplam Kategori Sayısı : @Model.Count<Category /> </div>
-                    </div><div class="col-sm-12 col-md-4">
+                    <div class="" id="example1_info" role="status" aria-live="polite"> Toplam Kategori Sayısı : @Model.Count<Category/> </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
 
-                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                            <ul class="pagination">
-                                <li class="paginate_button page-item previous disabled" id="example1_previous">
-                                    <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Geri</a>
-                                </li>
-                                <li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                <li class="paginate_button page-item next" id="example1_next">
-                                    <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">İleri</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item previous disabled" id="example1_previous">
+                                <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Geri</a>
+                            </li>
+                            <li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                            <li class="paginate_button page-item next" id="example1_next">
+                                <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">İleri</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center;">
-                <a href="~/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a>
-
-                <br />
-                <br />
-            </div>
         </div>
-        <!-- /.card-body -->
+        <div style="text-align: center;">
+            <a href="~/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a>
+
+            <br/>
+            <br/>
+        </div>
     </div>
-    <!-- ./wrapper -->
-    <!-- Bootstrap 4 -->
-    <script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- jsGrid -->
-    <script src="~/AdminLTE/plugins/jsgrid/demos/db.js"></script>
-    <script src="~/AdminLTE/plugins/jsgrid/jsgrid.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/AdminLTE/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/AdminLTE/dist/js/demo.js"></script>
-    <!-- page script -->
+    <!-- /.card-body -->
+</div>
+
 
 </body>
 
