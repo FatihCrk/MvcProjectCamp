@@ -4,35 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {
    public class ContactManager :IContactService
-    {
-        public List<Contact> GetContactList()
-        {
-            throw new NotImplementedException();
-        }
+   { 
+       IContactDal _contactDal;
+
+       public ContactManager(IContactDal contactDal)
+       {
+           _contactDal = contactDal;
+       }
+
+       public List<Contact> GetContactList()
+       {
+           return _contactDal.List();
+       }
 
         public void ContactAddBl(Contact contact)
         {
-            throw new NotImplementedException();
+           _contactDal.Insert(contact);
         }
 
         public Contact GetByContactId(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetById(x => x.ContactId == id);
         }
 
         public void ContactDelete(Contact contact)
         {
-            throw new NotImplementedException();
+           _contactDal.Delete(contact);
         }
 
         public void ContactUpdate(Contact contact)
         {
-            throw new NotImplementedException();
+           _contactDal.Update(contact);
         }
     }
 }

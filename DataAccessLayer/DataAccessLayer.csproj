@@ -51,11 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -87,6 +88,10 @@
     <Compile Include="Migrations\202107051842122_add_Other-Migrations.designer.cs">
       <DependentUpon>202107051842122_add_Other-Migrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108081004302_add_ConcreteMessageClass.cs" />
+    <Compile Include="Migrations\202108081004302_add_ConcreteMessageClass.designer.cs">
+      <DependentUpon>202108081004302_add_ConcreteMessageClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107051842122_add_Other-Migrations.resx">
       <DependentUpon>202107051842122_add_Other-Migrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108081004302_add_ConcreteMessageClass.resx">
+      <DependentUpon>202108081004302_add_ConcreteMessageClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
