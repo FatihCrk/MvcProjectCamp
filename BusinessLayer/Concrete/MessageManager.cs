@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetMessageList()
         {
-            return _messageDal.List();
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
         }
 
         public void MessageAddBl(Message message)
