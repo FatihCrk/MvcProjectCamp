@@ -23,6 +23,11 @@ namespace MvcProjectCamp.Controllers
 
         }
 
+        public ActionResult Sendbox( )
+        {
+            var messageList = cm.GetListSendbox();
+            return View(messageList);
+        }
           
 
 
