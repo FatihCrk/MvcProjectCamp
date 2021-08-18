@@ -15,8 +15,10 @@ namespace MvcProjectCamp.Controllers
         // GET: Message
         public ActionResult Inbox()
         {
-            var messageList = cm.GetMessageList(); 
+            var messageList = cm.GetListInbox(); 
             return View(messageList);
+
+
 
 
         }
