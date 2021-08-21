@@ -10,12 +10,17 @@ namespace MvcProjectCamp.Controllers
 {
     public class MessageController : Controller
     {
-        MessageManager cm = new MessageManager(new EfMessageDal());
+        MessageManager mm = new MessageManager(new EfMessageDal());
+        ContactManager  cm= new ContactManager(new EfContactDal());
     
         // GET: Message
         public ActionResult Inbox()
         {
-            var messageList = cm.GetListInbox(); 
+            var messageList = mm.GetListInbox();
+
+            var messageValueNumber = mm.GetListInbox().Count;
+            ViewBag.messageValue = messageValueNumber;
+
             return View(messageList);
 
 
@@ -25,7 +30,7 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult Sendbox( )
         {
-            var messageList = cm.GetListSendbox();
+            var messageList = mm.GetListSendbox();
             return View(messageList);
         }
           
