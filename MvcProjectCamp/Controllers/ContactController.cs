@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BusinessLayer.Concrete;
 using BusinessLayer.FluentValidation;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 
@@ -14,6 +15,8 @@ namespace MvcProjectCamp.Controllers
     {
         ContactManager cm = new ContactManager(new EfContactDal());
         ContactValidator cv = new ContactValidator();
+
+        Context context = new Context();
         
         // GET: Contact
         public ActionResult Index()
@@ -27,7 +30,17 @@ namespace MvcProjectCamp.Controllers
 
         public PartialViewResult MessageMenu()
         {
+            var contactMessageCount = context.Contacts.Count();
+            ViewBag.contactMessageResult = contactMessageCount;
+
+
+            var inboxMessageCount = context.Messages.Where(x=>x.ReceiverMail == "admin@gmail.com").Count();
+            ViewBag.inboxMessageResult = inboxMessageCount;
+
             return PartialView();
+
+
+
         }
 
        
@@ -38,5 +51,9 @@ namespace MvcProjectCamp.Controllers
             return View(contactValuesResults);
 
         }
+
+        
+
+        
     }
 }

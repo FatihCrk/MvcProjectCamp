@@ -1,0 +1,126 @@
+﻿
+
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Paneli | Yeni Mesaj Oluştur</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/AdminLTE/plugins/summernote/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+
+  <!-- Main Sidebar Container -->
+
+
+     
+  <div class="row">
+            <div class="col-md-3">
+                @Html.Action("MessageMenu","Contact")
+            </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h3 class="card-title">Yeni Mesaj Oluştur</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="form-group">
+                  <input class="form-control" placeholder="Kime:">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Konu:">
+                </div>
+               <div class="form-group">
+                    <textarea id="compose-textarea" class="form-control" style="height: 300px" >
+                 <p>Mesajınızı bu alana yazınız.(Min:2 - Max:100 karakter girilebilir.)
+                    </textarea>
+                </div>
+                <div class="form-group">
+                  <div class="btn btn-default btn-file">
+                    <i class="fas fa-paperclip"></i> Ek Yükle
+                    <input type="file" name="attachment">
+                  </div>
+                  <p class="help-block">Max. 32MB</p>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <div class="float-right">
+                  <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslağa Kaydet</button>
+                  <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                </div>
+                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Vazgeç</button>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+  
+   
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+
+
+
+<!-- jQuery -->
+<script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+
+
+<!-- Summernote -->
+<script src="/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+
+<!-- Page specific script -->
+<script>
+    $(function () {
+        /*Add text editor*/
+        $('#compose-textarea').summernote({
+            
+            tabsize: 2,
+            height: 250,
+            dialogsInBody: true,
+            
+           
+        })
+       
+        
+
+       
+    })
+    
+    
+
+      
+</script>
+
+</body>
+</html>

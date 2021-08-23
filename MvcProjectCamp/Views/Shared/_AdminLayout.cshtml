@@ -23,6 +23,9 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
+
 
 </head>
 
@@ -150,7 +153,7 @@
                     <span class="float-right text-muted text-sm">12 hours</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="~/AdminCategory/Index" class="dropdown-item">
+                <a href="/AdminCategory/Index" class="dropdown-item">
                     <i class="fas fa-file mr-2"></i> 3 new reports
                     <span class="float-right text-muted text-sm">2 days</span>
                 </a>
@@ -267,36 +270,42 @@
                     </a>
 
                 </li>
+        
+        
+        
+        
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            Grafikler
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/Statistics/StatisticsPage1" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Grafik 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Grafik 2</p>
-                            </a>
-                        </li>
+        <li class="nav-item">
 
-                        <li class="nav-item">
-                            <a href="pages/charts/uplot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Grafik 3</p>
-                            </a>
-                        </li>
-                    </ul>
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                                     <p>
+                                         İstatistikler
+                                         <i class="right fas fa-angle-left"></i>
+                                     </p>
+                                 </a>
+                                 <ul class="nav nav-treeview">
+                                     <li class="nav-item">
+                                         <a href="/Statistics/StatisticsPage1" class="nav-link">
+                                             <i class="far fa-circle nav-icon"></i>
+                                             <p>Grafik 1</p>
+                                         </a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a href="pages/charts/flot.html" class="nav-link">
+                                             <i class="far fa-circle nav-icon"></i>
+                                             <p>Grafik 2</p>
+                                         </a>
+                                     </li>
+
+                                     <li class="nav-item">
+                                         <a href="pages/charts/uplot.html" class="nav-link">
+                                             <i class="far fa-circle nav-icon"></i>
+                                             <p>Grafik 3</p>
+                                         </a>
+                                     </li>
+                                 </ul>
+                             
                 </li>
            
 
@@ -402,7 +411,7 @@
 <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 Web Project</strong>
     Tüm hakları saklıdır..
-    <div class="float-right d-none d-sm-inline-block">
+    <div class="float-right d-none d-sm-inline-block" style="margin-right: 10px;">
         <b>Admin LTE Theme Version</b> 3.1.0
     </div>
 </footer>
@@ -413,14 +422,16 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
 <script src="/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
+    
+<!-- jQuery -->
+<script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+
 <!-- Bootstrap 4 -->
 <script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->

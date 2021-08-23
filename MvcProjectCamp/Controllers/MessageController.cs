@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EntityLayer.Concrete;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -33,7 +34,21 @@ namespace MvcProjectCamp.Controllers
             var messageList = mm.GetListSendbox();
             return View(messageList);
         }
-          
+
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult NewMessage(Message p)
+        {
+            return View();
+
+        }
+
 
 
 
