@@ -1,4 +1,6 @@
 ﻿@model EntityLayer.Concrete.Writer
+
+
 @{
     ViewBag.Title = "AddWriter";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -6,63 +8,79 @@
 
 
 
-@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
-<div class="card card-primary">
+
+<section>
 
 
-    <div class="card-header">
-        <h3 class="card-title" style="float: none !important; text-align: center;">Yazar Ekleme Sayfası</h3>
-    </div>
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title" style="float: none !important; text-align: center; ">Yeni Yazar Ekleme Sayfası</h3>
+        </div>
 
 
 
 
+        @using (Html.BeginForm("AddWriter", "Writers", FormMethod.Post))
+        {
+            <div class="form-group" style="padding: 50px;">
+                @Html.Label("Yazar Adı:")
+                @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterName)
 
-    @using (Html.BeginForm("AddWriter", "Writers", FormMethod.Post))
-    {
-<div class="form-group" style="padding: 50px;">
-    @Html.Label("Yazar Adı:")
-    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
-    <br />
+                <br />
 
-    @Html.Label("Yazar Soyadı :")
-    @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterSurName, "", new { @class = "text-danger" })
-    <br />
-
-    @Html.Label("Yazarın Cinsiyeti :")
-    @Html.TextBoxFor(x => x.Gender, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Gender, "", new { @class = "text-danger" })
-    <br />
-
-    @Html.Label("Yazar Fotoğraf URL :")
-    @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
-
-    <br />
-
-    @Html.Label("Yazar Mail Adresi :")
-    @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterMail)
-    <br />
-
-    @Html.Label("Yazar Şifresi :")
-    @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterPassword)
-    <br />
-    @Html.Label("Yazar Hakkında :")
-    @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterAbout)
-    <br />
-
-    <button class="btn btn-success" type="submit" style="margin-left: 450px;">Yazar Ekle</button>
-
-</div>
+                @Html.Label("Yazarın Soyadını Giriniz :")
+                @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterSurName)
+                <br />
+                
+                @Html.Label("Yazarın Fotoğraf URL'sini Giriniz :")
+                @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+             
+                <br />
+                
+                
+                @Html.Label("Yazarın Mail Adresini Giriniz :")
+                @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                
+                <br />
+                
+                @Html.Label("Yazarın Şifresini Giriniz :")
+                @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
        
+                <br />
+                
+                @Html.Label("Yazar Hakkında Bilgi Giriniz :")
+                @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+               
+                <br />
+                
+                @Html.Label("Yazarın Unvanı Giriniz :")
+                @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterTitle)
+                <br />
+                
+                
+                @Html.Label("Yazarın Cinsiyetini Bilgi Giriniz(E - K Şeklinde :")
+                @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+               
+                <br />
+                
+                @Html.Label("Yazarın Kimlik Durumunu Giriniz(True - False :")
+                @Html.TextBoxFor(x => x.WriterStatus, new { @class = "form-control" })
+               
+                <br />
+                
 
-    }
-</div>
+              
+                <button class="btn bg-gradient-info" type="submit" style="margin: 0 auto;display: block; ">
+                    <i class="fas fa-save"></i> Yazarı Ekle
+                </button>
 
 
+            </div>
 
+          
+        }
+    </div>
+</section>
