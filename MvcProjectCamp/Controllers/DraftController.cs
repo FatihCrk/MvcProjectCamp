@@ -24,6 +24,16 @@ namespace MvcProjectCamp.Controllers
         }
 
 
+        public ActionResult SendDraft(Draft d)
+        {
+            d.MessageDate = DateTime.Now;
+            df.DraftAddBl(d);
+
+            return RedirectToAction("NewMessage","Message");
+        }
+
+
+
 
         [HttpGet]
         public ActionResult EditDraft(int id)

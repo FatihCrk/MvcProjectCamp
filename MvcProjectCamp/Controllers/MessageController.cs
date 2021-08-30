@@ -13,6 +13,7 @@ namespace MvcProjectCamp.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         ContactManager  cm= new ContactManager(new EfContactDal());
+        DraftManager df= new DraftManager(new EfDraftDal());
     
         // GET: Message
         public ActionResult Inbox()
@@ -41,6 +42,8 @@ namespace MvcProjectCamp.Controllers
             return View();
 
         }
+
+    
 
         [HttpPost]
         public ActionResult NewMessage(Message p)
