@@ -136,7 +136,6 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentsController.cs" />
-    <Compile Include="Controllers\DraftController.cs" />
     <Compile Include="Controllers\HeadingsController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />

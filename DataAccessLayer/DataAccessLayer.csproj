@@ -54,7 +54,6 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
-    <Compile Include="Abstract\IDraftDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
@@ -64,7 +63,6 @@
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
-    <Compile Include="EntityFramework\EfDraftDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
@@ -98,6 +96,10 @@
     <Compile Include="Migrations\202108241748201_mig_Draft_Create.cs" />
     <Compile Include="Migrations\202108241748201_mig_Draft_Create.designer.cs">
       <DependentUpon>202108241748201_mig_Draft_Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108311249498_mig_update.cs" />
+    <Compile Include="Migrations\202108311249498_mig_update.designer.cs">
+      <DependentUpon>202108311249498_mig_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108241748201_mig_Draft_Create.resx">
       <DependentUpon>202108241748201_mig_Draft_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108311249498_mig_update.resx">
+      <DependentUpon>202108311249498_mig_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
