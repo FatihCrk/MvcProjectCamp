@@ -14,7 +14,7 @@ namespace MvcProjectCamp.Controllers
     {
         DraftManager df = new DraftManager(new EfDraftDal());
 
-
+        
 
         // GET: Draft
         public ActionResult Index()
