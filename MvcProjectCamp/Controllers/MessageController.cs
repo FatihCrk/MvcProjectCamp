@@ -65,7 +65,10 @@ namespace MvcProjectCamp.Controllers
             if (results.IsValid)
             {
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                dm.(); return RedirectToAction("Index", "Draft");
+                message.SenderMail = "admin@gmail.com";
+                message.isDraft = true;
+
+                return RedirectToAction("Draft");
 
 
             }

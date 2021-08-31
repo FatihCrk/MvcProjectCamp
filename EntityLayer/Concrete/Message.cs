@@ -18,7 +18,9 @@ namespace EntityLayer.Concrete
         [StringLength(50)]
         public string Subject { get; set; }
         public string MessageContent { get; set; }
+        public bool isDraft { get; set; }
         public DateTime MessageDate { get; set; }
+
 
     }
 }
