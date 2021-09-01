@@ -2540,6 +2540,7 @@
     <Content Include="Views\Message\NewMessage.cshtml" />
     <Content Include="Views\Draft\Index.cshtml" />
     <Content Include="Views\Draft\EditDraft.cshtml" />
+    <Content Include="Views\Message\Draft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />

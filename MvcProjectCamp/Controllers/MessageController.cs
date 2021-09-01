@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLayer.FluentValidation;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
 
@@ -13,17 +14,17 @@ namespace MvcProjectCamp.Controllers
 {
     public class MessageController : Controller
     {
-        MessageManager mm = new MessageManager(new EfMessageDal()); 
+        MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
         ContactManager cm = new ContactManager(new EfContactDal());
-
+        Context context = new Context();
 
         // GET: Message
         public ActionResult Inbox()
         {
             var messageList = mm.GetListInbox();
 
-            var messageValueNumber= mm.GetListInbox().Count;
+            var messageValueNumber = mm.GetListInbox().Count;
             ViewBag.messageValue = messageValueNumber;
 
             return View(messageList);
@@ -46,8 +47,6 @@ namespace MvcProjectCamp.Controllers
 
         }
 
-
-
         [HttpPost]
         public ActionResult NewMessage(Message p)
         {
@@ -55,12 +54,10 @@ namespace MvcProjectCamp.Controllers
 
         }
 
-     
-
         [HttpPost]
         public ActionResult MessageOfSendDraft(Message message, string button)
         {
-            
+
             ValidationResult results = messageValidator.Validate(message);
             if (results.IsValid)
             {
@@ -79,8 +76,23 @@ namespace MvcProjectCamp.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-           
+
             return View();
+        }
+
+
+        public ActionResult Draft(Message message)
+        {
+
+            var getDraftMessage = context.Messages.Where(x => x.isDraft == true);
+
+
+
+            var messageValueNumber = mm.GetListInbox().Count;
+            ViewBag.messageValue = messageValueNumber;
+
+            return View();
+
 
 
         }
@@ -89,14 +101,9 @@ namespace MvcProjectCamp.Controllers
         public ActionResult EditDraft(int id)
         {
 
-            
+
 
             return View();
         }
-
-
-
-
-
     }
 }
