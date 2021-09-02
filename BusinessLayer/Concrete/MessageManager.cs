@@ -33,6 +33,12 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
         }
 
+        public List<Message> GetTheDraftMessage()
+        {
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.isDraft == true);
+            
+        }
+
         public void MessageAddBl(Message message)
         {
            _messageDal.Insert(message);

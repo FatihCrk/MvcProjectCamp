@@ -37,10 +37,10 @@ namespace MvcProjectCamp.Controllers
             var inboxMessageCount = context.Messages.Where(x=>x.ReceiverMail == "admin@gmail.com").Count();
             ViewBag.inboxMessageResult = inboxMessageCount;
 
+            var draftMessageValueCount = context.Messages.Where(x => x.SenderMail == "admin@gmail.com" && x.isDraft == true).Count();
+            ViewBag.draftMessageResult = draftMessageValueCount;
             return PartialView();
-
-
-
+            
         }
 
        

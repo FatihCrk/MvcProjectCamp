@@ -2,6 +2,7 @@
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,6 +10,7 @@ using BusinessLayer.FluentValidation;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Http;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -16,8 +18,7 @@ namespace MvcProjectCamp.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
-        ContactManager cm = new ContactManager(new EfContactDal());
-        Context context = new Context();
+      
 
         // GET: Message
         public ActionResult Inbox()
@@ -54,18 +55,29 @@ namespace MvcProjectCamp.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult MessageOfSendDraft(Message message, string button)
+        //[HttpPost]
+        public ActionResult MessageOfSendDraft(Message message, string tip, IFormCollection forms)
         {
 
             ValidationResult results = messageValidator.Validate(message);
             if (results.IsValid)
             {
-                message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                message.SenderMail = "admin@gmail.com";
-                message.isDraft = true;
-
-                return RedirectToAction("Draft");
+                if (tip == "draft")
+                {
+                    message.SenderMail = "admin@gmail.com";
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    message.isDraft = true;
+                    mm.MessageAddBl(message);
+                    return RedirectToAction("DraftList");
+                }
+            else if (tip == "sent")
+                {
+                    message.SenderMail = "admin@gmail.com";
+                    message.isDraft = false;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToLongDateString());
+                    mm.MessageAddBl(message);
+                    return RedirectToAction("Sendbox");
+                }
 
 
             }
@@ -77,21 +89,16 @@ namespace MvcProjectCamp.Controllers
                 }
             }
 
-            return View();
+            return View("DraftList");
         }
 
 
-        public ActionResult Draft(Message message)
+        public ActionResult DraftList()
         {
 
-            var getDraftMessage = context.Messages.Where(x => x.isDraft == true);
+            var draftList = mm.GetTheDraftMessage();
 
-
-
-            var messageValueNumber = mm.GetListInbox().Count;
-            ViewBag.messageValue = messageValueNumber;
-
-            return View();
+            return View(draftList);
 
 
 
@@ -100,10 +107,35 @@ namespace MvcProjectCamp.Controllers
         [HttpGet]
         public ActionResult EditDraft(int id)
         {
+            var draftValue = mm.GetById(id);
+
+            return RedirectToAction("DraftList");
+        }
+
+        [HttpPost]
+        public ActionResult EditDraft(Message message)
+        {
+
+
+            MessageValidator messageValidator = new MessageValidator();
+            ValidationResult results = messageValidator.Validate(message);
+            if (results.IsValid)
+            {
+                mm.MessageUpdate(message);
+                return RedirectToAction("DraftList");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
 
 
 
-            return View();
+            return View("DraftList");
+
         }
     }
 }
