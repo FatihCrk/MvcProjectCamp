@@ -55,14 +55,14 @@ namespace MvcProjectCamp.Controllers
 
         }
 
-        //[HttpPost]
-        public ActionResult MessageOfSendDraft(Message message, string tip, IFormCollection forms)
+        [HttpPost]
+        public ActionResult MessageOfSendDraft(Message message, string buttons)
         {
 
             ValidationResult results = messageValidator.Validate(message);
             if (results.IsValid)
             {
-                if (tip == "draft")
+                if (buttons == "draft")
                 {
                     message.SenderMail = "admin@gmail.com";
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
@@ -70,11 +70,13 @@ namespace MvcProjectCamp.Controllers
                     mm.MessageAddBl(message);
                     return RedirectToAction("DraftList");
                 }
-            else if (tip == "sent")
+
+
+            else if (buttons == "sent")
                 {
                     message.SenderMail = "admin@gmail.com";
                     message.isDraft = false;
-                    message.MessageDate = DateTime.Parse(DateTime.Now.ToLongDateString());
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     mm.MessageAddBl(message);
                     return RedirectToAction("Sendbox");
                 }
