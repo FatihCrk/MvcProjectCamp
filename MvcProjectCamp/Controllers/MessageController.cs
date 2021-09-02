@@ -4,13 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using BusinessLayer.FluentValidation;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Http;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -64,7 +65,10 @@ namespace MvcProjectCamp.Controllers
             {
                 if (buttons == "draft")
                 {
-                    message.SenderMail = "admin@gmail.com";
+
+                  
+                   
+                   message.SenderMail = "admin@gmail.com";
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     message.isDraft = true;
                     mm.MessageAddBl(message);

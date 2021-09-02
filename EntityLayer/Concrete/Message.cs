@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace EntityLayer.Concrete
 {
     public class Message
@@ -20,6 +21,8 @@ namespace EntityLayer.Concrete
         public string MessageContent { get; set; }
         public bool isDraft { get; set; }
         public DateTime MessageDate { get; set; }
+
+   
 
 
     }

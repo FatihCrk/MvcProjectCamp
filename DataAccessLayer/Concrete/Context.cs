@@ -14,6 +14,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Writer> Writers { get; set; }
         public DbSet <Message> Messages { get; set; }
 
+
         
         /*DbSet Bağlantıları*/
 
