@@ -29,7 +29,7 @@ namespace MvcProjectCamp.Controllers
             ViewBag.messageValue = messageValueNumber;
 
             return View(messageList);
-
+            
 
 
 
@@ -100,8 +100,6 @@ namespace MvcProjectCamp.Controllers
 
             return View(draftList);
 
-
-
         }
 
         [HttpGet]
@@ -131,9 +129,7 @@ namespace MvcProjectCamp.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-
-
-
+            
             return View("DraftList");
 
         }
