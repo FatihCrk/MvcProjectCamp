@@ -2,9 +2,11 @@
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
@@ -28,6 +30,8 @@ namespace MvcProjectCamp.Controllers
 
             var messageValueNumber = mm.GetListInbox().Count;
             ViewBag.messageValue = messageValueNumber;
+
+          
 
             return View(messageList);
             
@@ -56,6 +60,19 @@ namespace MvcProjectCamp.Controllers
 
         }
 
+        public ActionResult GetMessageDetails(int id)
+        {
+
+            
+            var getMessageDetails = mm.GetById(id);
+
+
+
+
+            return View(getMessageDetails);
+        }
+
+        
         [HttpPost]
         public ActionResult MessageOfSendDraft(Message message, string buttons)
         {

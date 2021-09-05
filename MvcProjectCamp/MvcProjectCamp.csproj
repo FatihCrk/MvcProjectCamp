@@ -2566,6 +2566,7 @@
     <Content Include="Views\Draft\Index.cshtml" />
     <Content Include="Views\Draft\EditDraft.cshtml" />
     <Content Include="Views\Message\DraftList.cshtml" />
+    <Content Include="Views\Message\GetMessageDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />
