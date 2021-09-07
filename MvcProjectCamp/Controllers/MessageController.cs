@@ -50,7 +50,7 @@ namespace MvcProjectCamp.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewMessage(Message message, string button)
+        public ActionResult NewMessage(Message message, string buttons)
         {
             MessageValidator messageValidator = new MessageValidator();
             ValidationResult results = messageValidator.Validate(message);
@@ -58,16 +58,7 @@ namespace MvcProjectCamp.Controllers
 
             if (results.IsValid)
             {
-                if (button == "draft")
-                {
-                    message.SenderMail = "admin@gmail.com";
-                    message.isDraft = true;
-                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                    mm.MessageAddBl(message);
-                    return RedirectToAction("DraftList");
-
-                }
-                else if (button == "sent")
+                if (buttons == "send")
                 {
                     message.SenderMail = "admin@gmail.com";
                     message.isDraft = false;
@@ -75,6 +66,16 @@ namespace MvcProjectCamp.Controllers
                     mm.MessageAddBl(message);
                     return RedirectToAction("Sendbox");
                 }
+               else if (buttons == "draft")
+                {
+                    message.SenderMail = "admin@gmail.com";
+                    message.isDraft = true;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    mm.MessageAddBl(message);
+                    return RedirectToAction("DraftList");
+                    
+                }
+              
 
             }
 
@@ -96,13 +97,24 @@ namespace MvcProjectCamp.Controllers
             var getMessageDetails = mm.GetById(id);
 
 
-
-
             return View(getMessageDetails);
         }
 
 
-        
+        public ActionResult GetDraftDetails(int id)
+        {
+
+
+            var getDraftDetails = mm.GetById(id);
+
+
+
+            return View(getDraftDetails);
+        }
+
+
+
+
 
 
         public ActionResult DraftList()
@@ -119,21 +131,41 @@ namespace MvcProjectCamp.Controllers
         {
             var draftValue = mm.GetById(id);
 
-            return RedirectToAction("DraftList");
+            return View(draftValue);
         }
 
         [HttpPost]
-        public ActionResult EditDraft(Message message)
+        public ActionResult EditDraft(Message message,string buttons)
         {
 
 
             MessageValidator messageValidator = new MessageValidator();
             ValidationResult results = messageValidator.Validate(message);
+
+
             if (results.IsValid)
             {
-                mm.MessageUpdate(message);
-                return RedirectToAction("DraftList");
+                if (buttons == "send")
+                {
+                    message.SenderMail = "admin@gmail.com";
+                    message.isDraft = false;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    mm.MessageUpdate(message);
+                    return RedirectToAction("Sendbox");
+                }
+                else if (buttons == "draft")
+                {
+                    message.SenderMail = "admin@gmail.com";
+                    message.isDraft = true;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    mm.MessageUpdate(message);
+                    return RedirectToAction("DraftList");
+
+                }
+
+
             }
+
             else
             {
                 foreach (var item in results.Errors)
@@ -141,8 +173,7 @@ namespace MvcProjectCamp.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-
-            return View("DraftList");
+            return View();
 
         }
     }

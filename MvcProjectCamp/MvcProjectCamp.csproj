@@ -2563,10 +2563,10 @@
     <Content Include="Views\Message\Inbox.cshtml" />
     <Content Include="Views\Message\Sendbox.cshtml" />
     <Content Include="Views\Message\NewMessage.cshtml" />
-    <Content Include="Views\Draft\Index.cshtml" />
-    <Content Include="Views\Draft\EditDraft.cshtml" />
     <Content Include="Views\Message\DraftList.cshtml" />
     <Content Include="Views\Message\GetMessageDetails.cshtml" />
+    <Content Include="Views\Message\GetDraftDetails.cshtml" />
+    <Content Include="Views\Message\EditDraft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />
