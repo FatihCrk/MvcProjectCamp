@@ -21,7 +21,7 @@ namespace MvcProjectCamp.Controllers
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
-      
+
 
         // GET: Message
         public ActionResult Inbox()
@@ -31,11 +31,7 @@ namespace MvcProjectCamp.Controllers
             var messageValueNumber = mm.GetListInbox().Count;
             ViewBag.messageValue = messageValueNumber;
 
-          
-
             return View(messageList);
-            
-
 
 
         }
@@ -54,46 +50,24 @@ namespace MvcProjectCamp.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewMessage(Message p)
+        public ActionResult NewMessage(Message message, string button)
         {
-            return View();
-
-        }
-
-        public ActionResult GetMessageDetails(int id)
-        {
-
-            
-            var getMessageDetails = mm.GetById(id);
-
-
-
-
-            return View(getMessageDetails);
-        }
-
-        
-        [HttpPost]
-        public ActionResult MessageOfSendDraft(Message message, string buttons)
-        {
-
+            MessageValidator messageValidator = new MessageValidator();
             ValidationResult results = messageValidator.Validate(message);
+
+
             if (results.IsValid)
             {
-                if (buttons == "draft")
+                if (button == "draft")
                 {
-
-                  
-                   
-                   message.SenderMail = "admin@gmail.com";
-                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    message.SenderMail = "admin@gmail.com";
                     message.isDraft = true;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     mm.MessageAddBl(message);
                     return RedirectToAction("DraftList");
+
                 }
-
-
-            else if (buttons == "sent")
+                else if (button == "sent")
                 {
                     message.SenderMail = "admin@gmail.com";
                     message.isDraft = false;
@@ -102,8 +76,8 @@ namespace MvcProjectCamp.Controllers
                     return RedirectToAction("Sendbox");
                 }
 
-
             }
+
             else
             {
                 foreach (var item in results.Errors)
@@ -111,9 +85,24 @@ namespace MvcProjectCamp.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
+            return View();
 
-            return View("DraftList");
         }
+
+        public ActionResult GetMessageDetails(int id)
+        {
+
+
+            var getMessageDetails = mm.GetById(id);
+
+
+
+
+            return View(getMessageDetails);
+        }
+
+
+        
 
 
         public ActionResult DraftList()
@@ -152,7 +141,7 @@ namespace MvcProjectCamp.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            
+
             return View("DraftList");
 
         }

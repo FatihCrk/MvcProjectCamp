@@ -57,21 +57,23 @@
                       <h3 class="card-title">Yeni Mesaj Oluştur</h3>
                   </div>
                   <!-- /.card-header -->
-                  <form action="/Message/MessageOfSendDraft" method="POST" >
+                  <form action="/Message/NewMessage" method="POST" >
                   <div class="card-body"> 
                       <div class="form-group">
 
                       
                      
-                          <input class="form-control" name="ReceiverMail" required placeholder="Kime:" type="email"/>
-                      
+                          <input id="exampleInputReceiver" class="form-control" name="ReceiverMail" required placeholder="Kime:" /> 
+                         
+
+                          @Html.ValidationMessageFor(x=>x.ReceiverMail ,"" ,new { @class = "text-danger" , @style="font-family:Calibri"})
                       </div>
                       <div class="form-group">
                       
                           @*<input class="form-control" name="subject" required placeholder="konu:" type="text"/>*@
                           
                           @Html.TextBoxFor(x => x.Subject, new {@class = "form-control", placeholder = "Konu: "})
-                      @Html.ValidationMessageFor(x => x.Subject)
+                      @Html.ValidationMessageFor(x => x.Subject,"" , new { @class = "text-danger" , @style="font-family:Calibri"})
                       </div>
                       <div class="form-group">
                           <textarea runat="server" id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px">
