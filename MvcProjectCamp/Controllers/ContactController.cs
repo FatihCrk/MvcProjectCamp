@@ -14,8 +14,7 @@ namespace MvcProjectCamp.Controllers
     public class ContactController : Controller
     {
         ContactManager cm = new ContactManager(new EfContactDal());
-        ContactValidator cv = new ContactValidator();
-
+        
         Context context = new Context();
         
         // GET: Contact

@@ -145,7 +145,18 @@ namespace MvcProjectCamp.Controllers
 
             if (results.IsValid)
             {
-                if (buttons == "send")
+                if (buttons == "draft")
+                {
+                    message.SenderMail = "admin@gmail.com";
+                    message.isDraft = true;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    mm.MessageUpdate(message); 
+                    
+                    return RedirectToAction("DraftList");
+
+                }
+
+               else if (buttons == "send")
                 {
                     message.SenderMail = "admin@gmail.com";
                     message.isDraft = false;
@@ -153,17 +164,7 @@ namespace MvcProjectCamp.Controllers
                     mm.MessageUpdate(message);
                     return RedirectToAction("Sendbox");
                 }
-                else if (buttons == "draft")
-                {
-                    message.SenderMail = "admin@gmail.com";
-                    message.isDraft = true;
-                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                    mm.MessageUpdate(message);
-                    return RedirectToAction("DraftList");
-
-                }
-
-
+                
             }
 
             else

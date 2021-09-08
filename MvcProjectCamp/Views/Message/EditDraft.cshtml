@@ -58,11 +58,12 @@
                       <h3 class="card-title">Mesajı Düzenle</h3>
                   </div>
                   <!-- /.card-header -->
-                  <form action="/Message/NewMessage" method="POST" >  
+                  <form action="/Message/EditDraft" method="POST" >  
                       <!-------------------- Diğer bir Post Yöntemi -------------------->
                   <div class="card-body"> 
                       <div class="form-group">
-
+                          @Html.Hidden("MessageID",Model.MessageID)
+                          <!-------------------- Modelin Mesaj IDsi -------------------->
                       @Html.Label("Kime: ")
                           @Html.TextBoxFor(x => x.ReceiverMail, new {@class = "form-control"})
                          @Html.ValidationMessageFor(x=>x.ReceiverMail ,"" ,new { @class = "text-danger" , @style="font-family:Calibri"})
