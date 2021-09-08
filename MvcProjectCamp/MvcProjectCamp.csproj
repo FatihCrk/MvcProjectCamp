@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentsController.cs" />
+    <Compile Include="Controllers\ErrorPagesController.cs" />
     <Compile Include="Controllers\HeadingsController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -343,6 +344,9 @@
     <Content Include="AdminLTE\pages\charts\flot.html" />
     <Content Include="AdminLTE\pages\charts\inline.html" />
     <Content Include="AdminLTE\pages\charts\uplot.html" />
+    <Content Include="AdminLTE\pages\error-404\css\style.css" />
+    <Content Include="AdminLTE\pages\error-404\img\bg.jpg" />
+    <Content Include="AdminLTE\pages\error-404\index.html" />
     <Content Include="AdminLTE\pages\examples\404.html" />
     <Content Include="AdminLTE\pages\examples\500.html" />
     <Content Include="AdminLTE\pages\examples\blank.html" />
@@ -2567,6 +2571,7 @@
     <Content Include="Views\Message\GetMessageDetails.cshtml" />
     <Content Include="Views\Message\GetDraftDetails.cshtml" />
     <Content Include="Views\Message\EditDraft.cshtml" />
+    <Content Include="Views\ErrorPages\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />
