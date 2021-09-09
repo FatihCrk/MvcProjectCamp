@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     
-
+    @RenderSection("css",false)
 
 </head>
 
@@ -430,7 +430,7 @@
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+@RenderSection("script",false)
 <script src="/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
