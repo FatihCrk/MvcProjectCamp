@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentsController.cs" />
     <Compile Include="Controllers\ErrorPagesController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingsController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -377,6 +378,7 @@
     <Content Include="AdminLTE\pages\forms\editors.html" />
     <Content Include="AdminLTE\pages\forms\general.html" />
     <Content Include="AdminLTE\pages\forms\validation.html" />
+    <Content Include="AdminLTE\pages\gallery - Copy.html" />
     <Content Include="AdminLTE\pages\gallery.html" />
     <Content Include="AdminLTE\pages\kanban.html" />
     <Content Include="AdminLTE\pages\layout\boxed.html" />
@@ -2572,6 +2574,7 @@
     <Content Include="Views\Message\GetDraftDetails.cshtml" />
     <Content Include="Views\Message\EditDraft.cshtml" />
     <Content Include="Views\ErrorPages\Page404.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />
