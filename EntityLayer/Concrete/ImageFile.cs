@@ -16,4 +16,5 @@ namespace EntityLayer.Concrete
         [StringLength(250)] 
         public string ImagePath { get; set; }
     }
+
 }

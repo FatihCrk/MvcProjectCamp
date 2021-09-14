@@ -9,13 +9,23 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {
-    public class ImageFileManager:IImageFileService
+    public class ImageFileManager : IImageFileService
     {
-        private IImageFileDal _imageFileDal;
+         IImageDal _iImageDal;
 
-        public ImageFileManager(IImageDal contentDal)
+         public ImageFileManager(IImageDal iImageDal)
+         {
+             _iImageDal = iImageDal;
+         }
+
+        public ImageFile GetByImageId(int id)
         {
-            _imageFileDal = contentDal;
+            return _iImageDal.GetById(x => x.ImageId == id);
+        }
+
+        public List<ImageFile> GetImageList()
+        {
+            return _iImageDal.List();
         }
     }
 }

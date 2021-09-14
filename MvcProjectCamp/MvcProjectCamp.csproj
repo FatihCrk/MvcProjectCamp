@@ -336,6 +336,12 @@
     <Content Include="AdminLTE\docs\_layouts\default.html" />
     <Content Include="AdminLTE\docs\_layouts\page.html" />
     <Content Include="AdminLTE\iframe.html" />
+    <Content Include="AdminLTE\images\filipinler.jpg" />
+    <Content Include="AdminLTE\images\misir.jpg" />
+    <Content Include="AdminLTE\images\norvec.jpg" />
+    <Content Include="AdminLTE\images\y-zelanda.jpg" />
+    <Content Include="AdminLTE\images\cekya.jpg" />
+    <Content Include="AdminLTE\images\urdun.jpg" />
     <Content Include="AdminLTE\index.html" />
     <Content Include="AdminLTE\index2.html" />
     <Content Include="AdminLTE\index3.html" />

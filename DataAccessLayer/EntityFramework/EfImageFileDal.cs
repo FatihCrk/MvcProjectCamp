@@ -9,7 +9,7 @@ using EntityLayer.Concrete;
 
 namespace DataAccessLayer.EntityFramework
 {
-   public class EfImageFile : GenericRepository<ImageFile>, IImageDal
+   public class EfImageFileDal : GenericRepository<ImageFile>, IImageDal
     {
     }
 }
