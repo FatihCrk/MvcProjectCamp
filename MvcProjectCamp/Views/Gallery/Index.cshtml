@@ -7,7 +7,8 @@
 }
 
 
-@section css{   <!-- Google Font: Source Sans Pro -->
+@section css{
+    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
@@ -17,19 +18,15 @@
     <link rel="stylesheet" href="/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="/AdminLTE/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="/AdminLTE/plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="/AdminLTE/plugins/summernote/summernote-bs4.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
     <!-- Ekko Lightbox -->
     <link rel="stylesheet" href="/AdminLTE/plugins/ekko-lightbox/ekko-lightbox.css">
-   }
+}
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -50,15 +47,23 @@
             </div>
             <div class="card-body">
                 <div class="row">
-
+                    
+                        
+                   
                     @foreach (var item in Model)
                     {
-                        <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery">
-                            <img src="@item.ImagePath" class="img-fluid mb-2" alt="white sample" style="float: left; width: 200px; height: 200px; object-fit: scale-down;"/>
-                        </a>
+                        <div class="position-relative" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery" style="float:left;width:13%;height:100%; padding-left: 5px;">
+                            <img src="@item.ImagePath" alt="Photo 3" class="img-fluid" alt="white sample" style="float: left; width: 200px; height: 200px; object-fit: cover;">
+                            <div class="ribbon-wrapper ribbon-xl" style="width: 105px;top: -6px;">
+                                <div class="ribbon bg-danger" style="width: 138px;top: 31px;">
+                                    @item.ImageName
+                                </div>
+                            </div>
+                        </div>
 
-                    }
+                    } 
                 </div>
+            
               
               </div>
             </div>
