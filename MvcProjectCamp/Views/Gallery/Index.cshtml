@@ -52,16 +52,19 @@
                    
                     @foreach (var item in Model)
                     {
-                        <div class="position-relative" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery" style="float:left;width:13%;height:100%; padding-left: 5px;">
-                            <img src="@item.ImagePath" alt="Photo 3" class="img-fluid" alt="white sample" style="float: left; width: 200px; height: 200px; object-fit: cover;">
-                            <div class="ribbon-wrapper ribbon-xl" style="width: 105px;top: -6px;">
-                                <div class="ribbon bg-danger" style="width: 138px;top: 31px;">
+                        <div class="col-sm-2"    style=" max-width: 13.666667%;">
+                        <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery" style="float: left; width: 200px; height: 200px; object-fit: cover;">
+                            <div class="ribbon-wrapper ribbon-xl" style="width: 105px;top: -6px; right: 6px;">
+                                <div class="ribbon bg-danger" style="width: 137px;top: 31px;">
                                     @item.ImageName
                                 </div>
+                               
                             </div>
-                        </div>
+                            <img src="@item.ImagePath" class="img-fluid mb-2" alt="black sample" style="float: left; width: 200px; height: 200px; object-fit: cover;" />
+                        </a>
+                        </div>  } 
+                    
 
-                    } 
                 </div>
             
               
