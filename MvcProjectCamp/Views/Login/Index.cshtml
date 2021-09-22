@@ -2,72 +2,114 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-<!doctype html>
 <html lang="en">
-  <head>
-  	<title>Giriş Sayfası</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+	<title>Kullanıcı Giriş Sayfası</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/AdminLTE/pages/loginForm/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
 	
-	<link rel="stylesheet" href="/AdminLTE/pages/loginForm/css/style.css">
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/AdminLTE/pages/loginForm/images/bg-01.jpg');">
+			<div class="wrap-login100" style="background: rgb(119 76 175 / 30%); box-shadow: 0px 0px 8px 12px #dadada;;background: rgb(119 76 175 / 30%);">
+				<form class="login100-form validate-form">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
 
-	</head>
-	<body>
-    <section class="ftco-section" style="background-image: url('/AdminLTE/images/loginbg.jpg');">
+					<span class="login100-form-title p-b-34 p-t-27" style="margin-bottom: 50px;">
+						Giriş Ekranı
+					</span>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Giriş Sayfası
-                    </h2>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-4" >
-                    <div class="login-wrap py-5" style="background: rgb(62 64 55 / 29%);">
-                        <div class="img d-flex align-items-center justify-content-center" style="background-image: url(/AdminLTE/pages/loginForm/images/bg.jpg); "></div>
-                        <h3 class="text-center mb-0" >HOŞGELDİNİZ!...</h3>
-                      
-                     
-                        <form action="#" class="login-form">
-                            <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center" style="background: -webkit-gradient(linear, left top, left bottom, from(#f00), to(#333));
-                                                                                                                                                                                                                                                                                                                                                                                                                -webkit-background-clip: text;
-                                                                                                                                                                                                                                                                                                                                                                                                                -webkit-text-fill-color: transparent;"><span class="fa fa-user"></span></div>
-                                <input type="text" class="form-control" placeholder="Kullanıcı Adınız" required>
-                            </div>
-                            <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-                                <input type="password" class="form-control" placeholder="Şifreniz" required>
-                            </div>
-                            <div class="form-group d-md-flex">
-                                <div class="w-100 text-md-right">
-                                    <a href="#">Şifremi Unuttum!...</a>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn form-control btn-primary rounded submit px-3">Giriş Yap</button>
-                            </div>
-                        </form>
-                        <p class="text-center">Sitemizde konu açma ve ya yorum yapabilmeniz için üye olmanız gerekli. Üye olmak için   
-                        <a href="#">Buraya Tıklayın!..</a>
+                    <div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adınızı Girin"  >
+                        <input class="input100" type="text" required="" name="username" oninvalid="this.setCustomValidity('Kullanıcı Adınızı Girin.')"
+                               oninput="setCustomValidity('')" placeholder="Kullanıcı Adınız" style="box-shadow: -2px 0px 26px #ffffff;border-radius: 5px;background-color: #b39bd6;">
+                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+					
+                
 
-	<script src="/AdminLTE/pages/loginForm/js/jquery.min.js"></script>
-  <script src="/AdminLTE/pages/loginForm/js/popper.js"></script>
-  <script src="/AdminLTE/pages/loginForm/js/bootstrap.min.js"></script>
-  <script src="/AdminLTE/pages/loginForm/js/main.js"></script>
+                    <div class="wrap-input100 validate-input" data-validate="Şifrenizi Girin">
+						<input class="input100" required="" name="username" oninvalid="this.setCustomValidity('Kullanıcı Şifrenizi Girin.')"
+                               oninput="setCustomValidity('')" type="password" name="pass" placeholder="Şifreniz" style="box-shadow: -2px 0px 26px #ffffff;border-radius: 5px;     background-color: #b39bd6;">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
 
-	</body>
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Beni Hatırla
+						</label>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn"    style="box-shadow: 0px 0px 10px 7px #b5b5b5;">
+							Giriş Yap
+						</button>
+					</div>
+
+                    <div class="text-center p-l-230" style="margin-top: 20px;">
+                        <a class="txt1" href="#">
+                            Şifrenizi mi unuttunuz?
+                        </a>
+                    </div>
+					
+                    <div class="text-center p-t-1" style="margin-top: 30px;">
+                        <a class="txt1" style="margin-top: 30px; font-size: 25px;" href="#">
+                           Anasayfa git
+                        </a>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/bootstrap/js/popper.js"></script>
+	<script src="/AdminLTE/AdminLTE/pages/loginForm/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/AdminLTE/pages/loginForm/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/js/main.js"></script>
+	
+
+
+</body>
 </html>
 
