@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using System.Web.Security;
 
 namespace MvcProjectCamp.Controllers
 {
