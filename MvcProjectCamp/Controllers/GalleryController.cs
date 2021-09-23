@@ -8,6 +8,7 @@ using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
 {
+    [Authorize]
     public class GalleryController : Controller
     {
         ImageFileManager ifm = new ImageFileManager(new EfImageFileDal());
