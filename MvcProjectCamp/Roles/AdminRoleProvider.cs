@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using DataAccessLayer.Concrete;
 
 namespace MvcProjectCamp.Roles
 {
@@ -16,9 +15,7 @@ namespace MvcProjectCamp.Roles
 
         public override string[] GetRolesForUser(string username)
         {
-            Context c = new Context();
-            var x = c.Admins.FirstOrDefault(x => x.AdminUserName == username);
-            return new string[] {x.AdminRole};
+            throw new NotImplementedException();
         }
 
         public override void CreateRole(string roleName)
