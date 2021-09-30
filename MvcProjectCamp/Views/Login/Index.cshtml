@@ -38,18 +38,19 @@
     
     <div class="container-login100" style="background-image: url('/AdminLTE/pages/loginForm/images/bg-01.jpg');">
         <div class="wrap-login100" style="background: rgb(119 76 175 / 30%); box-shadow: 0px 0px 8px 12px #dadada; ; background: rgb(119 76 175 / 30%);">
-
-            <form class="login100-form validate-form">
+      
+            @using(Html.BeginForm("Index","Login",FormMethod.Post ,new {id ="login100-form validate-form" }))
+{
+           
                 <span class="login100-form-logo">
                     <i class="zmdi zmdi-landscape"></i>
                 </span>
 
                 <span class="login100-form-title p-b-34 p-t-27" style="margin-bottom: 50px;">
-                    Giriş Ekranı
+            Giriş Ekranı
                 </span>
-                @using(Html.BeginForm("Index","Login",FormMethod.Post))
-                {
-                <div class="wrap-input100 validate-input" data-validate="Kullanıcı Adınızı Girin">
+               
+                <div class="wrap-input100 validate-input">
                     <input class="input100" type="text" required="" name="AdminUserName" oninvalid="this.setCustomValidity('Kullanıcı Adınızı Girin.')"
                            oninput="setCustomValidity('')" placeholder="Kullanıcı Adınız" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -57,7 +58,7 @@
 
 
 
-                <div class="wrap-input100 validate-input" data-validate="Şifrenizi Girin">
+                <div class="wrap-input100 validate-input" >
                     <input class="input100" required="" oninvalid="this.setCustomValidity('Kullanıcı Şifrenizi Girin.')"
                            oninput="setCustomValidity('')" type="password" name="AdminPassword" placeholder="Şifreniz" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
@@ -70,11 +71,14 @@
                     </label>
                 </div>
 
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" style="box-shadow: 0px 0px 10px 7px #b5b5b5;">
-                        Giriş Yap
-                    </button>
-                </div>}
+                    <div class="container-login100-form-btn">
+
+                        <button class="login100-form-btn" style="box-shadow: 0px 0px 10px 7px #b5b5b5;" type="submit">
+                            Giriş Yap
+                        </button>
+                    </div>
+
+
 
                 <div class="text-center p-l-230" style="margin-top: 20px;">
                     <a class="txt1" href="#">
@@ -87,7 +91,7 @@
                         Anasayfa git
                     </a>
                 </div>
-            </form>
+}
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using System.Web.Security;
+using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -19,22 +20,19 @@ namespace MvcProjectCamp.Controllers
             return View();
         } 
         [HttpPost]
-        public ActionResult Index(Admin a)
+        public ActionResult Index(Admin p)
         {
             Context c = new Context();
-            var adminuserInfo = c.Admins.FirstOrDefault(x =>
-                x.AdminUserName == a.AdminUserName && x.AdminPassword == a.AdminPassword);
+            var adminuserInfo = c.Admins.FirstOrDefault(x => x.AdminUserName == p.AdminUserName && x.AdminPassword == p.AdminPassword);
             if (adminuserInfo != null )
             {
-                return RedirectToAction("Index", "AdminCategory");
-            }
-            else
-            {
-                return RedirectToAction("Page404","ErrorPages");
-
+                FormsAuthentication.SetAuthCookie(adminuserInfo.AdminUserName,false); // Kalıcı coockie oluşsun mu false;
+                Session["AdminUserName"] = adminuserInfo.AdminUserName; // Kalıcı coockie oluşsunmu false;
+                return RedirectToAction("Index", "Gallery");
             }
 
-            return View();
+
+            return RedirectToAction("Page404", "ErrorPages");
         }
     }
 }

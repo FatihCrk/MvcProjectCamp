@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +8,14 @@ using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
 {
-    [Authorize]
+    
     public class GalleryController : Controller
     {
         ImageFileManager ifm = new ImageFileManager(new EfImageFileDal());
 
+
         // GET: Gallery
+        [Authorize]
         public ActionResult Index()
         {
             var getImageList = ifm.GetImageList();
