@@ -15,7 +15,7 @@ namespace MvcProjectCamp.Controllers
 
 
         // GET: Gallery
-        [Authorize]
+        [Authorize(Roles = "B")]
         public ActionResult Index()
         {
             var getImageList = ifm.GetImageList();

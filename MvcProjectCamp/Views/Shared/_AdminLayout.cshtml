@@ -326,16 +326,17 @@
 
                 </li>
 
-                <li class="nav-item">
-                    <a href="~/AdminLTE/#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Yazılar
+        <li class="nav-item">
+            <a href="~/AdminLTE/#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    Yazılar
 
-                        </p>
-                    </a>
+                </p>
+            </a>
 
-                </li>
+        </li>
+        @if(User.IsInRole("B")){
                 <li class="nav-item">
                     <a href="~/AdminLTE/#" class="nav-link">
                         <i class="nav-icon fas fa-magic"></i>
@@ -345,7 +346,7 @@
                         </p>
                     </a>
 
-                </li>
+                </li>}
                 <li class="nav-item">
                     <a href="/Gallery/Index/" class="nav-link">
                         <i class="nav-icon fas fa-icons"></i>
