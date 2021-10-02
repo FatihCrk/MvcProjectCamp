@@ -15,7 +15,10 @@ namespace MvcProjectCamp.Controllers
         // GET: Abouts
         public ActionResult Index()
         {
-            return View();
+
+            var aboutValues = abm.GetAboutList();
+            @ViewBag.Checked = "Pasif";
+            return View(aboutValues);
         }
         
         [HttpGet]   

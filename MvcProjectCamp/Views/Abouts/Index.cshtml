@@ -1,9 +1,18 @@
-﻿@using EntityLayer.Concrete
+﻿
+@using EntityLayer.Concrete
+@model List<About>
+    
+
 
 @{
     ViewBag.Title = "Hakkımızda Sayfası";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+    
+
+
+
+
 
 
 @section css{
@@ -21,9 +30,56 @@
     <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 }
+<!-- overlayScrollbars -->
 
-@Html.Partial("AboutPartial","About") @*Partial kullanımı.*@ 
+
+
+    <div class="card">
+              <div class="card-header">
+               @Html.Partial("AboutPartial","About") 
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed">
+                  <thead>
+                    <tr>
+                      <th>Başlık Adı</th>
+                      <th>Başlık Tarihi</th>
+                      <th>Kategorisi</th>
+                      <th>Yazar Adı</th>
+                      <th>Durumu/Değiştir</th>
+                    </tr>
+                  </thead>
+                  <tbody>@foreach (var item in Model)
+                         {
+                    <tr>
+                      <td>@item.AboutDetails1</td>
+                      <td>Hakkımızda Detayı 2</td>
+                        <td>Hakkımızda Resim 1</td>
+                        <td>Hakkımızda Resim 2</td>
+                        
+                        
+                     
+                    </tr>}
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
 
 @section script
 {
