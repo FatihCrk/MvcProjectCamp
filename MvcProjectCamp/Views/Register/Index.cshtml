@@ -1,0 +1,125 @@
+﻿@model EntityLayer.Concrete.Admin
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Admin Kayıt</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/AdminLTE/pages/loginForm/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/AdminLTE/pages/loginForm/css/main.css">
+<!--===============================================================================================-->
+</head>
+
+	
+<div class="limiter">
+
+    
+    <div class="container-login100" style="background-image: url('/AdminLTE/pages/loginForm/images/bg-01.jpg');">
+        <div class="wrap-login100" style="background: rgb(119 76 175 / 30%); box-shadow: 0px 0px 8px 12px #dadada; ; background: rgb(119 76 175 / 30%);">
+      
+            @using(Html.BeginForm("Index","Register",FormMethod.Post ,new {id ="login100-form validate-form" }))
+{
+           
+                <span class="login100-form-logo">
+                    <i class="zmdi zmdi-landscape"></i>
+                </span>
+
+                <span class="login100-form-title p-b-34 p-t-27" style="margin-bottom: 50px;">
+            Admin Kayıt Ekranı
+                </span>
+               
+    <div class="wrap-input100 validate-input">
+        <input class="input100" type="text" required="" name="AdminUserName" oninvalid="this.setCustomValidity('Admin UserName Bilgisi Giriniz')"
+               oninput="setCustomValidity('')" placeholder="Admin Kullanıcı Adınız" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
+        <span class="focus-input100" data-placeholder="&#xf207;"></span>
+    </div>
+
+     
+    <div class="wrap-input100 validate-input">
+    
+    @Html.DropDownListFor(x => x.AdminRole , (List<SelectListItem>)ViewBag.valueAdminRole, new { @class="input100", @type="text", @required="", @name="AdminRole", @oninvalid="this.setCustomValidity('Admin Rolü Bilgisi Giriniz')", @oninput="setCustomValidity('')", @placeholder="Admin Rolü", @style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; @background-color: #b39bd6;" })
+        <span class="focus-input100" data-placeholder="&#xf207;"></span>
+    
+        </div>
+    <div class="wrap-input100 validate-input" >
+        <input class="input100" required="" oninvalid="this.setCustomValidity('Şifrenizi Girin.')"
+               oninput="setCustomValidity('')" type="password" name="AdminPassword" placeholder="Şifreniz" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
+        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+    </div>
+
+
+
+
+                    <div class="container-login100-form-btn">
+
+                        <button class="login100-form-btn" style="box-shadow: 0px 0px 10px 7px #b5b5b5;" type="submit">
+                           Üye Ol
+                        </button>
+                    </div>
+ 
+                <div class="text-center p-l-230" style="margin-top: 20px;">
+                    <a class="txt1" href="/Login/Index">
+                      Hesabınız var mı? Giriş Sayfasına git
+                    </a>
+                </div>
+
+                <div class="text-center p-t-1" style="margin-top: 30px;">
+                    <a class="txt1" style="margin-top: 30px; font-size: 25px;" href="#">
+                        Anasayfa git
+                    </a>
+                </div>
+}
+        </div>
+    </div>
+</div>
+            
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/bootstrap/js/popper.js"></script>
+	<script src="/AdminLTE/AdminLTE/pages/loginForm/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/AdminLTE/pages/loginForm/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/AdminLTE/pages/loginForm/js/main.js"></script>
+	
+
+
+
+</html>
+
+

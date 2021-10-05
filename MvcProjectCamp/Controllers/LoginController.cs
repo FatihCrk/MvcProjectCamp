@@ -27,7 +27,7 @@ namespace MvcProjectCamp.Controllers
             if (adminuserInfo != null )
             {
                 FormsAuthentication.SetAuthCookie(adminuserInfo.AdminUserName,false); // Kalıcı coockie oluşsun mu false;
-                Session["AdminUserName"] = adminuserInfo.AdminUserName; // Kalıcı coockie oluşsunmu false;
+                Session["AdminUserName"] = adminuserInfo.AdminUserName; 
                 return RedirectToAction("Index", "Gallery");
             }
 
