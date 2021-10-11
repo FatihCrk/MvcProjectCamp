@@ -40,11 +40,18 @@ namespace MvcProjectCamp.Controllers
         public ActionResult Index(Admin admin)
         {
 
+            /*SHA1 ile Hash İşlemi*/
 
-            SHA1 sha1 = new SHA1CryptoServiceProvider();
-            string password = admin.AdminPassword;
-            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-            admin.AdminPassword = result;
+            SHA1 sha2 = new SHA1CryptoServiceProvider();
+            string hashadminuser = admin.AdminUserName;
+            string hashpassword = admin.AdminPassword;
+
+            string resultPw = Convert.ToBase64String(sha2.ComputeHash(Encoding.UTF8.GetBytes(hashpassword)));
+
+     
+            admin.AdminPassword = resultPw;
+           
+
             ad.AdminAddBl(admin);
 
             return RedirectToAction("Index","Login");

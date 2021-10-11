@@ -19,6 +19,8 @@ namespace MvcProjectCamp.Controllers
 
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal()); // GET: Headings
+
+
         public ActionResult HeadingsList()
         {
             var headingValues = hm.GetHeadingList();
@@ -126,12 +128,6 @@ namespace MvcProjectCamp.Controllers
 
             return RedirectToAction("HeadingsList");
         }
-
-
-
-
-
-
 
 
     }

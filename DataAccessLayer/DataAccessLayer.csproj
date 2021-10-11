@@ -121,6 +121,10 @@
     <Compile Include="Migrations\202109171029575_mig_Add_Admin_Model.designer.cs">
       <DependentUpon>202109171029575_mig_Add_Admin_Model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110081157537_added_IsReadStatus.cs" />
+    <Compile Include="Migrations\202110081157537_added_IsReadStatus.designer.cs">
+      <DependentUpon>202110081157537_added_IsReadStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -174,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109171029575_mig_Add_Admin_Model.resx">
       <DependentUpon>202109171029575_mig_Add_Admin_Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110081157537_added_IsReadStatus.resx">
+      <DependentUpon>202110081157537_added_IsReadStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

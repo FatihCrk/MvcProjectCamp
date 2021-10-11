@@ -9,9 +9,9 @@ namespace DataAccessLayer.Concrete.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        Context c = new Context();
+        Context c = new Context();/*Db Bağlantısı*/
         DbSet<T> _object;
-        /*Db Bağlantısı*/
+        
 
         public GenericRepository() // çağırıldığında çalışacak blog - Constructor bloğu
         /*Objeye değer ataması için*/
@@ -57,7 +57,7 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public List<T> List(Expression<Func<T, bool>> filter)
         {
-           return _object.Where(filter).ToList();//şartımı sağlayan filtreyi getir.
+           return _object.Where(filter).ToList();//şartı sağlayan filtreyi getir.
         }
     }
 }

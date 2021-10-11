@@ -20,8 +20,8 @@ namespace MvcProjectCamp.Controllers
     public class MessageController : Controller
     {
         MessageManager mm = new MessageManager(new EfMessageDal());
-        MessageValidator messageValidator = new MessageValidator();
 
+        Context context = new Context();
 
         // GET: Message
         public ActionResult Inbox()
@@ -30,6 +30,9 @@ namespace MvcProjectCamp.Controllers
 
             var messageValueNumber = mm.GetListInbox().Count;
             ViewBag.messageValue = messageValueNumber;
+
+            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "admin@gmail.com").Count();
+            ViewBag.inboxMessageResult = inboxMessageCount;
 
             return View(messageList);
 
@@ -177,5 +180,26 @@ namespace MvcProjectCamp.Controllers
             return View();
 
         }
+
+
+        public ActionResult IsRead(int id)
+        {
+            var result = mm.GetById(id);
+            if (result.IsReadStatus == true)
+            {
+                result.IsReadStatus = false;
+            }
+            else if (result.IsReadStatus == false)
+            {
+                result.IsReadStatus = true;
+            }
+           
+            mm.MessageUpdate(result);
+            return RedirectToAction("Inbox");
+        }
+
+
+
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,11 @@ namespace BusinessLayer.Concrete
         public void MessageUpdate(Message message)
         {
           _messageDal.Update(message);
+        }
+
+        public List<Message> GetAll(Expression<Func<Message, bool>> filter)
+        {
+            return _messageDal.List(filter);
         }
     }
 }

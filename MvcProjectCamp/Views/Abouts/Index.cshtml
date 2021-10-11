@@ -9,7 +9,11 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
     
-
+@{ string aboutStatusClassResults = "pasive-border";}
+@{ string aboutStatusClassResultsNand = "btn btn-secondary";}
+@{ string aboutResult = "Belirsiz";}
+@{ string aboutResultNand = "Belirsiz";}
+@{ string fontStatusResultColor = "Belirsiz";}
 
 
 
@@ -33,7 +37,6 @@
     
     <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 }
-<!-- overlayScrollbars -->
 
 
 
@@ -65,12 +68,41 @@
                   </thead>
                   <tbody>@foreach (var item in Model)
                          {
+
+
+
+                             switch (item.AboutStatus)
+                             {
+                                 case true:
+
+                                     aboutResult = "Aktif";
+                                     aboutResultNand = "Pasif Yap";
+                                     aboutStatusClassResults = "nav-icon far fa-circle text-success";
+                                     aboutStatusClassResultsNand = "btn btn-block btn-outline-danger btn-sm";
+                                     fontStatusResultColor = "text-success";
+
+                                     break;
+
+                                 case false:
+                                     aboutResult = "Pasif";
+                                     aboutResultNand  = "Aktif Yap";
+                                     aboutStatusClassResults = "nav-icon far fa-circle text-danger";
+                                     aboutStatusClassResultsNand = "btn btn-block btn-outline-success btn-sm";
+                                     fontStatusResultColor = "text-danger";
+                                     break;
+
+                             }
                     <tr>
                       <td>@item.AboutDetails1</td>
                       <td>Hakkımızda Detayı 2</td>
                         <td>Hakkımızda Resim 1</td>
                         <td>Hakkımızda Resim 2</td>
-                        
+
+                        <td> <div style="float: left; padding: 3px; ">
+                            <a class="@aboutStatusClassResultsNand" href="/Abouts/DeleteAbout/@item.AboutId">
+                                <i class="icon fas fa-exclamation-triangle" style="padding: 3px;"></i>@aboutResultNand
+                            </a>
+                        </div></td>
                         
                      
                     </tr>}

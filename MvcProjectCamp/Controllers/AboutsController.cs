@@ -37,5 +37,28 @@ namespace MvcProjectCamp.Controllers
         {
             return PartialView();
         }
+
+
+
+        public ActionResult DeleteAbout(int id)
+        {
+
+            var aboutValue = abm.GetByAboutId(id);
+
+            switch (aboutValue.AboutStatus)
+            {
+                case true:
+                    aboutValue.AboutStatus = false;
+                    break;
+                case false:
+                    aboutValue.AboutStatus = true;
+                    break;
+            }
+
+
+            abm.AboutDelete(aboutValue);
+
+            return RedirectToAction("Index");
+        }
     }
 }
