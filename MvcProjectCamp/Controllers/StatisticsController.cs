@@ -25,7 +25,7 @@ namespace MvcProjectCamp.Controllers
 
             var HeadingsinTitleTableSoftwareInfo = context.Headings.Count(x => x.HeadingName == "Yazılım");
             ViewBag.HeadingsinTitleTableSoftwareInfo = HeadingsinTitleTableSoftwareInfo;
-
+            
 
             var headingsInTitleWriterInfoCharA = context.Writers.Count(x => x.WriterName.Contains("a"));
             ViewBag.HeadingsInTitleWriterInfoCharA = headingsInTitleWriterInfoCharA;

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using DataAccessLayer.Concrete;
 
+
 namespace MvcProjectCamp.Roles
 {
     public class AdminRoleProvider:RoleProvider
@@ -16,12 +17,24 @@ namespace MvcProjectCamp.Roles
 
         public override string[] GetRolesForUser(string username)
         {
-            Context c = new Context(); //ÖDEV
+            Context context = new Context(); //ÖDEV
 
             /*Sisteme otantike olan kişinin rolünü getirir. */
 
-            var x = c.Admins.FirstOrDefault(y => y.AdminUserName == username); 
-            return new string[]{x.AdminRole};
+            var result =  context.Admins.FirstOrDefault(y => y.AdminUserName == username);
+
+            var resultWriter = context.Writers.FirstOrDefault(y => y.WriterName == username);
+
+            if (result != null)
+            {
+                return new string[] {result.AdminRole};
+            }
+            else if (resultWriter != null)
+            {
+                return new string[] { resultWriter.WriterRole };
+            }
+
+            return new string[]{};
 
         }
 

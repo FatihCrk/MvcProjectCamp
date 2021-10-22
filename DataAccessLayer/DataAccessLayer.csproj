@@ -59,7 +59,9 @@
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\IImageDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IMyAboutDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IRoleDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
@@ -70,6 +72,8 @@
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfMyAbout.cs" />
+    <Compile Include="EntityFramework\EfRoleDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
@@ -124,6 +128,18 @@
     <Compile Include="Migrations\202110081157537_added_IsReadStatus.cs" />
     <Compile Include="Migrations\202110081157537_added_IsReadStatus.designer.cs">
       <DependentUpon>202110081157537_added_IsReadStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110120658253_mig_Added_Role.cs" />
+    <Compile Include="Migrations\202110120658253_mig_Added_Role.designer.cs">
+      <DependentUpon>202110120658253_mig_Added_Role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110200757321_mig_Ability_Added.cs" />
+    <Compile Include="Migrations\202110200757321_mig_Ability_Added.designer.cs">
+      <DependentUpon>202110200757321_mig_Ability_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110221303517_added_MyAbout.cs" />
+    <Compile Include="Migrations\202110221303517_added_MyAbout.designer.cs">
+      <DependentUpon>202110221303517_added_MyAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +197,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110081157537_added_IsReadStatus.resx">
       <DependentUpon>202110081157537_added_IsReadStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110120658253_mig_Added_Role.resx">
+      <DependentUpon>202110120658253_mig_Added_Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110200757321_mig_Ability_Added.resx">
+      <DependentUpon>202110200757321_mig_Ability_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110221303517_added_MyAbout.resx">
+      <DependentUpon>202110221303517_added_MyAbout.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,7 @@
 @{ string aboutResult = "Belirsiz";}
 @{ string aboutResultNand = "Belirsiz";}
 @{ string fontStatusResultColor = "Belirsiz";}
-
+@{ string statusStyle = "Belirsiz"; }
 
 
 
@@ -45,7 +45,7 @@
                @Html.Partial("AboutPartial","About") 
 
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
+                  <div class="input-group input-group-sm" style="width: 150px; margin-top: 5px; ">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                     <div class="input-group-append">
@@ -55,14 +55,15 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 300px;">
+              <tr class="card-body table-responsive p-0" style="height: auto;">
                 <table class="table table-head-fixed">
                   <thead>
                     <tr>
                       <th>Başlık Adı</th>
                       <th>Başlık Tarihi</th>
                       <th>Kategorisi</th>
-                      <th>Yazar Adı</th>
+                        <th>Yazar Adı</th>
+                        <th>Durumu</th>
                       <th>Durumu/Değiştir</th>
                     </tr>
                   </thead>
@@ -80,6 +81,8 @@
                                      aboutStatusClassResults = "nav-icon far fa-circle text-success";
                                      aboutStatusClassResultsNand = "btn btn-block btn-outline-danger btn-sm";
                                      fontStatusResultColor = "text-success";
+                                     statusStyle = "color: #fff;background-color: #28a745;border-color: #148ea1; text-align: center; padding:3px; width:90px;" ;
+
 
                                      break;
 
@@ -89,14 +92,18 @@
                                      aboutStatusClassResults = "nav-icon far fa-circle text-danger";
                                      aboutStatusClassResultsNand = "btn btn-block btn-outline-success btn-sm";
                                      fontStatusResultColor = "text-danger";
+                                     statusStyle = "    color: #fff;background-color: #a90000;border-color: #148ea1; text-align: center; padding:3px; width:90px;";
                                      break;
 
                              }
                     <tr>
                       <td>@item.AboutDetails1</td>
-                      <td>Hakkımızda Detayı 2</td>
-                        <td>Hakkımızda Resim 1</td>
-                        <td>Hakkımızda Resim 2</td>
+                      <td>@item.AboutDetails2</td>
+                        <td>@item.AboutImage1</td>
+                        <td>@item.AboutImage2</td>
+                         <td><div class="alert alert-info alert-dismissible" style="@statusStyle">
+                             @aboutResult
+                         </div></td>
 
                         <td> <div style="float: left; padding: 3px; ">
                             <a class="@aboutStatusClassResultsNand" href="/Abouts/DeleteAbout/@item.AboutId">
@@ -111,7 +118,7 @@
                 </table>
               </div>
               <!-- /.card-body -->
-            </div>
+      
 
 @section script
 {

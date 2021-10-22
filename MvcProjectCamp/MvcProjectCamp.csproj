@@ -157,6 +157,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AbilityController.cs" />
     <Compile Include="Controllers\AboutsController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -492,6 +493,17 @@
     <Content Include="AdminLTE\pages\search\enhanced.html" />
     <Content Include="AdminLTE\pages\search\simple-results.html" />
     <Content Include="AdminLTE\pages\search\simple.html" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\css\style.css" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\images\5.jpg" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\images\person.png" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\images\img1.jpg" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\images\sprite.png" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\index.html" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\js\bars.js" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\js\easyResponsiveTabs.js" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\js\jquery-1.11.1.min.js" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\js\jquery.circlechart.js" />
+    <Content Include="AdminLTE\pages\skills_Theme\web\w3layouts-License.txt" />
     <Content Include="AdminLTE\pages\tables\data.html" />
     <Content Include="AdminLTE\pages\tables\jsgrid.html" />
     <Content Include="AdminLTE\pages\tables\simple.html" />
@@ -2780,6 +2792,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SS\Yetenek Kartı.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2824,6 +2837,7 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Ability\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />

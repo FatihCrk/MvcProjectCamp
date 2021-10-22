@@ -32,8 +32,7 @@ namespace MvcProjectCamp.Controllers
             string hashAdminUser = p.AdminUserName;
             string hashPassword = p.AdminPassword;
 
-            string resultAdUser = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashAdminUser)));
-            p.AdminUserName = resultAdUser;
+           
             string resultPw = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashPassword)));
             p.AdminPassword = resultPw;
 

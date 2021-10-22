@@ -5,7 +5,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
 	<title>Admin Kayıt</title>
 	<meta charset="UTF-8">
@@ -39,7 +39,7 @@
 
     
     <div class="container-login100" style="background-image: url('/AdminLTE/pages/loginForm/images/bg-01.jpg');">
-        <div class="wrap-login100" style="background: rgb(119 76 175 / 30%); box-shadow: 0px 0px 8px 12px #dadada; ; background: rgb(119 76 175 / 30%);">
+        <div class="wrap-login100" style="background: rgb(119 76 175 / 30%); box-shadow: 0px 0px 8px 12px #dadada; background: rgb(119 76 175 / 30%);">
       
             @using(Html.BeginForm("Index","Register",FormMethod.Post ,new {id ="login100-form validate-form" }))
 {
@@ -54,20 +54,15 @@
                
     <div class="wrap-input100 validate-input">
         <input class="input100" type="text" required="" name="AdminUserName" oninvalid="this.setCustomValidity('Admin UserName Bilgisi Giriniz')"
-               oninput="setCustomValidity('')" placeholder="Admin Kullanıcı Adınız" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
+               oninput="setCustomValidity('')" placeholder="Kullanıcı Adınız" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
         <span class="focus-input100" data-placeholder="&#xf207;"></span>
     </div>
 
      
-    <div class="wrap-input100 validate-input">
-    
-    @Html.DropDownListFor(x => x.AdminRole , (List<SelectListItem>)ViewBag.valueAdminRole, new { @class="input100", @type="text", @required="", @name="AdminRole", @oninvalid="this.setCustomValidity('Admin Rolü Bilgisi Giriniz')", @oninput="setCustomValidity('')", @placeholder="Admin Rolü", @style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; @background-color: #b39bd6;" })
-        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-    
-        </div>
+   
     <div class="wrap-input100 validate-input" >
         <input class="input100" required="" oninvalid="this.setCustomValidity('Şifrenizi Girin.')"
-               oninput="setCustomValidity('')" type="password" name="AdminPassword" placeholder="Şifreniz" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
+               oninput="setCustomValidity('')" type="password" name="AdminPassword" id="password" placeholder="Şifreniz" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
         <span class="focus-input100" data-placeholder="&#xf191;"></span>
     </div>
 
@@ -120,6 +115,5 @@
 
 
 
-</html>
 
 

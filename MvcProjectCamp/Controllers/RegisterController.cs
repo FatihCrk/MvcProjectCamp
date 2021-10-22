@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -13,20 +14,21 @@ namespace MvcProjectCamp.Controllers
 {
     public class RegisterController : Controller
     {
-        AdminManager ad = new AdminManager(new EfAdminDal());
+        AdminManager ad = new AdminManager(new EfAdminDal()); 
+        WriterManager wm = new WriterManager(new EfWriterDal()); 
+        RoleManager rm = new RoleManager(new EfRoleDal());
 
         // GET: Register
         [HttpGet]
         public ActionResult Index()
         {
-
-            string[] Roles = {"A", "B", "C"};
+           
             
-            List<SelectListItem> valueAdminRole = (from c in Roles //Listeleme 
+            List<SelectListItem> valueAdminRole = (from c in rm.GetRoleList() //Listeleme 
                 select new SelectListItem()
                 {
-                    Text = c.ToString(),
-                    Value = c.ToString()
+                    Text = c.Name.ToString(),
+                    Value = c.Name.ToString()
 
                 }).ToList();
 
@@ -34,27 +36,37 @@ namespace MvcProjectCamp.Controllers
 
             return View();
         }
-
+       
 
         [HttpPost]
-        public ActionResult Index(Admin admin)
+        public ActionResult Index(Admin admin )
         {
 
             /*SHA1 ile Hash İşlemi*/
 
-            SHA1 sha2 = new SHA1CryptoServiceProvider();
-            string hashadminuser = admin.AdminUserName;
-            string hashpassword = admin.AdminPassword;
-
-            string resultPw = Convert.ToBase64String(sha2.ComputeHash(Encoding.UTF8.GetBytes(hashpassword)));
-
-     
-            admin.AdminPassword = resultPw;
-           
-
+          
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+            string password = admin.AdminPassword;
+            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            admin.AdminPassword = result;
+            admin.AdminStatus = true;
+            admin.AdminRole = "A";
             ad.AdminAddBl(admin);
+            admin.AdminPassword = result;
+         
+         
+            ad.AdminAddBl(admin);
+
 
             return RedirectToAction("Index","Login");
         }
+
+        
+
+
+
+
+
+
     }
 }
