@@ -1,11 +1,12 @@
-﻿
-@using EntityLayer.Concrete
+﻿@using EntityLayer.Concrete
+
 @model List<Heading>
 
 @{
-    ViewBag.Title = "Admin Paneli | Başlık Listesi";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+
 @{ string genderResult = "AdminLTELogo.png";}
 @{ string badgeResults = "badge badge-success";}
 @{ string headingStatusClassResults = "pasive-border";}
@@ -56,21 +57,16 @@
                             <th style="width: 21%">
                                 Başlık Adı
                             </th>
-                            <th style="width: 0%; font-size: 14px !important;">
+                            <th style="width: 1%; font-size: 14px !important;">
                                 Profil Resmi
                             </th>
                             <th style="width: 20%;">
                                 Yazar
                             </th>
-                            <th style="width: 6%;" class="text-center">
-                                Durum
-                            </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
-                            <th style="width: 33%;">
-                                İşlemler
-                            </th>
+                         
                         </tr>
                     </thead>
                     <tbody>
@@ -110,27 +106,7 @@
 
 
 
-                            switch (item.HeadingStatus)
-                            {
-                                case true:
-
-                                    statusResult = "Aktif";
-                                    statusResultNand = "Pasif Yap";
-                                    headingStatusClassResults = "nav-icon far fa-circle text-success";
-                                    headingStatusClassResultsNand = "btn btn-block btn-outline-danger btn-sm";
-                                    fontStatusResultColor = "text-success";
-
-                                    break;
-
-                                case false:
-                                    statusResult = "Pasif";
-                                    statusResultNand = "Aktif Yap";
-                                    headingStatusClassResults = "nav-icon far fa-circle text-danger";
-                                    headingStatusClassResultsNand = "btn btn-block btn-outline-success btn-sm";
-                                    fontStatusResultColor = "text-danger";
-                                    break;
-
-                            }
+                           
 
 
 
@@ -166,16 +142,12 @@
                                     </a>
                                 </td>
 
-                                <td style="text-align: center !important; ">
-
-                                    <i class="@headingStatusClassResults"></i> <p class="@fontStatusResultColor" style="float: right; margin-top:-1px; margin-bottom: -1rem;margin-right: 10px;">
-                                        @statusResult
-                                    </p>
+                              
 
 
 
 
-                                </td>
+                                
 
 
 
@@ -187,7 +159,7 @@
                                     <div style="float: left; padding: 3px;">
                                         <a type="button" class="btn btn-block btn-outline-info btn-sm" href="~/Headings/EditHeading/@item.HeadingId">
                                             <i class="fas fa-folder" style="padding: 3px;">
-                                            </i>İçerik Bilgisi
+                                            </i>Yorumlar
                                         </a>
                                     </div>
 
@@ -199,8 +171,8 @@
                                     </div>
 
                                     <div style="float: left; padding: 3px; ">
-                                        <a class="@headingStatusClassResultsNand" href="~/Headings/DeleteHeading/@item.HeadingId">
-                                            <i class="icon fas fa-exclamation-triangle" style="padding: 3px;"></i>@statusResultNand
+                                        <a class="btn btn-block btn-outline-danger btn-sm" href="~/Headings/DeleteHeading/@item.HeadingId">
+                                            <i class="icon fas fa-exclamation-triangle" style="padding: 3px;"></i>Sil
                                         </a>
                                     </div>
                                 </td>
