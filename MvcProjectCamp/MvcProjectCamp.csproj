@@ -2842,6 +2842,8 @@
     <Content Include="Views\Shared\_WriterLayout.cshtml" />
     <Content Include="Views\WriterPanel\WriterProfile.cshtml" />
     <Content Include="Views\WriterPanel\MyHeading.cshtml" />
+    <Content Include="Views\WriterPanel\NewHeading.cshtml" />
+    <Content Include="Views\WriterPanel\EditMyHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />

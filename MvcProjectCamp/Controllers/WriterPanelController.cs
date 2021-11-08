@@ -40,6 +40,7 @@ namespace MvcProjectCamp.Controllers
                                                       Value = c.CategoryId.ToString()
 
                                                   }).ToList();
+            @ViewBag.vlc = valueCategory;
             return View();
         }
 
@@ -48,11 +49,62 @@ namespace MvcProjectCamp.Controllers
         public ActionResult NewHeading(Heading p)
         {
             p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            p.WriterId = 32;
+            p.HeadingStatus = true;
+
             hm.HeadingAddBl(p);
 
 
-            return View("MyHeading");
+            return RedirectToAction("MyHeading");
 
+        }
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+
+            List<SelectListItem> valueCategory = (from c in cm.GetCategoryList() //Listeleme 
+                select new SelectListItem()
+                {
+                    Text = c.CategoryName,
+                    Value = c.CategoryId.ToString()
+
+                }).ToList();
+            ViewBag.vlc = valueCategory;
+            var headingValue = hm.GetByHeadingId(id);
+
+            return View(headingValue);
+        }
+
+        [HttpPost]
+        public ActionResult EditHeading(Heading h)
+        {
+
+            hm.HeadingUpdate(h);
+
+            return RedirectToAction("MyHeading");
+        }
+
+
+
+        public ActionResult DeleteHeading(int id)
+        {
+
+            var headingValue = hm.GetByHeadingId(id);
+
+            switch (headingValue.HeadingStatus)
+            {
+                case true:
+                    headingValue.HeadingStatus = false;
+                    break;
+                case false:
+                    headingValue.HeadingStatus = true;
+                    break;
+            }
+
+
+            hm.HeadingDelete(headingValue);
+
+            return RedirectToAction("MyHeading");
         }
     }
 }
