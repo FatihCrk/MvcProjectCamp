@@ -32,7 +32,7 @@
 
 
 
-    @using (Html.BeginForm("EditHeading", "Headings", FormMethod.Post))
+    @using (Html.BeginForm("EditMyHeading", "WriterPanel", FormMethod.Post))
     {
 
 <div class="form-group" style="padding: 50px;">
@@ -50,7 +50,17 @@
     @Html.Label("Başlık Tarihi :")
     @Html.TextBoxFor(x => x.HeadingDate, "", new { @class = "form-control" })
 
-  
+    <br />
+
+    @Html.Label("Yazar Adı :")
+    @Html.TextBoxFor(x => x.WriterId , "", new { @class = "form-control" })
+
+    <br />
+    @Html.Label("Kategori Adı :")
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+
+    <br />
+
 
 
 
@@ -92,3 +102,4 @@
     <script src="/AdminLTE/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/AdminLTE/dist/js/pages/dashboard.js"></script>}
+

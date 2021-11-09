@@ -59,7 +59,7 @@ namespace MvcProjectCamp.Controllers
 
         }
         [HttpGet]
-        public ActionResult EditHeading(int id)
+        public ActionResult EditMyHeading(int id)
         {
 
             List<SelectListItem> valueCategory = (from c in cm.GetCategoryList() //Listeleme 
