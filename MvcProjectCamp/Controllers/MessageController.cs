@@ -42,6 +42,14 @@ namespace MvcProjectCamp.Controllers
         public ActionResult Sendbox()
         {
             var messageList = mm.GetListSendbox();
+
+
+            var messageValueNumber = mm.GetListInbox().Count;
+            ViewBag.messageValue = messageValueNumber;
+
+            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "f.cirak@gmail.com").Count();
+            ViewBag.inboxMessageResult = inboxMessageCount;
+
             return View(messageList);
         }
 

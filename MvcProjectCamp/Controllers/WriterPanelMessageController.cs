@@ -20,11 +20,7 @@ namespace MvcProjectCamp.Controllers
         public ActionResult Inbox()
         {
             var messageList = mm.GetListInbox();
-
-            var messageValueNumber = mm.GetListInbox().Count;
-            ViewBag.messageValue = messageValueNumber;
-
-            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "admin@gmail.com").Count();
+            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "f.cirak@gmail.com").Count();
             ViewBag.inboxMessageResult = inboxMessageCount;
 
             return View(messageList);
@@ -34,6 +30,12 @@ namespace MvcProjectCamp.Controllers
 
         public PartialViewResult MessageListMenu()
         {
+            var messageValueNumber = mm.GetListInbox().Count;
+            ViewBag.messageValue = messageValueNumber;
+
+            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "f.cirak@gmail.com").Count();
+            ViewBag.inboxMessageResult = inboxMessageCount;
+
             return PartialView();
         }
 
@@ -44,8 +46,43 @@ namespace MvcProjectCamp.Controllers
         }
 
 
+        public ActionResult GetMessageDetails(int id)
+        {
 
 
+            var getMessageDetails = mm.GetById(id);
+
+
+            return View(getMessageDetails);
+        }
+
+
+        public ActionResult GetDraftDetails(int id)
+        {
+
+
+            var getDraftDetails = mm.GetById(id);
+
+            getDraftDetails.MessageContent = HttpUtility.HtmlDecode(getDraftDetails.MessageContent);
+
+            return View(getDraftDetails);
+        }
+
+        public ActionResult IsRead(int id)
+        {
+            var result = mm.GetById(id);
+            if (result.IsReadStatus == true)
+            {
+                result.IsReadStatus = false;
+            }
+            else if (result.IsReadStatus == false)
+            {
+                result.IsReadStatus = true;
+            }
+
+            mm.MessageUpdate(result);
+            return RedirectToAction("Inbox");
+        }
 
 
 

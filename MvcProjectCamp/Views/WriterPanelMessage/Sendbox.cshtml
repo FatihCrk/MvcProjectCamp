@@ -1,10 +1,12 @@
-﻿@using EntityLayer.Concrete
+﻿ @using EntityLayer.Concrete
 @model List<Message>
 
 @{
     ViewBag.Title = "Sendbox";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+
+
 
 @section css{
     <!-- Google Font: Source Sans Pro -->
@@ -16,6 +18,12 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
 }
+
+@{ string message = "";}
+@{string newmessage = "";}
+@{ string color = "";}
+@{ string read = "";}
+
 <body class="hold-transition sidebar-mini">
 <!-- Main content -->
    
@@ -82,6 +90,31 @@
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover table-striped">
                   <tbody>@foreach(var item in Model){
+
+                      if (item.IsReadStatus == false)
+                                   {
+                                       message = "Okundu Olarak İşaretle";
+                                      
+                                       newmessage = "callout callout-danger";
+                                       read = "far fa-envelope-open";
+                                   }
+                                   if (item.IsReadStatus == true)
+                                   {
+                                       message = "Okunmadı Olarak İşaretle";
+                                       newmessage = "quote-secondary";
+                                       read = "far fa-envelope";
+
+                                   }
+                                   if (item.IsReadStatus == false)
+                                   {
+                                       color = "btn btn-block btn-outline-danger btn-sm";
+                                   }
+                                   if (item.IsReadStatus == true)
+                                   {
+                                       color = "btn btn-block btn-outline-danger btn-sm";
+                                   }
+
+
                   <tr>
                     <td>
                       <div class="icheck-primary">
@@ -90,8 +123,8 @@
                       </div>
                     </td>
                     <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                    <td class="mailbox-name"><a href="/Message/GetMessageDetails/@item.MessageID">@item.ReceiverMail</a></td>
-                    <td class="mailbox-subject"><b>@item.Subject.Substring(0,2) </b> - @item.MessageContent...
+                    <td class="mailbox-name"><a href="/WriterPanelMessage/GetMessageDetails/@item.MessageID">@item.ReceiverMail</a></td>
+                    <td class="mailbox-subject"><b>@item.Subject.Substring(0,6)...</b> - @item.MessageContent.Substring(0,8)...
                     </td>
                     <td class="mailbox-attachment"></td>
                     <td class="mailbox-date">@item.MessageDate.ToString("dd-MMM-yyyy")</td>
