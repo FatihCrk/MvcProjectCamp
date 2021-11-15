@@ -106,7 +106,10 @@
                     </div>
                     <!-- /.mailbox-controls -->
                     <div class="mailbox-read-message">
-                        @Html.DisplayFor(x=>x.MessageContent)
+                  
+                        
+
+                        @MvcHtmlString.Create(HttpUtility.HtmlDecode(Model.MessageContent))
                     </div>
                     <!-- /.mailbox-read-message -->
                 </div>

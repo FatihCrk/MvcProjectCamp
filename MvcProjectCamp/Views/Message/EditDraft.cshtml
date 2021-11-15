@@ -1,9 +1,12 @@
-﻿@model EntityLayer.Concrete.Message
+﻿@using EntityLayer.Concrete
+@model EntityLayer.Concrete.Message
 
 @{
     ViewBag.Title = "EditDraft";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+@{ string encodeContent = HttpUtility.HtmlEncode(@Model.MessageContent);}
 
 
  @section css{
@@ -66,7 +69,15 @@
                       </div>
                       <div class="form-group">
                           @Html.Label("Mesajınız ")
-                          <textarea runat="server" id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px">@Html.DisplayFor(x => x.MessageContent)</textarea>
+                          <textarea runat="server" id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px" ValidateRequest="false">
+               @Html.DisplayFor(x=>x.MessageContent)
+
+
+         
+
+  
+
+                    </textarea>
                       </div>
                       <div class="form-group">
                           <div class="btn btn-default btn-file">
@@ -118,19 +129,23 @@
 <script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
 
 
+<!-- Bootstrap 4 -->
+<script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- Summernote -->
-  <script src="/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
- 
+<script src="/AdminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/AdminLTE/dist/js/demo.js"></script>
 <!-- Page specific script -->
-  <script>
-      $(function () {
-          //Add text editor
-          $('#compose-textarea').summernote('code');
-
-      })
-  </script>
+<script>
+    $(function () {
+        //Add text editor
+        $('#compose-textarea').summernote('code')
+    })
+</script>
   
 
 
   </body>
-</html>
+

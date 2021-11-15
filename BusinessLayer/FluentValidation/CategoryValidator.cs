@@ -17,6 +17,7 @@ namespace BusinessLayer.FluentValidation
             RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Kategori Açıklaması boş geçilemez.");
             RuleFor(x => x.CategoryName).MinimumLength(2).WithMessage("Kategori ismi 2 karakterden uzun olmalıdır.");
             RuleFor(x => x.CategoryName).MaximumLength(20).WithMessage("Kategori ismi 20 karakterden uzun olmamalı.");
+            
         }
     }
 }

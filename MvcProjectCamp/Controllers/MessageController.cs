@@ -57,6 +57,8 @@ namespace MvcProjectCamp.Controllers
         {
             MessageValidator messageValidator = new MessageValidator();
             ValidationResult results = messageValidator.Validate(message);
+            HttpUtility utility = new HttpUtility();
+
 
 
             if (results.IsValid)
@@ -68,18 +70,27 @@ namespace MvcProjectCamp.Controllers
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     mm.MessageAddBl(message);
                     return RedirectToAction("Sendbox");
+
                 }
-               else if (buttons == "draft")
+                else if (buttons == "draft")
                 {
                     message.SenderMail = "admin@gmail.com";
                     message.isDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+
+                    //MvcHtmlString data = MvcHtmlString.Create( message.MessageContent);
+
+                    //message.MessageContent = data.ToString();
+
+
+                    string data = Server.HtmlEncode(message.MessageContent);
+                    message.MessageContent = data;
+
+
                     mm.MessageAddBl(message);
                     return RedirectToAction("DraftList");
-                    
-                }
-              
 
+                }
             }
 
             else
@@ -110,7 +121,7 @@ namespace MvcProjectCamp.Controllers
 
             var getDraftDetails = mm.GetById(id);
 
-
+            getDraftDetails.MessageContent = HttpUtility.HtmlDecode(getDraftDetails.MessageContent);
 
             return View(getDraftDetails);
         }
@@ -124,6 +135,7 @@ namespace MvcProjectCamp.Controllers
         {
 
             var draftList = mm.GetTheDraftMessage();
+           
 
             return View(draftList);
 
@@ -138,7 +150,7 @@ namespace MvcProjectCamp.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditDraft(Message message,string buttons)
+        public ActionResult EditDraft(Message message, string buttons)
         {
 
 
@@ -153,13 +165,15 @@ namespace MvcProjectCamp.Controllers
                     message.SenderMail = "admin@gmail.com";
                     message.isDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                    mm.MessageUpdate(message); 
-                    
+                    message.MessageContent = HttpContext.Server.HtmlEncode(message.MessageContent);
+
+                    mm.MessageUpdate(message);
+
                     return RedirectToAction("DraftList");
 
                 }
 
-               else if (buttons == "send")
+                else if (buttons == "send")
                 {
                     message.SenderMail = "admin@gmail.com";
                     message.isDraft = false;
@@ -167,7 +181,7 @@ namespace MvcProjectCamp.Controllers
                     mm.MessageUpdate(message);
                     return RedirectToAction("Sendbox");
                 }
-                
+
             }
 
             else
@@ -193,7 +207,7 @@ namespace MvcProjectCamp.Controllers
             {
                 result.IsReadStatus = true;
             }
-           
+
             mm.MessageUpdate(result);
             return RedirectToAction("Inbox");
         }
