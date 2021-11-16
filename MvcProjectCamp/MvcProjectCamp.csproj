@@ -169,6 +169,7 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\WriterPanelContentController.cs" />
     <Compile Include="Controllers\WriterPanelController.cs" />
     <Compile Include="Controllers\WriterPanelMessageController.cs" />
     <Compile Include="Controllers\WritersController.cs" />
@@ -2850,6 +2851,7 @@
     <Content Include="Views\WriterPanelMessage\Sendbox.cshtml" />
     <Content Include="Views\WriterPanelMessage\GetMessageDetails.cshtml" />
     <Content Include="Views\WriterPanelMessage\GetDraftDetails.cshtml" />
+    <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />

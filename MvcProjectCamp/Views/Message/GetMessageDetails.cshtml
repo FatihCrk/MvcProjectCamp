@@ -15,8 +15,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 }
 
 <section class="content">
@@ -151,13 +159,14 @@
                 </div>
             
                 <!-- /.card-footer -->
-                <div class="card-footer">
+             <div class="card-footer">
                     <div class="float-right">
-                        <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Reply</button>
-                        <button type="button" class="btn btn-default"><i class="fas fa-share"></i> Forward</button>
+                        <a href="/Message/Reply/@Model.MessageID" class="btn btn-default"><i class="fas fa-reply"></i>Yanıtla</a>
+                         <a href="/Message/Reply-All/@Model.MessageID" class="btn btn-default"><i class="fas fa-reply-all"></i> Tümünü Yanıtla</a>
+                        <button type="submit" value="send" class="btn btn-default"><i class="fas fa-share"></i>İlet </button>
                     </div>
-                    <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
-                    <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Print</button>
+                    <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Sil</button>
+                    <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Yazdır</button>
                 </div>
                 <!-- /.card-footer -->
             </div>
@@ -168,3 +177,28 @@
       <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
+@section script
+{
+    <!-- jQuery -->
+    <script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="/AdminLTE/plugins/moment/moment.min.js"></script>
+    <script src="/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="/AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/AdminLTE/dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/AdminLTE/dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="/AdminLTE/dist/js/pages/dashboard.js"></script>}

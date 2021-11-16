@@ -47,5 +47,16 @@ namespace BusinessLayer.Concrete
         {
             throw new NotImplementedException();
         }
+     
+
+        public List<Content> GetListByWriter()
+        {
+            return _contentDal.List(x => x.WriterId == 4);
+        }
+
+        public List<Content> GetListByHeading(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
