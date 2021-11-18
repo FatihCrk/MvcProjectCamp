@@ -47,7 +47,44 @@ namespace MvcProjectCamp.Controllers
             }
 
 
+           
+
+
             return RedirectToAction("Page404", "ErrorPages");
         }
+        [HttpGet]
+        public ActionResult WriterLogin() 
+        {
+
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult WriterLogin(Writer p)
+        {
+
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+         
+            string hashPassword = p.WriterPassword;
+
+
+            string resultPw = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashPassword)));
+            p.WriterPassword = resultPw;
+
+
+            Context c = new Context();
+            var writerUserInfo = c.Writers.FirstOrDefault(x =>  x.WriterPassword == p.WriterPassword);
+            if (writerUserInfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(writerUserInfo.WriterPassword, false); // Kalıcı coockie oluşsun mu false;
+                Session["WriterUserName"] = writerUserInfo.WriterName;
+                return RedirectToAction("MyContent", "WriterPanelContent");
+            }
+
+            return RedirectToAction("Page404", "ErrorPages");
+
+        }
+
+
     }
 }
