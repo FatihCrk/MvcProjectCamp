@@ -544,6 +544,7 @@
     <Content Include="AdminLTE\pages\writerlogin\login-form-13\js\main.js" />
     <Content Include="AdminLTE\pages\writerlogin\login-form-13\js\popper.js" />
     <Content Include="AdminLTE\pages\writerlogin\login-form-13\main.html" />
+    <Content Include="AdminLTE\pages\writerlogin\loginbg.jpg" />
     <Content Include="AdminLTE\pages\writerlogin\main.html" />
     <Content Include="AdminLTE\pages\writerlogin\__MACOSX\login-form-13\._index.html" />
     <Content Include="AdminLTE\pages\writerlogin\__MACOSX\login-form-13\._main.html" />

@@ -1,26 +1,24 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Content>
+
+
 
 @{
     ViewBag.Title = "MyContent";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Timeline</title>
-
+    
+ @section css{
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
   <!-- AdminLTE css -->
-  <link rel="stylesheet" href="/AdminLTE//dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+    }
 
 
-
-   
 
 
     <!-- Main content -->
@@ -32,27 +30,30 @@
           <div class="col-md-12">
             <!-- The time line -->
             <div class="timeline">
-              <!-- timeline time label -->
-              <div class="time-label">
-               
-                <span class="bg-red">@item.</span>
-              </div>
-              
-              <!-- timeline item -->
-              <div>
-                <i class="fas fa-user bg-green"></i>
-                <div class="timeline-item">
-                  <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
-                  <h3 class="timeline-header no-border"><a href="#">Başlık</a> </h3>
-                <div class="timeline-body">    İçerik       </div>
-              </div>
+
+                @foreach (var item in Model)
+                {
+                    <!-- timeline time label -->
+                    <div class="time-label">
+
+                        <span class="bg-red"> @item.ContentDate.ToString("dd.MM.yyyy")</span>
+                    </div>
+
+                    <!-- timeline item -->
+                    <div>
+                        <i class="fas fa-user bg-green"></i>
+                        <div class="timeline-item">
+                            <span class="time"><i class="fas fa-clock"></i> </span>
+                            <h3 class="timeline-header no-border"><a href="#">@item.Headings.HeadingName</a> </h3>
+                            <div class="timeline-body"> @item.ContentText </div>
+                        </div>
+                    </div>
+                    <!-- END timeline item -->
+
+                }
+                <div>
+                    <i class="fas fa-clock bg-gray"></i>
                 </div>
-              <!-- END timeline item -->
-           
-             
-              <div>
-                <i class="fas fa-clock bg-gray"></i>
-              </div>
             </div>
           </div>
           <!-- /.col -->
@@ -62,7 +63,7 @@
 
     </section>
     <!-- /.content -->
-  </div>
+
   <!-- /.content-wrapper -->
 
 
@@ -71,16 +72,17 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
+
 <!-- ./wrapper -->
 
-<!-- jQuery -->
+@section script{<!-- jQuery -->
 <script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="/AdminLTE//plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/AdminLTE/dist/js/demo.js"></script>
-</body>
 
+
+}
