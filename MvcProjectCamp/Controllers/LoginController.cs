@@ -9,6 +9,7 @@ using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using System.Web.Security;
 using BusinessLayer.Concrete;
+using CaptchaMvc.HtmlHelpers;
 using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
@@ -20,40 +21,39 @@ namespace MvcProjectCamp.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-           
-        
+
+
             return View();
-        } 
+        }
         [HttpPost]
         public ActionResult Index(Admin p)
         {
 
             SHA1 sha1 = new SHA1CryptoServiceProvider();
-            string hashAdminUser = p.AdminUserName;
             string hashPassword = p.AdminPassword;
 
-           
+
             string resultPw = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashPassword)));
             p.AdminPassword = resultPw;
 
 
             Context c = new Context();
             var adminuserInfo = c.Admins.FirstOrDefault(x => x.AdminUserName == p.AdminUserName && x.AdminPassword == p.AdminPassword);
-            if (adminuserInfo != null )
+            if (adminuserInfo != null)
             {
-                FormsAuthentication.SetAuthCookie(adminuserInfo.AdminUserName,false); // Kalıcı coockie oluşsun mu false;
-                Session["AdminUserName"] = adminuserInfo.AdminUserName; 
+                FormsAuthentication.SetAuthCookie(adminuserInfo.AdminUserName, false); // Kalıcı coockie oluşsun mu false;
+                Session["AdminUserName"] = adminuserInfo.AdminUserName;
                 return RedirectToAction("Index", "Gallery");
             }
 
 
-           
+
 
 
             return RedirectToAction("Page404", "ErrorPages");
         }
         [HttpGet]
-        public ActionResult WriterLogin() 
+        public ActionResult WriterLogin()
         {
 
             return View();
@@ -63,27 +63,53 @@ namespace MvcProjectCamp.Controllers
         public ActionResult WriterLogin(Writer p)
         {
 
-            SHA1 sha1 = new SHA1CryptoServiceProvider();
-         
-            string hashPassword = p.WriterPassword;
+            //SHA1 sha1 = new SHA1CryptoServiceProvider();
+
+            //string hashPassword = p.WriterPassword;
 
 
-            string resultPw = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashPassword)));
-            p.WriterPassword = resultPw;
+            //string resultPw = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashPassword)));
+            //p.WriterPassword = resultPw;
+
 
 
             Context c = new Context();
-            var writerUserInfo = c.Writers.FirstOrDefault(x =>  x.WriterPassword == p.WriterPassword);
+            var writerUserInfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+
+
+
             if (writerUserInfo != null)
             {
-                FormsAuthentication.SetAuthCookie(writerUserInfo.WriterPassword, false); // Kalıcı coockie oluşsun mu false;
-                Session["WriterUserName"] = writerUserInfo.WriterName;
-                return RedirectToAction("MyContent", "WriterPanelContent");
+                FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false); // Kalıcı coockie oluşsun mu false;
+                Session["WriterUserName"] = writerUserInfo.WriterMail;
+
+                
+
+                // Code for validating the CAPTCHA  
+                if (this.IsCaptchaValid("Captcha is not valid"))
+                {
+
+                    return RedirectToAction("MyContent", "WriterPanelContent");
+                }
+
+                
+
+
+
+
             }
 
-            return RedirectToAction("Page404", "ErrorPages");
+
+            ViewBag.ErrMessage = "Error: captcha is not valid.";
+
+            return RedirectToAction("WriterLogin", "Login");
+            
 
         }
+
+
+
+
 
 
     }
