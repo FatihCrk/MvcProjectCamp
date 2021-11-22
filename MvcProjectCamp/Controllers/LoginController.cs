@@ -83,24 +83,21 @@ namespace MvcProjectCamp.Controllers
                 FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false); // Kalıcı coockie oluşsun mu false;
                 Session["WriterUserName"] = writerUserInfo.WriterMail;
 
-                
+
 
                 // Code for validating the CAPTCHA  
-                if (this.IsCaptchaValid("Captcha is not valid"))
+                if (this.IsCaptchaValid(""))
                 {
-
+                    ViewBag.ErrorMessage = "Geçerli Değil";
                     return RedirectToAction("MyContent", "WriterPanelContent");
                 }
-
-                
-
 
 
 
             }
+            
 
-
-            ViewBag.ErrMessage = "Error: captcha is not valid.";
+            ViewBag.ErrorMessage = "Error: captcha is not valid.";
 
             return RedirectToAction("WriterLogin", "Login");
             

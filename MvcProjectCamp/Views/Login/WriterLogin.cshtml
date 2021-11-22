@@ -5,7 +5,13 @@
 
     ViewBag.Title = "Inbox";
     Layout = null;
+   
+  
+
 }
+
+
+
 
 
 <head>
@@ -20,6 +26,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
     <link rel="stylesheet" href="~/AdminLTE/pages/writerlogin/css/style.css">
+
+   
+
+
+
+
+
 
 
 </head>
@@ -63,15 +76,24 @@
                                 <div class="icon d-flex align-items-center justify-content-center" style="border-radius: 25px 0 24px 25px; background: #3473c3;"><span class="fa fa-lock"></span></div>
                                 <input type="password" class="form-control rounded-left" style="border-radius: 25px 8px 8px 26px !important"  required=""  name="WriterPassword" placeholder="Şifreniz" required>
                             </div>
-                            
-
-                            
-                            <div class="alert alert-danger alert-dismissible">
-                                <h5><i class="icon fas fa-ban"></i>  
-                                    @Html.Captcha("Test","Metni Girin",3,"Lütfen resimdeki karakterleri girin",true)  </h5>
-                               
                           
+                   
+                 <div style="margin-left:20%; font-size:13px;">  @Html.Captcha("Kodu Yenile","Lütfen Resimdeki Karakterleri girin.",3,"Zorunlu Alan",true) 
+                    
+                     <p> @ViewBag.ErrorMessage </p>
+                   
+                 
+
+                     
+
+                        <span class="info-box-number text-center text-muted mb-0">
+                              <div class="form-group d-flex ">                              
+                                    <div style="float:left; margin-left:10%">
+                                           
+                                    </div>
                             </div>
+                        </span>
+                   
 
                             <div class="form-group d-flex align-items-center">
                                 <div class="w-100">
@@ -80,7 +102,7 @@
                                         <span class="checkmark"></span>
                                         
                                         
-                                          @ViewBag.ErrMessage
+                                         
                                     </label>
                                 </div>
                                 <div class="w-100 d-flex justify-content-end">
@@ -91,7 +113,7 @@
                             </div>
                             <div class="form-group mt-4">
                                 <div class="w-100 text-center">
-                                    <p class="mb-1">Hesabınız mı yok? <a href="#" style="color: #3473c3;">Üye olmak için tıklayın...</a></p>
+                                    <p class="mb-1">Hesabınız yok mu?<a href="#" style="color: #3473c3;margin-left:3px">  Üye olmak için tıklayın...</a></p>
                                     <p></p>
 
                                     <p><a href="#" style="color: #3473c3;">Şifremi Unuttum!</a></p>
@@ -111,13 +133,19 @@
         </div>
     </section>
 
-<script src="~/AdminLTE/pages/writerlogin/js/jquery.min.js"></script>
+@*<script src="~/AdminLTE/pages/writerlogin/js/jquery.min.js"></script>
 <script src="~/AdminLTE/pages/writerlogin/js/popper.js"></script>
 <script src="~/AdminLTE/pages/writerlogin/js/bootstrap.min.js"></script>
-<script src="~/AdminLTE/pages/writerlogin/js/main.js"></script>
+<script src="~/AdminLTE/pages/writerlogin/js/main.js"></script>*@
 
 </body>
-
+<script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="./AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/AdminLTE/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/AdminLTE/dist/js/demo.js"></script>
 
 
 
