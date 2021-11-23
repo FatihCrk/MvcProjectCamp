@@ -37,7 +37,7 @@
     <section class="ftco-section" style="padding: 2em 0 !important;" >
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
+                <div class="col-md-6 text-center mb-5" style="margin-bottom: 1rem !important;">
                     <h2 class="heading-section">Yazar Giriş Ekranı</h2>
                 </div>
             </div>
@@ -47,7 +47,10 @@
                         <div class="d-flex">
                             <div class="w-100">
                                 <h3 class="mb-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Hesabınız için giriş yapın.</h3>
-                            </div>
+                                <h3 class="mb-4" style="font-size: 18px; color: red;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">@ViewBag.ErrorMessage2</h3>
+                               
+                            
+                                </div>
 
                         </div>
                         @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
@@ -64,7 +67,7 @@
                    
                             <div style="margin-left:20%; font-size:13px;">  @Html.Captcha("Kodu Yenile","Lütfen Resimdeki Karakterleri girin.",3,"Zorunlu Alan",true) 
                     
-                                <p>
+                                <p style="color: red">
                                     @ViewBag.ErrorMessage
                                 </p>
                    
