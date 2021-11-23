@@ -27,33 +27,17 @@
 	
     <link rel="stylesheet" href="~/AdminLTE/pages/writerlogin/css/style.css">
 
- 
-
-
-
-
-
 
 
 </head>
 
 
 <body>
-<style>
-    
-
-
-
-    
-</style>
-
-
-
 
     <section class="ftco-section" style="padding: 2em 0 !important;" >
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
+                <div class="col-md-6 text-center mb-5" style="margin-bottom: 1rem !important;">
                     <h2 class="heading-section">Yazar Giriş Ekranı</h2>
                 </div>
             </div>
@@ -63,91 +47,87 @@
                         <div class="d-flex">
                             <div class="w-100">
                                 <h3 class="mb-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Hesabınız için giriş yapın.</h3>
-                            </div>
+                                <h3 class="mb-4" style="font-size: 18px; color: red;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">@ViewBag.ErrorMessage2</h3>
+                               
+                            
+                                </div>
 
                         </div>
-                    @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
-                    { 
+                        @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
+                        {
                             <div class="form-group validate-input">
                                 <div class="icon d-flex align-items-center justify-content-center" style="border-radius: 25px 0 24px 25px; background: #3473c3;"><span class="fa fa-user"></span></div>
-                                <input type="text" class="form-control rounded-left" style="font-size:14px;border-radius: 25px 8px 8px 26px !important"  required=""  name="WriterMail" placeholder="Mail Adresinizi girin" required>
+                                <input type="text" class="form-control rounded-left" style="border-radius: 25px 8px 8px 26px !important"  required=""  name="WriterMail" placeholder="Mail Adresinizi girin" required>
                             </div>
                             <div class="form-group validate-input">
                                 <div class="icon d-flex align-items-center justify-content-center" style="border-radius: 25px 0 24px 25px; background: #3473c3;"><span class="fa fa-lock"></span></div>
-                                <input type="password" class="form-control rounded-left" style="font-size:14px;border-radius: 25px 8px 8px 26px !important"  required=""  name="WriterPassword" placeholder="Şifreniz" required>
+                                <input type="password" class="form-control rounded-left" style="border-radius: 25px 8px 8px 26px !important"  required=""  name="WriterPassword" placeholder="Şifreniz" required>
                             </div>
                           
                    
-                 <div style="margin-left:20%; font-size:13px;">  @Html.Captcha("Kodu Yenile","Lütfen Resimdeki Karakterleri girin.",3,"Zorunlu Alan",true) 
+                            <div style="margin-left:20%; font-size:13px;">  @Html.Captcha("Kodu Yenile","Lütfen Resimdeki Karakterleri girin.",3,"Zorunlu Alan",true) 
                     
-                <p>    @ViewBag.ErrorMessage </p>
-                        
+                                <p style="color: red">
+                                    @ViewBag.ErrorMessage
+                                </p>
                    
                  
-
+                            </div>
                      
 
-                        <span class="info-box-number text-center text-muted mb-0">
-                              <div class="form-group d-flex ">                              
-                                    <div style="float:left; margin-left:10%">
+                                <span class="info-box-number text-center text-muted mb-0">
+                                    <div class="form-group d-flex ">                              
+                                        <div style="float:left; margin-left:10%">
                                            
+                                        </div>
                                     </div>
-                            </div>
-                        </span>
+                                </span>
                    
 
-                            <div class="form-group d-flex align-items-center">
-                                <div class="w-100">
-                                    <label class="checkbox-wrap checkbox-primary mb-0" style="color: #3473c3;">Beni hatırla
-                                        <input type="checkbox" checked>
-                                        <span class="checkmark"></span>
+                                <div class="form-group d-flex align-items-center">
+                                    <div class="w-100">
+                                        <label class="checkbox-wrap checkbox-primary mb-0" style="color: #3473c3;">Beni hatırla
+                                            <input type="checkbox" checked>
+                                            <span class="checkmark"></span>
                                         
                                         
                                          
-                                    </label>
-                                </div>
-                                <div class="w-100 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary rounded submit" style="border-radius: 25px !important; background: #3473c3 !important; border: 1px solid #3473c3 !important;">Giriş</button>
+                                        </label>
+                                    </div>
+                                    <div class="w-100 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary rounded submit" style="border-radius: 25px !important; background: #3473c3 !important; border: 1px solid #3473c3 !important;">Giriş</button>
 
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group mt-4">
-                                <div class="w-100 text-center">
-                                    <p class="mb-1">Hesabınız yok mu?<a href="#" style="color: #3473c3;margin-left:3px">  Üye olmak için tıklayın...</a></p>
-                                    <p></p>
+                                <div class="form-group mt-4">
+                                    <div class="w-100 text-center">
+                                        <p class="mb-1">Hesabınız yok mu?<a href="#" style="color: #3473c3;margin-left:3px">  Üye olmak için tıklayın...</a></p>
+                                        <p></p>
 
-                                    <p><a href="#" style="color: #3473c3;">Şifremi Unuttum!</a></p>
+                                        <p><a href="#" style="color: #3473c3;">Şifremi Unuttum!</a></p>
+                                    </div>
+                                    <div class="w-100">
+                                        <p class="social-media d-flex justify-content-end">
+                                            <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+                                            <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="w-100">
-                                    <p class="social-media d-flex justify-content-end">
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                    </p>
-                                </div>
-                            </div>
-                   
-                    </div>}
+                       
+                        }
+                    </div>
 
                 </div>
             </div>
-        </div>
+            </div>
+          
+        
     </section>
 
-@*<script src="~/AdminLTE/pages/writerlogin/js/jquery.min.js"></script>
+<script src="~/AdminLTE/pages/writerlogin/js/jquery.min.js"></script>
 <script src="~/AdminLTE/pages/writerlogin/js/popper.js"></script>
 <script src="~/AdminLTE/pages/writerlogin/js/bootstrap.min.js"></script>
-<script src="~/AdminLTE/pages/writerlogin/js/main.js"></script>*@
-
+<script src="~/AdminLTE/pages/writerlogin/js/main.js"></script>
 </body>
-<script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="./AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/AdminLTE/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/AdminLTE/dist/js/demo.js"></script>
-
-
-
 
