@@ -86,21 +86,23 @@ namespace MvcProjectCamp.Controllers
 
 
                 // Code for validating the CAPTCHA  
-                if (this.IsCaptchaValid(""))
+                if (this.IsCaptchaValid("Geçerli Değil"))
                 {
-                    ViewBag.ErrorMessage = "Geçerli Değil";
-                    return RedirectToAction("MyContent", "WriterPanelContent");
-                }
 
+                    return RedirectToAction("MyContent","WriterPanelContent");
+
+                }
 
 
             }
             
+                ViewBag.ErrorMessage = "Error: captcha is not valid.";
 
-            ViewBag.ErrorMessage = "Error: captcha is not valid.";
+                return View("WriterLogin");
 
-            return RedirectToAction("WriterLogin", "Login");
-            
+
+
+
 
         }
 
