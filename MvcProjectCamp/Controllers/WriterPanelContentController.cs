@@ -18,9 +18,7 @@ namespace MvcProjectCamp.Controllers
         private Context cn = new Context();
         public ActionResult MyContent()
         {
-            int id;
-            id = 34;
-            var contentValues = cm.GetListByWriter(id);
+            var contentValues = cm.GetListByWriter();
 
            
 

@@ -91,7 +91,7 @@ namespace MvcProjectCamp.Controllers
                     ViewBag.ErrorMessage = "Resimdeki karakterleri yanlış girdiniz.";
                     return View("WriterLogin");
                 }
-                
+
 
 
                 return RedirectToAction("MyContent", "WriterPanelContent");
