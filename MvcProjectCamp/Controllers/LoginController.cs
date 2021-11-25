@@ -81,7 +81,7 @@ namespace MvcProjectCamp.Controllers
             if (writerUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false); // Kalıcı coockie oluşsun mu false;
-                Session["WriterUserName"] = writerUserInfo.WriterMail;
+                Session["WriterMail"] = writerUserInfo.WriterMail;
 
 
 
@@ -89,7 +89,7 @@ namespace MvcProjectCamp.Controllers
                 if (this.IsCaptchaValid(""))
                 {
                     ViewBag.ErrorMessage = "Geçerli Değil";
-                    return RedirectToAction("MyContent", "WriterPanelContent");
+                    return RedirectToAction("MyContent", "WriterPanelContent", p.WriterMail.ToString());
                 }
 
 

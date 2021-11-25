@@ -15,13 +15,14 @@ namespace MvcProjectCamp.Controllers
 
 
         ContentManager cm = new ContentManager(new EfContentDal());
-        private Context cn = new Context();
-        public ActionResult MyContent()
+       
+        public ActionResult MyContent(string p)
         {
-            var contentValues = cm.GetListByWriter();
-
-           
-
+            Context cn = new Context();
+            p = (string)Session["WriterMail"];
+            var writerIdInfo = cn.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
+          
+            var contentValues = cm.GetListByWriter(writerIdInfo);
             return View(contentValues);
         }
 
