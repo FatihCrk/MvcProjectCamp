@@ -23,10 +23,6 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-       public List<Content> GetListByHeadingID(int id)
-       {
-           return _contentDal.List(x => x.HeadingId == id);
-       }
 
        public void ContentAddBl(Content content)
         {
@@ -56,7 +52,7 @@ namespace BusinessLayer.Concrete
 
         public List<Content> GetListByHeading(int id)
         {
-            throw new NotImplementedException();
+            return _contentDal.List(x => x.HeadingId == id);
         }
     }
 }

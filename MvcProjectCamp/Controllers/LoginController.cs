@@ -86,9 +86,9 @@ namespace MvcProjectCamp.Controllers
 
 
                 // Code for validating the CAPTCHA  
-                if (this.IsCaptchaValid(""))
+                if (this.IsCaptchaValid("Karakterler eşleşmedi, lütfen tekrar deneyin..."))
                 {
-                    ViewBag.ErrorMessage = "Geçerli Değil";
+                    
                     return RedirectToAction("MyContent", "WriterPanelContent", p.WriterMail.ToString());
                 }
 
@@ -97,7 +97,7 @@ namespace MvcProjectCamp.Controllers
             }
             
 
-            ViewBag.ErrorMessage = "Error: captcha is not valid.";
+            ViewBag.ErrorMessage = "Karakterler eşleşmedi, lütfen tekrar deneyin...";
 
             return RedirectToAction("WriterLogin", "Login");
             

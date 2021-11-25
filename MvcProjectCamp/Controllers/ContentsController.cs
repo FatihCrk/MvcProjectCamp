@@ -13,15 +13,11 @@ namespace MvcProjectCamp.Controllers
         ContentManager cntm = new ContentManager(new EfContentDal());
 
         // GET: Content
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+      
         [HttpGet]
         public ActionResult ContentByHeading(int id)
         {
-            var contentValues = cntm.GetListByHeadingID(id);
+            var contentValues = cntm.GetListByHeading(id);
             return View(contentValues);
         }
     }
