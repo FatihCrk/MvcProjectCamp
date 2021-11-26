@@ -3206,6 +3206,7 @@
     <Content Include="Views\WriterPanelMessage\GetDraftDetails.cshtml" />
     <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
     <Content Include="Views\Login\WriterLogin.cshtml" />
+    <Content Include="Views\ErrorPages\Page401.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />

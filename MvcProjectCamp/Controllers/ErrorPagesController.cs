@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace MvcProjectCamp.Controllers
-{
+{    [AllowAnonymous]
     public class ErrorPagesController : Controller
     {
         // GET: ErrorPages
@@ -13,7 +13,7 @@ namespace MvcProjectCamp.Controllers
         {
             Response.StatusCode = 403;
 
-            Response.TrySkipIisCustomErrors = true;  //
+            Response.TrySkipIisCustomErrors = true;  //Hata kodunu atlama
 
             return View();
         }
@@ -22,7 +22,18 @@ namespace MvcProjectCamp.Controllers
         {
             Response.StatusCode = 404;
 
-            Response.TrySkipIisCustomErrors = true;  //
+            Response.TrySkipIisCustomErrors = true;  
+
+            return View();
+        }
+
+     
+        [HttpGet]
+        public ActionResult Page401()
+        {
+            Response.StatusCode = 401;
+
+            Response.TrySkipIisCustomErrors = true;  
 
             return View();
         }

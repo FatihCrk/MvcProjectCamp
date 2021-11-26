@@ -52,6 +52,8 @@ namespace MvcProjectCamp.Controllers
 
             return RedirectToAction("Page404", "ErrorPages");
         }
+
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult WriterLogin()
         {
@@ -59,6 +61,8 @@ namespace MvcProjectCamp.Controllers
             return View();
 
         }
+
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult WriterLogin(Writer p)
         {

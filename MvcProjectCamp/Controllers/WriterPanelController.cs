@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 
@@ -15,15 +16,20 @@ namespace MvcProjectCamp.Controllers
 
         private CategoryManager cm = new CategoryManager(new EfCategoryDal());
         // GET: WriterPanel
+        
+
         public ActionResult WriterProfile()
         {
             return View();
         }
 
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(string p)
         {
-
-            var myHeadingValues = hm.GetListByWriter();
+            Context c = new Context();
+            p = (string)Session["WriterMail"];
+          var  writerIdInfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
+  
+            var myHeadingValues = hm.GetListByWriter(writerIdInfo);
             return View(myHeadingValues);
         }
 
@@ -49,7 +55,7 @@ namespace MvcProjectCamp.Controllers
         public ActionResult NewHeading(Heading p)
         {
             p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.WriterId = 32;
+            p.WriterId = writerIdInfo;
             p.HeadingStatus = true;
 
             hm.HeadingAddBl(p);

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Page401";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+ 
+
+@section css
+{<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/AdminLTE/pages/error-404/css/style.css" />
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">}
+
+
+<div id="notfound">
+    <div class="notfound">
+        <div class="notfound-404"  >
+            <h1 style="font-weight: 300; font-size:100px;">Yetkisiz giriş!</h1>
+        </div>
+        <h2>401 - Erişim Sorunu</h2>
+        <p>Erişmeye çalıştığınız sayfaya erişim izniniz bulunmamaktadır. </p>
+        <a href="/AdminCategory/Index/">Anasayfaya Git</a>
+    </div>
+</div>
+
+
+@section script
+{
+    <!-- jQuery -->
+    <script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/AdminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/AdminLTE/dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/AdminLTE/dist/js/demo.js"></script>
+}
