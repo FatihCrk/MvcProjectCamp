@@ -13,8 +13,11 @@ namespace MvcProjectCamp.Controllers
     public class WriterPanelController : Controller
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
+        Context c = new Context();
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
+    
 
-        private CategoryManager cm = new CategoryManager(new EfCategoryDal());
+
         // GET: WriterPanel
         
 
@@ -25,10 +28,13 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult MyHeading(string p)
         {
-            Context c = new Context();
+           
             p = (string)Session["WriterMail"];
           var  writerIdInfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
-  
+
+          
+
+
             var myHeadingValues = hm.GetListByWriter(writerIdInfo);
             return View(myHeadingValues);
         }
@@ -36,9 +42,9 @@ namespace MvcProjectCamp.Controllers
 
 
         [HttpGet]
-        public ActionResult NewHeading()
+        public ActionResult NewHeading(string p)
         {
-
+                          
             List<SelectListItem> valueCategory = (from c in cm.GetCategoryList() //Listeleme 
                                                   select new SelectListItem()
                                                   {
@@ -54,6 +60,10 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading p)
         {
+
+            string m = (string)Session["WriterMail"];
+            var writerIdInfo = c.Writers.Where(x => x.WriterMail == m).Select(y => y.WriterId).FirstOrDefault();
+           
             p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.WriterId = writerIdInfo;
             p.HeadingStatus = true;
@@ -80,10 +90,19 @@ namespace MvcProjectCamp.Controllers
 
             return View(headingValue);
         }
-
+        
         [HttpPost]
-        public ActionResult EditHeading(Heading h)
+        public ActionResult EditMyHeading(Heading h)
         {
+
+            string m = (string)Session["WriterMail"];
+            var writerIdInfo = c.Writers.Where(x => x.WriterMail == m).Select(y => y.WriterId).FirstOrDefault();
+
+            h.WriterId = writerIdInfo;
+
+
+
+            h.HeadingId = c.Headings.Where(x=>x.WriterId == h.WriterId).Select(y=>y.HeadingId).FirstOrDefault();
 
             hm.HeadingUpdate(h);
 

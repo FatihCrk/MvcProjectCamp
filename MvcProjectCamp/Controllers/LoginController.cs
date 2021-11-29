@@ -94,6 +94,7 @@ namespace MvcProjectCamp.Controllers
                 {
                     
                     return RedirectToAction("MyContent", "WriterPanelContent", p.WriterMail.ToString());
+                    //WriterMail gönderimi "RedirectToAction (p.Writermail.ToString)"
                 }
 
 
