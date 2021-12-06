@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -288,10 +297,10 @@
 
         </li>
     
-       </ul>
+  </ul>
    
         
-        </nav>
+ </nav>
     
 
 <!-- /.sidebar-menu -->
@@ -307,7 +316,7 @@
 
 <div class="content-header">
     <div class="content-wrapper">
-        @RenderBody()
+       
         <!-- /.content -->
     </div>
 </div>
@@ -340,3 +349,4 @@
 
 </body>
 </html>
+

@@ -93,8 +93,18 @@
                     </div>
                     <!-- /.float-right -->
                 </div>
+                  <table class="table table-hover table-striped">
+                          <thead >
+                                         <tr>                             
+                                       <th> </th>
+                                    
+                                     <th> </th>
+                                     <th>Kimden</th>               
+                                     <th>Konu-Mesaj</th>
+                                      <th style="margin-left:50%;">Tarih</th></tr> 
+                         </thead>
                 <div class="table-responsive mailbox-messages">
-                    <table class="table table-hover table-striped">
+                  
                         <tbody>@foreach(var item in Model){
 
                                    if (item.IsReadStatus == false)
@@ -119,7 +129,8 @@
                                    {
                                        color = "btn btn-block btn-outline-danger btn-sm";
                                    }
-
+                        
+                      
                                   
                                    <tr class="@newmessage" >
                                        <td >
