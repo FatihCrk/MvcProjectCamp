@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -10,9 +12,15 @@ namespace MvcProjectCamp.Controllers
     {
         // GET: Default
 
-        public Action Headings() 
-        { 
-            return View; }
+        private HeadingManager hm = new HeadingManager(new EfHeadingDal());
+
+
+        public ActionResult Headings()
+        {
+            var headingList = hm.GetHeadingList();
+            return View(headingList);
+
+        }
 
         public ActionResult Index()
         {
