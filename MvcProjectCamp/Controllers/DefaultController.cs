@@ -12,19 +12,23 @@ namespace MvcProjectCamp.Controllers
     {
         // GET: Default
 
+
+
         private HeadingManager hm = new HeadingManager(new EfHeadingDal());
 
-
+        [AllowAnonymous]
         public ActionResult Headings()
         {
             var headingList = hm.GetHeadingList();
+
+         
             return View(headingList);
 
         }
 
-        public ActionResult Index()
+        public PartialViewResult Index()
         {
-            return View();
+            return PartialView();
         }
     }
 }

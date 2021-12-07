@@ -252,15 +252,17 @@
 
                    <li class="nav-item">
                     <a href="Writers/MyProfile" class="nav-link">
-                        <i class="far fa-dot-circle"></i>
+                    <i class="fas fa-stream"></i>
                         <p>
-                           @item.HeadingName
+                            
+                           @item.HeadingName.Substring(0,Math.Min(item.HeadingName.Length,15))
+
                         </p>
                     </a>
                  </li>}
-             
+             <br />
         
-        
+           <br />
         
     
        </ul>
@@ -282,7 +284,7 @@
 
 <div class="content-header">
     <div class="content-wrapper">
-        Test
+        @Html.Action("Index","Default")
         <!-- /.content -->
     </div>
 </div>

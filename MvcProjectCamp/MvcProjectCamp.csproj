@@ -3209,6 +3209,7 @@
     <Content Include="Views\Login\WriterLogin.cshtml" />
     <Content Include="Views\ErrorPages\Page401.cshtml" />
     <Content Include="Views\Default\Headings.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />
