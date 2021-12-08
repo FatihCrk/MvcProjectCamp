@@ -22,7 +22,7 @@ namespace MvcProjectCamp.Controllers
             p = (string)Session["WriterMail"];
             var writerIdInfo = cn.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
           
-            var contentValues = cm.GetListByWriter(writerIdInfo);
+            var contentValues = cm.GetListByWriterId(writerIdInfo);
             return View(contentValues);
         }
 

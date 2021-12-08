@@ -17,7 +17,7 @@ namespace MvcProjectCamp.Controllers
         [HttpGet]
         public ActionResult ContentByHeading(int id)
         {
-            var contentValues = cntm.GetListByHeading(id);
+            var contentValues = cntm.GetListByHeadingId(id);
             return View(contentValues);
         }
     }

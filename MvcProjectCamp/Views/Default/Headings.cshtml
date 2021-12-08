@@ -4,6 +4,9 @@
 @{
     Layout = null;
 }
+
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -248,21 +251,18 @@
         <!-- Headings Menu -->
        
                 @foreach(var item in Model){
-   
-
                    <li class="nav-item">
-                    <a href="Writers/MyProfile" class="nav-link">
+                    <a href="/Default/Headings/@item.HeadingId" class="nav-link">
                     <i class="fas fa-stream"></i>
                         <p>
-                            
+                           
                            @item.HeadingName.Substring(0,Math.Min(item.HeadingName.Length,15))
-
+                          
                         </p>
                     </a>
                  </li>}
+             <br />      
              <br />
-        
-           <br />
         
     
        </ul>

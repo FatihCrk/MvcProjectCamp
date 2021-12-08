@@ -14,21 +14,26 @@ namespace MvcProjectCamp.Controllers
 
 
 
-        private HeadingManager hm = new HeadingManager(new EfHeadingDal());
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
+
+        ContentManager cm = new ContentManager(new EfContentDal());
 
         [AllowAnonymous]
         public ActionResult Headings()
         {
+            
+
             var headingList = hm.GetHeadingList();
 
-         
             return View(headingList);
 
         }
-
-        public PartialViewResult Index()
+        [AllowAnonymous]
+        public PartialViewResult Index(int id = 0)
         {
-            return PartialView();
+            var contentList = cm.GetListByHeadingId(id);
+
+            return PartialView(contentList);
         }
     }
 }
