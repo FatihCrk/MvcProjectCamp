@@ -10,63 +10,84 @@
 
     
  @section css{
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
-  <!-- AdminLTE css -->
-  <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+     <!-- Google Font: Source Sans Pro -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+     <!-- Ionicons -->
+     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+     <!-- Tempusdominus Bootstrap 4 -->
+     <link rel="stylesheet" href="/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+     <!-- Theme style -->
+     <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+     <!-- overlayScrollbars -->
+     <link rel="stylesheet" href="/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     }
 
 
 
+<div class="content-header">
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
+    
+    <div class="content-wrapper">
 
-        <!-- Timelime example  -->
-        <div class="row">
-          <div class="col-md-12">
-            <!-- The time line -->
-            <div class="timeline">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
 
-                @foreach (var item in Model)
-                {
+                <!-- Timelime example  -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- The time line -->
+                        <div class="timeline">
 
-                
-                    <!-- timeline time label -->
-                    <div class="time-label">
 
-                        <span class="bg-red"> @item.ContentDate.ToString("dd.MM.yyyy")</span>
-                    </div>
 
-                    <!-- timeline item -->
-                    <div>
-                        <i class="fas fa-user bg-green"></i>
-                        <div class="timeline-item">
-                            <span class="time"><i class="fas fa-clock"></i> </span>
-                            <h3 class="timeline-header no-border"><a href="#">@item.Headings.HeadingName</a> </h3>
-                            <div class="timeline-body"> @item.ContentText </div>
+                            @foreach (var item in Model)
+                            {
+                                <!-- timeline time label -->
+
+                                <div class="time-label">
+                                    <span class="bg-red">@item.ContentDate.ToShortDateString()</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-envelope bg-blue"></i>
+                                    <div class="timeline-item">
+                                        <span class="time"><i class="fas fa-clock"></i> @item.ContentDate.ToShortTimeString()</span>
+                                        <h3 class="timeline-header"><a href="#">@item.Headings.HeadingName </a> - @item.Writer.WriterName @item.Writer.WriterSurName </h3>
+
+                                        <div class="timeline-body">
+                                            @item.ContentText
+                                        </div>
+                                        <div class="timeline-footer">
+                                            <a href="#" class="btn btn-primary btn-sm">Başlığa ait tüm yorumları</a>
+                                            <a class="btn btn-danger btn-sm">Sil</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+
+                            <div>
+                                <i class="fas fa-clock bg-gray"></i>
+                            </div>
                         </div>
                     </div>
-                    <!-- END timeline item -->
-
-                }
-                <div>
-                    <i class="fas fa-clock bg-gray"></i>
+                    <!-- /.col -->
                 </div>
             </div>
-          </div>
-          <!-- /.col -->
-        </div>
-      </div>
-      <!-- /.timeline -->
+            <!-- /.timeline -->
 
-    </section>
-    <!-- /.content -->
+        </section>
 
-  <!-- /.content-wrapper -->
+
+        <!-- /.content -->
+
+    </div>
+</div>
+
+<!-- /.content-wrapper -->
 
 
   <!-- Control Sidebar -->
