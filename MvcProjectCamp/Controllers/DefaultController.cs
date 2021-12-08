@@ -8,6 +8,7 @@ using DataAccessLayer.EntityFramework;
 
 namespace MvcProjectCamp.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default
@@ -18,7 +19,7 @@ namespace MvcProjectCamp.Controllers
 
         ContentManager cm = new ContentManager(new EfContentDal());
 
-        [AllowAnonymous]
+        
         public ActionResult Headings()
         {
             
@@ -28,12 +29,19 @@ namespace MvcProjectCamp.Controllers
             return View(headingList);
 
         }
-        [AllowAnonymous]
+      
         public PartialViewResult Index(int id = 0)
         {
             var contentList = cm.GetListByHeadingId(id);
 
             return PartialView(contentList);
+        }
+
+        public ActionResult AllHeading()
+        {
+            var headingsList = hm.GetHeadingList();
+
+            return View(headingsList);
         }
     }
 }
