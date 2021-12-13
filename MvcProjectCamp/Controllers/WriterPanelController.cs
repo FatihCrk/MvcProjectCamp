@@ -7,6 +7,8 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -131,18 +133,18 @@ namespace MvcProjectCamp.Controllers
 
             return RedirectToAction("MyHeading");
         }
-
-
-
-        public ActionResult ToDoList()
+        public ActionResult AllHeading(int p = 1)
         {
-            
-            
-            return View();
-            
+
+            var headingsList = hm.GetHeadingList().ToPagedList(p, 4);
+
+            return View(headingsList);
         }
 
 
+       
+
+   
 
     }
 }

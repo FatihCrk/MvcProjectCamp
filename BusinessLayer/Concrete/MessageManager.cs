@@ -25,13 +25,13 @@ namespace BusinessLayer.Concrete
             return _messageDal.GetById(x => x.MessageID == id);
         }
 
-        public List<Message> GetListInbox()
+        public List<Message> GetListInbox(string p)
         {
-            return _messageDal.List(x => x.ReceiverMail == "f.cirak@gmail.com");
+            return _messageDal.List(x => x.ReceiverMail == p);
         }
-        public List<Message> GetListSendbox()
+        public List<Message> GetListSendbox(string p)
         {
-            return _messageDal.List(x => x.SenderMail == "f.cirak@gmail.com");
+            return _messageDal.List(x => x.SenderMail == p);
         }
 
         public List<Message> GetTheDraftMessage()

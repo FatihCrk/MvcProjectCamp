@@ -19,7 +19,11 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult Inbox()
         {
-            var messageList = mm.GetListInbox();
+            string p = (string)Session["WriterMail"];
+            var writerIdInfo = context.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterMail).FirstOrDefault();
+
+
+            var messageList = mm.GetListInbox(writerIdInfo);
             var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "f.cirak@gmail.com").Count();
             ViewBag.inboxMessageResult = inboxMessageCount;
 
@@ -28,9 +32,9 @@ namespace MvcProjectCamp.Controllers
 
         }
 
-        public PartialViewResult MessageListMenu()
+        public PartialViewResult MessageListMenu(string p)
         {
-            var messageValueNumber = mm.GetListInbox().Count;
+            var messageValueNumber = mm.GetListInbox(p).Count;
             ViewBag.messageValue = messageValueNumber;
 
             var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "f.cirak@gmail.com").Count();
@@ -39,9 +43,9 @@ namespace MvcProjectCamp.Controllers
             return PartialView();
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
-            var messageList = mm.GetListSendbox();
+            var messageList = mm.GetListSendbox(p);
             return View(messageList);
         }
 

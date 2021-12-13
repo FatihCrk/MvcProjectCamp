@@ -14,7 +14,7 @@ namespace MvcProjectCamp.Controllers
     {
         // GET: WriterPanelContent
 
-
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
         ContentManager cm = new ContentManager(new EfContentDal());
         private Context c = new Context();
 
@@ -53,6 +53,13 @@ namespace MvcProjectCamp.Controllers
             return RedirectToAction("MyContent");
         }
 
+        public ActionResult ToDoList()
+        {
+
+
+            return View();
+
+        }
 
 
 

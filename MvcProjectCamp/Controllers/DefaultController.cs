@@ -37,11 +37,6 @@ namespace MvcProjectCamp.Controllers
             return PartialView(contentList);
         }
 
-        public ActionResult AllHeading()
-        {
-            var headingsList = hm.GetHeadingList();
-
-            return View(headingsList);
-        }
+      
     }
 }

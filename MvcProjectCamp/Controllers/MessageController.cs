@@ -24,11 +24,11 @@ namespace MvcProjectCamp.Controllers
         Context context = new Context();
 
         // GET: Message
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
-            var messageList = mm.GetListInbox();
+            var messageList = mm.GetListInbox(p);
 
-            var messageValueNumber = mm.GetListInbox().Count;
+            var messageValueNumber = mm.GetListInbox(p).Count;
             ViewBag.messageValue = messageValueNumber;
 
             var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "admin@gmail.com").Count();
@@ -39,12 +39,12 @@ namespace MvcProjectCamp.Controllers
 
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
-            var messageList = mm.GetListSendbox();
+            var messageList = mm.GetListSendbox(p);
 
 
-            var messageValueNumber = mm.GetListInbox().Count;
+            var messageValueNumber = mm.GetListInbox(p).Count;
             ViewBag.messageValue = messageValueNumber;
 
             var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "f.cirak@gmail.com").Count();
