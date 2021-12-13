@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
        public void ContentAddBl(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Insert(content);
         }
 
         public Content GetById(int id)

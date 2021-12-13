@@ -157,26 +157,24 @@
                                     <span class="@badgeResults">@item.Category.CategoryName</span>
                                 </td>
                                 <td class="project-state">
+                                    
+                                    <div style="float: left; padding: 3px; ">
+                                        <a type="button" class="btn btn-block btn-outline-secondary btn-sm" href="~/WriterPanelContent/AddContent/@item.HeadingId">
+                                            <i class="fas fa-pencil-alt" style="padding: 3px;">
+                                            </i>Bu Başlığa Yorum Ekle
+                                        </a>
+                                    </div>
 
                                     <div style="float: left; padding: 3px;">
-                                        <a type="button" class="btn btn-block btn-outline-info btn-sm" href="~/WriterPanel/EditMyHeading/@item.HeadingId">
+                                        <a type="button" class="btn btn-block btn-outline-info btn-sm" href="~/Default/Headings/@item.HeadingId">
                                             <i class="fas fa-folder" style="padding: 3px;">
-                                            </i>Yorumlar
+                                            </i>Yazılar
                                         </a>
                                     </div>
 
-                                    <div style="float: left; padding: 3px; ">
-                                        <a type="button" class="btn btn-block btn-outline-secondary btn-sm" href="~/WriterPanel/EditMyHeading/@item.HeadingId">
-                                            <i class="fas fa-pencil-alt" style="padding: 3px;">
-                                            </i>Düzenle
-                                        </a>
-                                    </div>
 
-                                    <div style="float: left; padding: 3px; ">
-                                        <a class="btn btn-block btn-outline-danger btn-sm" href="~/WriterPanel/DeleteHeading/@item.HeadingId">
-                                            <i class="icon fas fa-exclamation-triangle" style="padding: 3px;"></i>Sil
-                                        </a>
-                                    </div>
+
+
                                 </td>
                             </tr>
 

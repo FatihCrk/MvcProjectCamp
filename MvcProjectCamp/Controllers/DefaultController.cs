@@ -19,7 +19,7 @@ namespace MvcProjectCamp.Controllers
 
         ContentManager cm = new ContentManager(new EfContentDal());
 
-        
+        [AllowAnonymous]
         public ActionResult Headings()
         {
             
