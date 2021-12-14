@@ -3220,6 +3220,8 @@
     <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
     <Content Include="Views\WriterPanelContent\ToDoList.cshtml" />
     <Content Include="Views\WriterPanel\AllHeading.cshtml" />
+    <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
+    <Content Include="Views\WriterPanelMessage\DraftList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\lang\" />

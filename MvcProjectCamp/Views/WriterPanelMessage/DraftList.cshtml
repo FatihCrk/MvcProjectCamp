@@ -1,36 +1,45 @@
-﻿ @using EntityLayer.Concrete
+﻿
+@using EntityLayer.Concrete
 @model List<Message>
 
 @{
-    ViewBag.Title = "Sendbox";
+    ViewBag.Title = "DraftList";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+ 
 
 
+      
+  @section css{
+  
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
 
-@section css{
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+  <!-- include summernote css/js-->
+  <link rel="stylesheet" href="/AdminLTE/plugins/summernote/summernote-bs4.min.css">
+
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/AdminLTE/dist/css/adminlte.min.css">
+  <!-- summernote -->
+
+
 }
-
-@{ string message = "";}
-@{string newmessage = "";}
-@{ string color = "";}
-@{ string read = "";}
 
 <body class="hold-transition sidebar-mini">
 <!-- Main content -->
    
       <div class="row">
         <div class="col-md-3">
-            @Html.Action("MessageListMenu", "WriterPanelMessage")
-            <!-- /.card -->
+           @Html.Action("MessageMenu", "Contact")
+           <!-- /.card -->
         
           <!-- /.card -->
         </div>
@@ -38,7 +47,7 @@
         <div class="col-md-9">
           <div class="card card-primary card-outline">
             <div class="card-header">
-              <h3 class="card-title">Gönderilen Mesajlar</h3> 
+              <h3 class="card-title">Gelen Mesajlar</h3>
 
               <div class="card-tools">
                 <div class="input-group input-group-sm">
@@ -90,31 +99,6 @@
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover table-striped">
                   <tbody>@foreach(var item in Model){
-
-                      if (item.IsReadStatus == false)
-                                   {
-                                       message = "Okundu Olarak İşaretle";
-                                      
-                                       newmessage = "callout callout-danger";
-                                       read = "far fa-envelope-open";
-                                   }
-                                   if (item.IsReadStatus == true)
-                                   {
-                                       message = "Okunmadı Olarak İşaretle";
-                                       newmessage = "quote-secondary";
-                                       read = "far fa-envelope";
-
-                                   }
-                                   if (item.IsReadStatus == false)
-                                   {
-                                       color = "btn btn-block btn-outline-danger btn-sm";
-                                   }
-                                   if (item.IsReadStatus == true)
-                                   {
-                                       color = "btn btn-block btn-outline-danger btn-sm";
-                                   }
-
-
                   <tr>
                     <td>
                       <div class="icheck-primary">
@@ -123,8 +107,8 @@
                       </div>
                     </td>
                     <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                    <td class="mailbox-name"><a href="/WriterPanelMessage/GetMessageDetails/@item.MessageID">@item.ReceiverMail</a></td>
-                    <td class="mailbox-subject"><b>@item.Subject.Substring(0,2)...</b> - @item.MessageContent.Substring(0,4)...
+                    <td class="mailbox-name"><a href="/Message/GetDraftDetails/@item.MessageID">@item.SenderMail</a></td>
+                    <td class="mailbox-subject"><b>@item.Subject </b> - @item.MessageContent...
                     </td>
                     <td class="mailbox-attachment"></td>
                     <td class="mailbox-date">@item.MessageDate.ToString("dd-MMM-yyyy")</td>
@@ -191,46 +175,48 @@
   <!-- /.control-sidebar -->
 
 <!-- ./wrapper -->
-@section script
-{
-    <!-- jQuery -->
-    <script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/AdminLTE/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/AdminLTE/dist/js/demo.js"></script>
-    <!-- Page specific script -->
-    <script>
-        $(function () {
-            //Enable check and uncheck all functionality
-            $('.checkbox-toggle').click(function () {
-                var clicks = $(this).data('clicks')
-                if (clicks) {
-                    //Uncheck all checkboxes
-                    $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
-                    $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
-                } else {
-                    //Check all checkboxes
-                    $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
-                    $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
-                }
-                $(this).data('clicks', !clicks)
-            })
 
-            //Handle starring for font awesome
-            $('.mailbox-star').click(function (e) {
-                e.preventDefault()
-                //detect type
-                var $this = $(this).find('a > i')
-                var fa    = $this.hasClass('fa')
-
-                //Switch states
-                if (fa) {
-                    $this.toggleClass('fa-star')
-                    $this.toggleClass('fa-star-o')
-                }
-            })
+<!-- jQuery -->
+<script src="/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/AdminLTE/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/AdminLTE/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+    $(function () {
+        //Enable check and uncheck all functionality
+        $('.checkbox-toggle').click(function () {
+            var clicks = $(this).data('clicks')
+            if (clicks) {
+                //Uncheck all checkboxes
+                $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
+                $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
+            } else {
+                //Check all checkboxes
+                $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
+                $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
+            }
+            $(this).data('clicks', !clicks)
         })
-    </script>}
+
+        //Handle starring for font awesome
+        $('.mailbox-star').click(function(e) {
+            e.preventDefault()
+            //detect type
+            var $this = $(this).find('a > i')
+            var fa = $this.hasClass('fa')
+
+            //Switch states
+            if (fa) {
+                $this.toggleClass('fa-star')
+                $this.toggleClass('fa-star-o')
+            }
+        })
+    })
+</script>
+</body>
+
+}

@@ -31,7 +31,7 @@ namespace MvcProjectCamp.Controllers
             var messageValueNumber = mm.GetListInbox(p).Count;
             ViewBag.messageValue = messageValueNumber;
 
-            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "admin@gmail.com").Count();
+            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == p).Count();
             ViewBag.inboxMessageResult = inboxMessageCount;
 
             return View(messageList);
@@ -47,7 +47,7 @@ namespace MvcProjectCamp.Controllers
             var messageValueNumber = mm.GetListInbox(p).Count;
             ViewBag.messageValue = messageValueNumber;
 
-            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == "f.cirak@gmail.com").Count();
+            var inboxMessageCount = context.Messages.Where(x => x.ReceiverMail == p).Count();
             ViewBag.inboxMessageResult = inboxMessageCount;
 
             return View(messageList);
