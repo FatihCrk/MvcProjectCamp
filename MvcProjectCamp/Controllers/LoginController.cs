@@ -16,6 +16,9 @@ namespace MvcProjectCamp.Controllers
 {
     public class LoginController : Controller
     {
+        private WriterLoginManager wm = new WriterLoginManager(new EfWriterDal());
+
+
         // GET: Login
 
         [HttpGet]
@@ -77,9 +80,11 @@ namespace MvcProjectCamp.Controllers
 
 
 
-            Context c = new Context();
-            var writerUserInfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
+            //Context c = new Context();
+            //var writerUserInfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
 
+
+            var writerUserInfo = wm.getWriter(p.WriterMail,p.WriterPassword);
 
 
             if (writerUserInfo != null)

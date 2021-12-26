@@ -1,32 +1,88 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using BusinessLayer.Concrete;
+using BusinessLayer.FluentValidation;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using PagedList;
 using PagedList.Mvc;
+using ValidationResult = FluentValidation.Results.ValidationResult;
+
 
 namespace MvcProjectCamp.Controllers
 {
     public class WriterPanelController : Controller
-    {
-        HeadingManager hm = new HeadingManager(new EfHeadingDal());
-        Context c = new Context();
-        CategoryManager cm = new CategoryManager(new EfCategoryDal());
-    
+    { 
+         HeadingManager hm = new HeadingManager(new EfHeadingDal());
+         Context c = new Context();
+         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+         WriterManager wm = new WriterManager(new EfWriterDal());
 
 
         // GET: WriterPanel
+
         
 
-        public ActionResult WriterProfile()
+
+
+        [HttpGet]
+        public ActionResult WriterProfile(int id = 0)
         {
+           string p = (string)Session["WriterMail"];
+    
+            id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
+
+            var writerValue = wm.GetByWriterId(id);
+
+
+           
+
+
+            return View(writerValue);
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+            WriterValidator writerValidator = new WriterValidator();
+            ValidationResult results = writerValidator.Validate(p);
+
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(p);
+
+
+
+                ViewBag.result = "Güncellendi.";
+
+                
+
+                return View("WriterProfile" ,p);
+            }
+             
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+
+                }
+            }
+
             return View();
         }
+
+
+
+
+
 
         public ActionResult MyHeading(string p)
         {
