@@ -20,24 +20,27 @@ namespace MvcProjectCamp.Controllers
 
 
         // GET: Login
-
+       
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Index()
         {
 
 
             return View();
         }
+
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Index(Admin p)
         {
 
-            SHA1 sha1 = new SHA1CryptoServiceProvider();
-            string hashPassword = p.AdminPassword;
+            //SHA1 sha1 = new SHA1CryptoServiceProvider();
+            //string hashPassword = p.AdminPassword;
 
 
-            string resultPw = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashPassword)));
-            p.AdminPassword = resultPw;
+            //string resultPw = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(hashPassword)));
+            //p.AdminPassword = resultPw;
 
 
             Context c = new Context();
@@ -84,7 +87,7 @@ namespace MvcProjectCamp.Controllers
             //var writerUserInfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
 
 
-            var writerUserInfo = wm.getWriter(p.WriterMail,p.WriterPassword);
+            var writerUserInfo = wm.GetWriter(p.WriterMail,p.WriterPassword);
 
 
             if (writerUserInfo != null)

@@ -58,6 +58,19 @@
         <span class="focus-input100" data-placeholder="&#xf207;"></span>
     </div>
 
+    <div class="wrap-input100 validate-input" >
+        <input class="input100" required="" oninvalid="this.setCustomValidity('Rolünüzü Seçin.')"
+               oninput="setCustomValidity('')" type="text" name="" id="adminrole" placeholder="Rolünüz?" style="box-shadow: -2px 0px 26px #ffffff; border-radius: 5px; background-color: #b39bd6;">
+        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+    </div>
+
+
+    <div class="wrap-input100 validate-input" >
+
+    @Html.Label("Rolü")
+    @Html.DropDownListFor(x => x.AdminRole, (List<SelectListItem>)ViewBag.adminrole, new { @class = "input100" })
+    </div>
+    <br />
      
    
     <div class="wrap-input100 validate-input" >

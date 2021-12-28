@@ -17,7 +17,7 @@ namespace MvcProjectCamp.Controllers
     {
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
 
-
+        [Authorize]
         public ActionResult Index()
         {
             var categoryVaules = cm.GetCategoryList();

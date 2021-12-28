@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 
@@ -15,24 +16,27 @@ namespace MvcProjectCamp.Controllers
     public class RegisterController : Controller
     {
         AdminManager ad = new AdminManager(new EfAdminDal()); 
-        WriterManager wm = new WriterManager(new EfWriterDal()); 
+        
         RoleManager rm = new RoleManager(new EfRoleDal());
 
         // GET: Register
         [HttpGet]
         public ActionResult Index()
         {
-           
+          
             
             List<SelectListItem> valueAdminRole = (from c in rm.GetRoleList() //Listeleme 
                 select new SelectListItem()
                 {
-                    Text = c.Name.ToString(),
+                    Text = c.Description,
                     Value = c.Name.ToString()
+
 
                 }).ToList();
 
             ViewBag.adminrole = valueAdminRole;
+
+           
 
             return View();
         }
@@ -46,15 +50,16 @@ namespace MvcProjectCamp.Controllers
 
           
             SHA1 sha1 = new SHA1CryptoServiceProvider();
+
             string password = admin.AdminPassword;
             string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
             admin.AdminPassword = result;
+
             admin.AdminStatus = true;
-            admin.AdminRole = "A";
-            ad.AdminAddBl(admin);
-            admin.AdminPassword = result;
-         
-         
+            string adminrole = admin.AdminRole;
+
+
+
             ad.AdminAddBl(admin);
 
 
