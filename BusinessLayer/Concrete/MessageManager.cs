@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete
 
         public Message GetById(int id)
         {
-            return _messageDal.GetById(x => x.MessageID == id);
+            return _messageDal.Get(x => x.MessageID == id);
         }
 
         public List<Message> GetListInbox(string p)

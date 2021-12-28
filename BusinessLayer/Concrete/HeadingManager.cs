@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public Heading GetByHeadingId(int id)
         {
-            return _headingDal.GetById(x => x.HeadingId == id);
+            return _headingDal.Get(x => x.HeadingId == id);
         }
 
         public void HeadingDelete(Heading heading)

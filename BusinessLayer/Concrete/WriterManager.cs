@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public Writer GetByWriterId(int id)
         {
-            return _writerDal.GetById(x => x.WriterId == id);
+            return _writerDal.Get(x => x.WriterId == id);
         }
 
         public void WriterDelete(Writer writer)

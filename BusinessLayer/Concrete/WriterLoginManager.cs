@@ -20,9 +20,11 @@ namespace BusinessLayer.Concrete
             _writerDal = writerDal;
         }
 
-        public Writer getWriter(string username, string password)
+        public Writer GetWriter(string username, string password)
         {
-            return _writerDal.GetById(x => x.WriterMail == username && x.WriterPassword == password);
+            return _writerDal.Get(x => x.WriterMail == username && x.WriterPassword == password);
         }
+
+
     }
 }

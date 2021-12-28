@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete
 
         public About GetByAboutId(int id)
         {
-            return _aboutDal.GetById(x => x.AboutId == id);
+            return _aboutDal.Get(x => x.AboutId == id);
             //return _aboutDal.GetById(x => x.CategoryId == id);
 
         }

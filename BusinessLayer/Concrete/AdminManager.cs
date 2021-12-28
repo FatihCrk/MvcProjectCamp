@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public Admin GetById(int id)
         {
-            return _adminDal.GetById(x => x.AdminId == id);
+            return _adminDal.Get(x => x.AdminId == id);
         }
 
         public void AdminDelete(Admin admin)

@@ -24,7 +24,7 @@ namespace DataAccessLayer.Concrete.Repositories
             return _object.ToList();
         }
 
-        public T GetById(Expression<Func<T, bool>> filter)
+        public T Get(Expression<Func<T, bool>> filter)
         {
             return _object.SingleOrDefault(filter); //bir dizi veya listede sadece 1 değer geri döndürecek metodur.
         }

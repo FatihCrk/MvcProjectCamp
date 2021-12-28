@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public ImageFile GetByImageId(int id)
         {
-            return _iImageDal.GetById(x => x.ImageId == id);
+            return _iImageDal.Get(x => x.ImageId == id);
         }
 
         public List<ImageFile> GetImageList()

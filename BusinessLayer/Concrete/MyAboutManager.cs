@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public MyAbout GetByMyAboutId(int id)
         {
-            return _myAboutDal.GetById(x => x.SkillId == id);
+            return _myAboutDal.Get(x => x.SkillId == id);
         }
 
         public List<MyAbout> GetMyAboutList()

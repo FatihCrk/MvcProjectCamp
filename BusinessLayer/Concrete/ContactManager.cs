@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public Contact GetByContactId(int id)
         {
-            return _contactDal.GetById(x => x.ContactId == id);
+            return _contactDal.Get(x => x.ContactId == id);
         }
 
         public void ContactDelete(Contact contact)

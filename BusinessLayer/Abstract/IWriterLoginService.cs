@@ -8,6 +8,6 @@ using EntityLayer.Concrete;
 namespace BusinessLayer.Abstract
 {
     internal interface IWriterLoginService
-    {Writer getWriter(string username, string password);
+    {Writer GetWriter(string username, string password);
     }
 }

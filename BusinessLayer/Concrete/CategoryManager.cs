@@ -28,7 +28,7 @@ namespace BusinessLayer.Concrete
 
         public Category GetById(int id)
         {
-            return _categoryDal.GetById(x=>x.CategoryId == id);
+            return _categoryDal.Get(x=>x.CategoryId == id);
         }
 
         public void CategoryDelete(Category category)
