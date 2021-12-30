@@ -37,6 +37,8 @@ namespace MvcProjectCamp.Controllers
             return PartialView(contentList);
         }
 
+
+
       
     }
 }
