@@ -13,6 +13,7 @@ using EntityLayer.Concrete;
 
 namespace MvcProjectCamp.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         AdminManager ad = new AdminManager(new EfAdminDal()); 
